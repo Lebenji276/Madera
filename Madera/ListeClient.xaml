@@ -9,8 +9,24 @@
       Title="ListeClient">
 
     <Grid>
-        <Label x:Name="label_1" Content="Label" HorizontalAlignment="Left" Margin="148,362,0,0" VerticalAlignment="Top"/>
-        <TextBox x:Name="textBox" HorizontalAlignment="Left" Margin="101,157,0,0" Text="TextBox" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" />
+        <ListView Name="lvUsers">
+            <ListView.View>
+                <GridView>
+                    <GridViewColumn Header="Prénom Nom" Width="120" DisplayMemberBinding="{Binding first_name}" />
+                    <GridViewColumn Header="Mail" Width="150" DisplayMemberBinding="{Binding mail}" />
+                </GridView>
+            </ListView.View>
+
+            <ListView.GroupStyle>
+                <GroupStyle>
+                    <GroupStyle.HeaderTemplate>
+                        <DataTemplate>
+                            <TextBlock FontWeight="Bold" FontSize="14" Text="{Binding first_name}"/>
+                        </DataTemplate>
+                    </GroupStyle.HeaderTemplate>
+                </GroupStyle>
+            </ListView.GroupStyle>
+        </ListView>
 
     </Grid>
 </Page>

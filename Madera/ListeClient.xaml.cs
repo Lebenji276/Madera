@@ -1,5 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Net.Http;
+using System.Net.Http.Headers;
 using System.Text;
 using System.Windows;
 using System.Windows.Controls;
@@ -18,11 +20,11 @@ namespace Madera
     /// </summary>
     public partial class ListeClient : Page
     {
-        public ListeClient()
+        public  ListeClient()
         {
             InitializeComponent();
             var toto = Client.GetAllClient();
-            textBox.Text = toto.Result[0].first_name;
+            lvUsers.ItemsSource = toto.Result;
         }
 
 
