@@ -22,11 +22,19 @@ namespace Madera
             InitializeComponent();
         }
 
-        private void button_Click(object sender, RoutedEventArgs e)
+        private void btnListClient_Click(object sender, RoutedEventArgs e)
         {
 
             ListeClient listeClient = new ListeClient();
             this.Content = listeClient;
+            this.Show();
+        }
+        
+        private void btnListModule_Click(object sender, RoutedEventArgs e)
+        {
+
+            ListeModule listeModule = new ListeModule();
+            this.Content = listeModule;
             this.Show();
         }
     }

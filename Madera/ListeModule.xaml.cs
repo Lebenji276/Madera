@@ -1,7 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Net.Http;
-using System.Net.Http.Headers;
 using System.Text;
 using System.Windows;
 using System.Windows.Controls;
@@ -16,14 +14,14 @@ using System.Windows.Shapes;
 namespace Madera
 {
     /// <summary>
-    /// Logique d'interaction pour ListeClient.xaml
+    /// Logique d'interaction pour ListeModule.xaml
     /// </summary>
-    public partial class ListeClient : Page
+    public partial class ListeModule : Page
     {
-        public  ListeClient()
+        public ListeModule()
         {
             InitializeComponent();
-            lvUsers.ItemsSource = Client.GetAllClient().Result;
+            lvModule.ItemsSource = Module.GetAllModule().Result;
         }
     }
 }

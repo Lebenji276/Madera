@@ -8,7 +8,8 @@
         Title="MenuWindow" Height="450" Width="800">
     <Grid>
         <Label x:Name="label" Content="Bienvenue" HorizontalAlignment="Center" Margin="0,191,0,0" VerticalAlignment="Top"/>
-        <Button x:Name="button" Content="Liste Client" HorizontalAlignment="Left" Margin="114,115,0,0" VerticalAlignment="Top" Height="52" Width="117" Click="button_Click"/>
+        <Button x:Name="btnListClient" Content="Liste Client" HorizontalAlignment="Left" Margin="114,115,0,0" VerticalAlignment="Top" Height="52" Width="117" Click="btnListClient_Click"/>
+        <Button x:Name="btnListModule" Content="Liste Module" HorizontalAlignment="Left" Margin="587,115,0,0" VerticalAlignment="Top" Height="52" Width="117" Click="btnListModule_Click"/>
 
     </Grid>
 </Window>
