@@ -20,16 +20,14 @@ namespace Madera
         public DateTime createdAt { get; set; }
         public DateTime updatedAt { get; set; }
 
-        static HttpClient client = new HttpClient();
-
         public static async Task<Client[]> GetAllClient()
         {
-            HttpResponseMessage response = await client.GetAsync($"http://localhost:5000/client");
+            HttpResponseMessage response = await App.httpClient.GetAsync($"http://localhost:5000/client");
             if (response.IsSuccessStatusCode)
             {
                 var products = await response.Content.ReadAsStringAsync();
                 var aaa = JsonConvert.DeserializeObject<Client[]>(products);
-                var qsqs = 1 + 1;
+
                 return aaa;
             }
             return null;
