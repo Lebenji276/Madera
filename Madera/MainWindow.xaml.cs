@@ -1,4 +1,4 @@
-﻿using Madera.Classes;
+﻿using Madera.Classe;
 using System;
 using System.Net.Http;
 using System.Text.Json;

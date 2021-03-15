@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using System.Net.Http;
 using System.Threading.Tasks;
 
-namespace Madera.Classes
+namespace Madera.Classe
 {
     class Auth
     {

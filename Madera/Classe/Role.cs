@@ -5,7 +5,7 @@ using System.Net.Http;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Madera.Classes
+namespace Madera.Classe
 {
     class Role
     {
