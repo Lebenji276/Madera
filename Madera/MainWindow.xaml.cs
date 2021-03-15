@@ -33,14 +33,6 @@ namespace Madera
             InitializeComponent();
         }
 
-        public class Product
-        {
-            public string Id { get; set; }
-            public string Name { get; set; }
-            public decimal Price { get; set; }
-            public string Category { get; set; }
-        }
-
         private void resetErrors()
         {
             lbl_error_login.Content = "";
