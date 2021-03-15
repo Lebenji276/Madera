@@ -3,11 +3,12 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
         xmlns:local="clr-namespace:Madera"
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
     <Grid>
-        <Button x:Name="btn_valider" Content="Valider" HorizontalAlignment="Center" Margin="0,256,0,0" Click="OnClick1" VerticalAlignment="Top" ClickMode="Release" RenderTransformOrigin="0.44,0.733" Width="50"/>
+        <Button x:Name="btn_valider" Content="Valider" HorizontalAlignment="Center" Margin="0,256,0,0" Click="OnClick1" VerticalAlignment="Top" ClickMode="Release" RenderTransformOrigin="0.44,0.733" Width="84"/>
         <TextBox x:Name="textBox" HorizontalAlignment="Left" Margin="293,162,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="285" />
         <PasswordBox x:Name="passwordBox" HorizontalAlignment="Left" VerticalAlignment="Top" Width="285" Margin="293,217,0,0"/>
         <Label x:Name="label_1" Content="Label" HorizontalAlignment="Left" Margin="148,362,0,0" VerticalAlignment="Top"/>
@@ -16,6 +17,5 @@
         <Label x:Name="lbl_error_password" Content="" HorizontalAlignment="Left" Margin="293,188,0,0" VerticalAlignment="Top" Height="24" Width="285" Foreground="#FFE00000" FontWeight="Bold"/>
         <Label x:Name="lbl_login" Content="Login :" HorizontalAlignment="Left" Margin="243,158,0,0" VerticalAlignment="Top" RenderTransformOrigin="1.063,0.572"/>
         <Label x:Name="lbl_password" Content="Mot de passe :" HorizontalAlignment="Left" Margin="197,213,0,0" VerticalAlignment="Top" RenderTransformOrigin="1.063,0.572" Width="91"/>
-
     </Grid>
 </Window>
