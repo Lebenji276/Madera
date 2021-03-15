@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.Net.Http;
+using System.Net.Http.Headers;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -20,17 +21,19 @@ namespace Madera
         public DateTime createdAt { get; set; }
         public DateTime updatedAt { get; set; }
 
-        static HttpClient client = new HttpClient();
-
         public static async Task<Client[]> GetAllClient()
         {
-            HttpResponseMessage response = await client.GetAsync($"http://localhost:5000/client");
-            if (response.IsSuccessStatusCode)
+            using (var client = new HttpClient())
             {
-                var products = await response.Content.ReadAsStringAsync();
-                var aaa = JsonConvert.DeserializeObject<Client[]>(products);
-                var qsqs = 1 + 1;
-                return aaa;
+                var response = client.GetAsync("http://localhost:5000/client").Result;
+
+                if (response.IsSuccessStatusCode)
+                {
+                    var responseContent = response.Content;
+                    string responseString = responseContent.ReadAsStringAsync().Result;
+                    var listClient = JsonConvert.DeserializeObject<Client[]>(responseString);
+                    return listClient;
+                }
             }
             return null;
         }
