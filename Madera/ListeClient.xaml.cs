@@ -1,8 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Net.Http;
 using System.Net.Http.Headers;
 using System.Text;
+using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Data;
@@ -20,10 +22,13 @@ namespace Madera
     /// </summary>
     public partial class ListeClient : Page
     {
-        public  ListeClient()
+        private Client[] _clients { get; set; }
+        public ListeClient(Client[] clients)
         {
+            this._clients = clients;
             InitializeComponent();
-            lvUsers.ItemsSource = Client.GetAllClient().Result;
+
+            lvUsers.ItemsSource = _clients;
         }
     }
 }

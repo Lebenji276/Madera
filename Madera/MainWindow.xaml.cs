@@ -21,7 +21,6 @@ namespace Madera
                 HttpResponseMessage response = await client.PostAsync("http://localhost:5000/auth/login?username=leandreg&password=string",
                                                                       new StringContent(""));
                 string responseBody = JsonSerializer.Serialize(await response.Content.ReadAsStringAsync());
-                Console.WriteLine(responseBody);
             } catch (HttpRequestException e)
             {
                 Console.WriteLine(e.Message);

@@ -10,6 +10,7 @@
         <Label x:Name="label" Content="Bienvenue" HorizontalAlignment="Center" Margin="0,191,0,0" VerticalAlignment="Top"/>
         <Button x:Name="btnListClient" Content="Liste Client" HorizontalAlignment="Left" Margin="114,115,0,0" VerticalAlignment="Top" Height="52" Width="117" Click="btnListClient_Click"/>
         <Button x:Name="btnListModule" Content="Liste Module" HorizontalAlignment="Left" Margin="587,115,0,0" VerticalAlignment="Top" Height="52" Width="117" Click="btnListModule_Click"/>
+        <Label x:Name="lbl_error_liste_client" Content="" HorizontalAlignment="Left" Margin="47,74,0,0" VerticalAlignment="Top" Width="251" Height="28" Foreground="#DDFF0000" FontWeight="Bold" />
 
     </Grid>
 </Window>
