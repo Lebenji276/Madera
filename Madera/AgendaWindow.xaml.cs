@@ -8,24 +8,32 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
 using System.Windows.Shapes;
 
 namespace Madera
 {
     /// <summary>
-    /// Logique d'interaction pour Agenda.xaml
+    /// Logique d'interaction pour AgendaWindow.xaml
     /// </summary>
-    public partial class Agenda : Page
+    public partial class AgendaWindow : Window
     {
-        public Agenda()
+        public AgendaWindow()
         {
             InitializeComponent();
         }
 
-        private void test(object sender, RoutedEventArgs e)
+        private void DateChanged(object sender, RoutedEventArgs e)
         {
             MessageBox.Show(sender.ToString());
+
+        }
+
+        private void btnRetour_Click(object sender, RoutedEventArgs e)
+        {
+            MenuWindow menu = new MenuWindow();
+            App.Current.MainWindow = menu;
+            Close();
+            menu.Show();
         }
     }
 }

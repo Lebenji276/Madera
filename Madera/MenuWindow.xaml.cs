@@ -40,9 +40,10 @@ namespace Madera
 
         private void btnAgenda_Click(object sender, RoutedEventArgs e)
         {
-            Agenda agenda = new Agenda();
-            this.Content = agenda;
-            this.Show();
+            AgendaWindow agenda = new AgendaWindow();
+            App.Current.MainWindow = agenda;
+            this.Close();
+            agenda.Show();
         }
     }
 }
