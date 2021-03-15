@@ -22,19 +22,17 @@ namespace Madera
 
         public static async Task<Composant[]> GetAllComposant()
         {
-            using (var client = new HttpClient())
+            try
             {
-                var response = client.GetAsync("http://localhost:5000/composant").Result;
-
-                if (response.IsSuccessStatusCode)
-                {
-                    var responseContent = response.Content;
-                    string responseString = responseContent.ReadAsStringAsync().Result;
-                    var listClient = JsonConvert.DeserializeObject<Composant[]>(responseString);
-                    return listClient;
-                }
+                HttpResponseMessage response = await App.httpClient.GetAsync("http://localhost:5000/composant");
+                var responseContent = await response.Content.ReadAsStringAsync();
+                var responseString = JsonConvert.DeserializeObject<Composant[]>(responseContent);
+                return responseString;
             }
-            return null;
+            catch (HttpRequestException)
+            {
+                throw new Exception("Impossible de récupérer la liste des composants");
+            }
         }
     }
 }

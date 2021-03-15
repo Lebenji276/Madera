@@ -27,19 +27,17 @@ namespace Madera
 
         public static async Task<Module[]> GetAllModule()
         {
-            using (var client = new HttpClient())
+            try
             {
-                var response = client.GetAsync("http://localhost:5000/module/all").Result;
-
-                if (response.IsSuccessStatusCode)
-                {
-                    var responseContent = response.Content;
-                    string responseString = responseContent.ReadAsStringAsync().Result;
-                    var listClient = JsonConvert.DeserializeObject<Module[]>(responseString);
-                    return listClient;
-                }
+                HttpResponseMessage response = await App.httpClient.GetAsync("http://localhost:5000/module/all");
+                var responseContent = await response.Content.ReadAsStringAsync();
+                var responseString = JsonConvert.DeserializeObject<Module[]>(responseContent);
+                return responseString;
             }
-            return null;
+            catch (HttpRequestException)
+            {
+                throw new Exception("Impossible de récupérer la liste des modules");
+            }
         }
 
         private string listComposantToString(Composant[] composants)

@@ -31,18 +31,27 @@ namespace Madera
                 ListeClient listeClient = new ListeClient(clients);
                 this.Content = listeClient;
                 this.Show();
-            } catch (Exception error)
+            }
+            catch (Exception error)
             {
                 lbl_error_liste_client.Content = error.Message;
             }
         }
-        
-        private void btnListModule_Click(object sender, RoutedEventArgs e)
-        {
 
-            ListeModule listeModule = new ListeModule();
-            this.Content = listeModule;
-            this.Show();
+        private async void btnListModule_Click(object sender, RoutedEventArgs e)
+        {
+            try
+            {
+                var modules = await Module.GetAllModule();
+
+                ListeModule listeModule = new ListeModule(modules);
+                this.Content = listeModule;
+                this.Show();
+            }
+            catch (Exception error)
+            {
+                lbl_error_liste_client.Content = error.Message;
+            }
         }
     }
 }

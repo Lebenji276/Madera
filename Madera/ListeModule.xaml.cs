@@ -18,10 +18,14 @@ namespace Madera
     /// </summary>
     public partial class ListeModule : Page
     {
-        public ListeModule()
+        private Module[] _modules { get; set; }
+
+        public ListeModule(Module[] modules)
         {
+            this._modules = modules;
             InitializeComponent();
-            lvModule.ItemsSource = Module.GetAllModule().Result;
+
+            lvModule.ItemsSource = modules;
         }
     }
 }
