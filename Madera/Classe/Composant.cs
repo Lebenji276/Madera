@@ -15,6 +15,8 @@ namespace Madera
         public string nomCaracteristique { get; set; }
         public DateTime createdAt { get; set; }
         public DateTime updatedAt { get; set; }
+
+        public string description { get; set; }
         public override string ToString()
         {
             return this.nomComposant;
@@ -28,11 +30,13 @@ namespace Madera
                 var responseContent = await response.Content.ReadAsStringAsync();
                 var responseString = JsonConvert.DeserializeObject<Composant[]>(responseContent);
                 return responseString;
-            }
+                }
             catch (HttpRequestException)
-            {
+                {
                 throw new Exception("Impossible de récupérer la liste des composants");
             }
+
         }
+
     }
 }
