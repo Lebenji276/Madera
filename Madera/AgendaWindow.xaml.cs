@@ -17,14 +17,17 @@ namespace Madera
     /// </summary>
     public partial class AgendaWindow : Window
     {
+
         public AgendaWindow()
         {
             InitializeComponent();
         }
 
-        private void DateChanged(object sender, RoutedEventArgs e)
+        private async void DateChanged(object sender, RoutedEventArgs e)
         {
-            AppointmentWindow appointment = new AppointmentWindow((DateTime)(sender as Calendar).SelectedDate);
+            var clients = await Client.GetAllClient();
+
+            AppointmentWindow appointment = new AppointmentWindow((DateTime)(sender as Calendar).SelectedDate, clients);
             appointment.ShowDialog();
         }
 

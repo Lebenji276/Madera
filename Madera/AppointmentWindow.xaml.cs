@@ -19,11 +19,15 @@ namespace Madera
     public partial class AppointmentWindow : Window
     {
         DateTime _date;
-        public AppointmentWindow(DateTime date)
+        private Client[] _clients { get; set; }
+
+        public AppointmentWindow(DateTime date, Client[] clients)
         {
             InitializeComponent();
+            this._clients = clients;
+
             lblDate.Content = date.ToLongDateString();
-            comboBox.ItemsSource = Client.GetAllClient().Result;
+            comboBox.ItemsSource = _clients;
             _date = date;
             listBox.ItemsSource = Appointment.GetAppointmentDay(_date).Result;
         }
