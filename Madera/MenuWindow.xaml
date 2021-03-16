@@ -10,6 +10,7 @@
         <Label x:Name="label" Content="Bienvenue" HorizontalAlignment="Center" Margin="0,191,0,0" VerticalAlignment="Top"/>
         <Button x:Name="btnListClient" Content="Liste Client" HorizontalAlignment="Left" Margin="114,115,0,0" VerticalAlignment="Top" Height="52" Width="117" Click="btnListClient_Click"/>
         <Button x:Name="btnListModule" Content="Liste Module" HorizontalAlignment="Left" Margin="587,115,0,0" VerticalAlignment="Top" Height="52" Width="117" Click="btnListModule_Click"/>
+        <Button x:Name="btnAgenda" Content="Agenda" HorizontalAlignment="Left" Margin="114,313,0,0" VerticalAlignment="Top" Height="52" Width="117" Click="btnAgenda_Click"/>
 
     </Grid>
 </Window>

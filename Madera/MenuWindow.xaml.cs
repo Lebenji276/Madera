@@ -37,5 +37,13 @@ namespace Madera
             this.Content = listeModule;
             this.Show();
         }
+
+        private void btnAgenda_Click(object sender, RoutedEventArgs e)
+        {
+            AgendaWindow agenda = new AgendaWindow();
+            App.Current.MainWindow = agenda;
+            this.Close();
+            agenda.Show();
+        }
     }
 }
