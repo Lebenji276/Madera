@@ -39,7 +39,6 @@ namespace Madera
             var titre = textBox.Text;
             var appointment = new Appointment() { name = titre, date = _date, client = client };
             Appointment.PostAppointment(appointment);
-            MessageBox.Show(_date.ToString() + " " + client + " " + titre);
             Close();
         }
 
