@@ -63,5 +63,13 @@ namespace Madera
             
         }
 
+        void OnClick2(object sender, RoutedEventArgs e)
+        {
+            FenCreationDevis main = new FenCreationDevis();
+            App.Current.MainWindow = main;
+            this.Close();
+            main.Show();
+        }
+
     }
 }
