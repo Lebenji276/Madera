@@ -9,26 +9,25 @@ namespace Madera
     /// </summary>
     public partial class FenCreationDevis : Window
     {
-        public FenCreationDevis()
+        private Client[] _clients { get; set; }
+        private Gamme[] _gammes { get; set; }
+        private Module[] _modules { get; set; }
+        public FenCreationDevis(Client[] clients, Gamme[] gammes, Module[] modules)
         {
             InitializeComponent();
-            var toto = Client.GetAllClient();
-            ComboClients.ItemsSource = toto.Result;
-            var modules = Module.GetAllModule();
-            ListeModules.ItemsSource = modules.Result;
-            ComModules.ItemsSource = modules.Result;
+            this._clients = clients;
+            this._gammes = gammes;
+            this._modules = modules;
+
+
+            ComboClients.ItemsSource = _clients;
+            ListeModules.ItemsSource = _modules;
+            ComModules.ItemsSource = _modules;
             ComboComposants.Items.Add("Angle entrant");
             ComboComposants.Items.Add("Angle sortant");
-            //try
-            //{
-                var gammes = Gamme.GetAllGammes();
-                ComboGammes.ItemsSource = gammes.Result;
-            //}
-            //catch (AggregateException e)
-            //{
-              //  Console.WriteLine(e);
-            //}
-            
+            ComboGammes.ItemsSource = _gammes
+                ;
+
         }
     }
 }

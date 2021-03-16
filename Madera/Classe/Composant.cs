@@ -30,13 +30,37 @@ namespace Madera
                 var responseContent = await response.Content.ReadAsStringAsync();
                 var responseString = JsonConvert.DeserializeObject<Composant[]>(responseContent);
                 return responseString;
-                }
+            }
             catch (HttpRequestException)
-                {
+            {
                 throw new Exception("Impossible de récupérer la liste des composants");
             }
 
         }
 
+        public static async Task<Composant> CreateComposant(Composant composant)
+        {
+            using (var client = new HttpClient())
+            {
+                var values = new List<KeyValuePair<string, string>>
+                {
+                    new KeyValuePair<string, string>("description",composant.description),
+                    new KeyValuePair<string, string>("nomCaracteristique",composant.nomCaracteristique),
+                    new KeyValuePair<string, string>("nomComposant",composant.nomComposant)
+                };
+
+                HttpResponseMessage response = await client.PostAsync(
+                    "http://localhost:5000/gamme",
+                    new FormUrlEncodedContent(values)
+                );
+
+
+                var composantResponse = await response.Content.ReadAsStringAsync();
+                var composantJson = JsonConvert.DeserializeObject<Composant>(composantResponse);
+
+
+                return composantJson;
+            }
+        }
     }
 }

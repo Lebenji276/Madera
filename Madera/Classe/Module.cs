@@ -36,11 +36,9 @@ namespace Madera
                 return responseString;
             }
             catch (HttpRequestException)
-                {
+            {
                 throw new Exception("Impossible de récupérer la liste des modules");
-                }
             }
-            return null;
         }
 
         private string listComposantToString(Composant[] composants)

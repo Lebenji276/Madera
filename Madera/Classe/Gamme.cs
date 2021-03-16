@@ -9,7 +9,7 @@ namespace Madera
 {
     public class Gamme
     {
-        public String[] modules { get; set; }
+        public ModuleCreatedevis[] modules { get; set; }
         public string nomGamme { get; set; }
         public DateTime createdAt { get; set; }
         public DateTime updatedAt { get; set; }
@@ -23,19 +23,17 @@ namespace Madera
 
         public static async Task<Gamme[]> GetAllGammes()
         {
-            using (var gamme = new HttpClient())
+            try
             {
-                var response = gamme.GetAsync("http://localhost:5000/gamme/all").Result;
-
-                if (response.IsSuccessStatusCode)
-                {
-                    var responseContent = response.Content;
-                    string responseString = responseContent.ReadAsStringAsync().Result;
-                    var listGammes = JsonConvert.DeserializeObject<Gamme[]>(responseString);
-                    return listGammes;
-                }
+                HttpResponseMessage response = await App.httpClient.GetAsync("http://localhost:5000/gamme/all");
+                var responseContent = await response.Content.ReadAsStringAsync();
+                var responseString = JsonConvert.DeserializeObject<Gamme[]>(responseContent);
+                return responseString;
             }
-            return null;
+            catch (HttpRequestException)
+            {
+                throw new Exception("Impossible de récupérer la liste des gammes");
+            }
         }
 
         public static async Task<Gamme> CreateGamme(Gamme gamme)

@@ -64,15 +64,29 @@ namespace Madera
             agenda.Show();
         }
 
-        void OnClick2(object sender, RoutedEventArgs e)
+
+        private async void btnCreateQuote_Click(object sender, RoutedEventArgs e)
         {
-            FenCreationDevis main = new FenCreationDevis();
-            App.Current.MainWindow = main;
-            this.Close();
-            main.Show();
+
+            try
+            {
+                var clients = await Client.GetAllClient();
+                var gammes = await Gamme.GetAllGammes();
+                var modules = await Module.GetAllModule();
+
+                FenCreationDevis main = new FenCreationDevis(clients,gammes,modules);
+                App.Current.MainWindow = main;
+                this.Close();
+                main.Show();
+            }
+            catch (Exception error)
+            {
+                lbl_error_liste_client.Content = error.Message;
+            }
+
         }
 
-        private void OnClick1(object sender, RoutedEventArgs e)
+        private void btnCreateProduct_Click(object sender, RoutedEventArgs e)
         {
             FenSoumissionProduit main = new FenSoumissionProduit();
             App.Current.MainWindow = main;
