@@ -63,5 +63,35 @@ namespace Madera
             this.Close();
             agenda.Show();
         }
+
+
+        private async void btnCreateQuote_Click(object sender, RoutedEventArgs e)
+        {
+
+            try
+            {
+                var clients = await Client.GetAllClient();
+                var gammes = await Gamme.GetAllGammes();
+                var modules = await Module.GetAllModule();
+
+                FenCreationDevis main = new FenCreationDevis(clients,gammes,modules);
+                App.Current.MainWindow = main;
+                this.Close();
+                main.Show();
+            }
+            catch (Exception error)
+            {
+                lbl_error_liste_client.Content = error.Message;
+            }
+
+        }
+
+        private void btnCreateProduct_Click(object sender, RoutedEventArgs e)
+        {
+            FenSoumissionProduit main = new FenSoumissionProduit();
+            App.Current.MainWindow = main;
+            this.Close();
+            main.Show();
+        }
     }
 }
