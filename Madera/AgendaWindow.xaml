@@ -7,7 +7,7 @@
         mc:Ignorable="d"
         Title="AgendaWindow" Height="450" Width="800">
     <Grid>
-        <Calendar x:Name="calendar" HorizontalAlignment="Left" Margin="10,45,0,0" VerticalAlignment="Top" Height="379" Width="306" SelectedDatesChanged="DateChanged"/>
+        <Calendar x:Name="calendar" HorizontalAlignment="Center" VerticalAlignment="Center" Height="379" Width="362" SelectedDatesChanged="DateChanged"/>
         <Button x:Name="btnRetour" Content="Retour" HorizontalAlignment="Left" Margin="10,8,0,0" VerticalAlignment="Top" Background="#FFB8B8B8" Click="btnRetour_Click"/>
 
     </Grid>

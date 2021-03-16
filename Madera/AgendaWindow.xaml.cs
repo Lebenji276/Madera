@@ -24,8 +24,8 @@ namespace Madera
 
         private void DateChanged(object sender, RoutedEventArgs e)
         {
-            MessageBox.Show(sender.ToString());
-
+            AppointmentWindow appointment = new AppointmentWindow((DateTime)(sender as Calendar).SelectedDate);
+            appointment.ShowDialog();
         }
 
         private void btnRetour_Click(object sender, RoutedEventArgs e)
