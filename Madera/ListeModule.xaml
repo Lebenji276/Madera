@@ -10,10 +10,20 @@
 
     <Grid>
         <ListView Name="lvModule">
+            <ListView.Resources>
+                <Style TargetType="{x:Type GridViewColumnHeader}">
+                    <Setter Property="HorizontalContentAlignment" Value="Center"/>
+                </Style>
+            </ListView.Resources>
+            <ListView.ItemContainerStyle>
+                <Style TargetType="ListViewItem">
+                    <EventSetter Event="MouseDoubleClick" Handler="listViewItem_MouseDoubleClick" />
+                </Style>
+            </ListView.ItemContainerStyle>
             <ListView.View>
                 <GridView>
-                    <GridViewColumn Header="Nom du module" Width="120" DisplayMemberBinding="{Binding nomModule}" />
-                    <GridViewColumn Header="Composant" Width="120" DisplayMemberBinding="{Binding composantsString}" />
+                    <GridViewColumn Header="Nom du module" Width="Auto" DisplayMemberBinding="{Binding nomModule}" />
+                    <GridViewColumn Header="Composant" Width="Auto" DisplayMemberBinding="{Binding composantsString}" />
                 </GridView>
             </ListView.View>
 

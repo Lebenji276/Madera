@@ -30,5 +30,12 @@ namespace Madera
 
             lvUsers.ItemsSource = _clients;
         }
+
+        private void listViewItem_MouseDoubleClick(object sender, MouseButtonEventArgs e)
+        {
+            ListViewItem item = sender as ListViewItem;
+            Client obj = (Client)item.Content;
+            new Details_Update_Client(obj);
+        }
     }
 }

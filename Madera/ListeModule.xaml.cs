@@ -27,5 +27,12 @@ namespace Madera
 
             lvModule.ItemsSource = modules;
         }
+
+        private void listViewItem_MouseDoubleClick(object sender, MouseButtonEventArgs e)
+        {
+            ListViewItem item = sender as ListViewItem;
+            Module obj = (Module)item.Content;
+            new Details_Update_Module(obj);
+        }
     }
 }
