@@ -8,24 +8,30 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
 using System.Windows.Shapes;
 
 namespace Madera
 {
     /// <summary>
-    /// Logique d'interaction pour ListeModule.xaml
+    /// Logique d'interaction pour ListeModuleWindow.xaml
     /// </summary>
-    public partial class ListeModule : Page
+    public partial class ListeModuleWindow : Window
     {
         private Module[] _modules { get; set; }
-
-        public ListeModule(Module[] modules)
+        public ListeModuleWindow(Module[] modules)
         {
             this._modules = modules;
             InitializeComponent();
 
             lvModule.ItemsSource = modules;
+        }
+
+        private void btnRetour_Click(object sender, RoutedEventArgs e)
+        {
+            MenuWindow menu = new MenuWindow();
+            App.Current.MainWindow = menu;
+            Close();
+            menu.Show();
         }
     }
 }

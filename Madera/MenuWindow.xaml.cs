@@ -28,9 +28,10 @@ namespace Madera
             {
                 var clients = await Client.GetAllClient();
 
-                ListeClient listeClient = new ListeClient(clients);
-                this.Content = listeClient;
-                this.Show();
+                ListeClientWindow listeClient = new ListeClientWindow(clients);
+                App.Current.MainWindow = listeClient;
+                this.Close();
+                listeClient.Show();
             }
             catch (Exception error)
             {
@@ -44,9 +45,10 @@ namespace Madera
             {
                 var modules = await Module.GetAllModule();
 
-                ListeModule listeModule = new ListeModule(modules);
-                this.Content = listeModule;
-                this.Show();
+                ListeModuleWindow listeModule = new ListeModuleWindow(modules);
+                App.Current.MainWindow = listeModule;
+                this.Close();
+                listeModule.Show();
             }
             catch (Exception error)
             {
