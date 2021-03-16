@@ -53,5 +53,13 @@ namespace Madera
                 lbl_error_liste_client.Content = error.Message;
             }
         }
+
+        private void btnAgenda_Click(object sender, RoutedEventArgs e)
+        {
+            AgendaWindow agenda = new AgendaWindow();
+            App.Current.MainWindow = agenda;
+            this.Close();
+            agenda.Show();
+        }
     }
 }
