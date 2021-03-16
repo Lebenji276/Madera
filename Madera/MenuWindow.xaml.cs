@@ -63,5 +63,21 @@ namespace Madera
             this.Close();
             agenda.Show();
         }
+
+        void OnClick2(object sender, RoutedEventArgs e)
+        {
+            FenCreationDevis main = new FenCreationDevis();
+            App.Current.MainWindow = main;
+            this.Close();
+            main.Show();
+        }
+
+        private void OnClick1(object sender, RoutedEventArgs e)
+        {
+            FenSoumissionProduit main = new FenSoumissionProduit();
+            App.Current.MainWindow = main;
+            this.Close();
+            main.Show();
+        }
     }
 }
