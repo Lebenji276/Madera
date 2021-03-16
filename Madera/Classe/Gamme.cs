@@ -5,64 +5,64 @@ using System.Net.Http;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Madera.Classe
+namespace Madera
 {
-    class Composant
+    public class Gamme
     {
-        public string _id { get; set; }
-        public string nomComposant { get; set; }
-        public string unité { get; set; }
-        public string nomCaracteristique { get; set; }
+        public String[] modules { get; set; }
+        public string nomGamme { get; set; }
         public DateTime createdAt { get; set; }
         public DateTime updatedAt { get; set; }
+        public string _id { get; set; }
 
         public string description { get; set; }
         public override string ToString()
         {
-            return this.nomComposant;
+            return this.nomGamme;
         }
 
-        public static async Task<Composant[]> GetAllComposant()
+        public static async Task<Gamme[]> GetAllGammes()
         {
-            using (var client = new HttpClient())
+            using (var gamme = new HttpClient())
             {
-                var response = client.GetAsync("http://localhost:5000/composant").Result;
+                var response = gamme.GetAsync("http://localhost:5000/gamme/all").Result;
 
                 if (response.IsSuccessStatusCode)
                 {
                     var responseContent = response.Content;
                     string responseString = responseContent.ReadAsStringAsync().Result;
-                    var listClient = JsonConvert.DeserializeObject<Composant[]>(responseString);
-                    return listClient;
+                    var listGammes = JsonConvert.DeserializeObject<Gamme[]>(responseString);
+                    return listGammes;
                 }
             }
             return null;
         }
 
-        public static async Task<Composant> CreateComposant(Composant composant)
+        public static async Task<Gamme> CreateGamme(Gamme gamme)
         {
             using (var client = new HttpClient())
             {
                 var values = new List<KeyValuePair<string, string>>
                 {
-                    new KeyValuePair<string, string>("nomComposant", composant.nomComposant),
-                    new KeyValuePair<string, string>("description",composant.description)
+                    new KeyValuePair<string, string>("nomGamme", gamme.nomGamme),
+                    new KeyValuePair<string, string>("description",gamme.description)
                 };
 
                 HttpResponseMessage response = await client.PostAsync(
-                    "http://localhost:5000/composant",
+                    "http://localhost:5000/gamme",
                     new FormUrlEncodedContent(values)
                 );
 
 
                 var appointmentResponse = await response.Content.ReadAsStringAsync();
-                var appointmentJson = JsonConvert.DeserializeObject<Composant>(appointmentResponse);
+                var appointmentJson = JsonConvert.DeserializeObject<Gamme>(appointmentResponse);
 
 
                 return appointmentJson;
             }
-
+            
         }
+
 
     }
 }

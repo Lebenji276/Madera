@@ -89,6 +89,14 @@ namespace Madera
                 lbl_error_login.Content = error.Message;
             }
         }
+        
+        void OnClick1(object sender, RoutedEventArgs e)
+        {
+            FenSoumissionProduit main = new FenSoumissionProduit();
+            App.Current.MainWindow = main;
+            this.Close();
+            main.Show();
+        }
 
     }
 }
