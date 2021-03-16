@@ -28,19 +28,17 @@ namespace Madera
 
         public static async Task<Client[]> GetAllClient()
         {
-            using (var client = new HttpClient())
+            try
             {
-                var response = client.GetAsync("http://localhost:5000/client").Result;
-
-                if (response.IsSuccessStatusCode)
-                {
-                    var responseContent = response.Content;
-                    string responseString = responseContent.ReadAsStringAsync().Result;
-                    var listClient = JsonConvert.DeserializeObject<Client[]>(responseString);
-                    return listClient;
-                }
+                HttpResponseMessage response = await App.httpClient.GetAsync("http://localhost:5000/client");
+                var responseContent = await response.Content.ReadAsStringAsync();
+                var responseString = JsonConvert.DeserializeObject<Client[]>(responseContent);
+                return responseString;
             }
-            return null;
+            catch (HttpRequestException)
+            {
+                throw new Exception("Impossible de récupérer la liste des clients");
+            }
         }
     }
 

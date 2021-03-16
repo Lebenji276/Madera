@@ -14,25 +14,10 @@ namespace Madera
     {
         static readonly HttpClient client = new HttpClient();
 
-        static async Task Authentication()
-        {
-            try
-            {
-                HttpResponseMessage response = await client.PostAsync("http://localhost:5000/auth/login?username=leandreg&password=string",
-                                                                      new StringContent(""));
-                string responseBody = JsonSerializer.Serialize(await response.Content.ReadAsStringAsync());
-                Console.WriteLine(responseBody);
-            } catch (HttpRequestException e)
-            {
-                Console.WriteLine(e.Message);
-            }
-        }
-
         public MainWindow()
         {
             InitializeComponent();
         }
-
         private void resetErrors()
         {
             lbl_error_login.Content = "";
