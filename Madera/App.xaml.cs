@@ -2,6 +2,8 @@
 using System.Net.Http;
 using System.Net.Http.Headers;
 using System.Windows;
+using MaterialDesignThemes.Wpf;
+using System.Windows.Media;
 
 namespace Madera
 {
@@ -12,8 +14,10 @@ namespace Madera
     {
         public static HttpClient httpClient;
 
-        protected override void OnStartup(StartupEventArgs e)
+    protected override void OnStartup(StartupEventArgs e)
         {
+
+            SetTheme();
             var options = new HttpClientInterceptorOptions();
 
             var builder = new HttpRequestInterceptionBuilder()
@@ -22,6 +26,8 @@ namespace Madera
                 .RegisterWith(options);
 
             var client = options.CreateHttpClient();
+
+            
 
             httpClient = client;
 
@@ -32,6 +38,17 @@ namespace Madera
         {
             httpClient.DefaultRequestHeaders.Authorization =
                 new AuthenticationHeaderValue("Bearer", bearerToken);
+        }
+
+        public static void SetTheme()
+        {
+            Color primaryColor = Colors.Black;
+            Color secondaryColor = Colors.Gray;
+
+            IBaseTheme baseTheme = Theme.Light;
+            //If you want a dark theme you can use IBaseTheme baseTheme = Theme.Dark;
+            ITheme theme = Theme.Create(baseTheme, primaryColor, secondaryColor);
+            ResourceDictionaryExtensions.SetTheme(Application.Current.Resources,theme);
         }
     }
 }
