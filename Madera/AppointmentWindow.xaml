@@ -1,0 +1,39 @@
+﻿<Window x:Class="Madera.AppointmentWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Madera" xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+        mc:Ignorable="d"
+        Title="AppointmentWindow" Height="450" Width="800">
+    <Grid>
+        <Label x:Name="LblBeforeDate" Content="Rendez-vous du : " HorizontalAlignment="Left" Margin="239,10,0,0" VerticalAlignment="Top"/>
+        <Label x:Name="lblDate" Content="" HorizontalAlignment="Left" Margin="346,10,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.263,0.029"/>
+        <ComboBox x:Name="comboBox" HorizontalAlignment="Left" Margin="551,177,0,0" VerticalAlignment="Top" Width="120"/>
+        <Label x:Name="LblClient" Content="Client" HorizontalAlignment="Left" Margin="499,177,0,0" VerticalAlignment="Top"/>
+        <TextBox x:Name="textBox" HorizontalAlignment="Left" Margin="551,215,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
+        <Label x:Name="LblTitre" Content="Titre" HorizontalAlignment="Left" Margin="497,217,0,0" VerticalAlignment="Top"/>
+        <materialDesign:TimePicker x:Name = "arrivalTimePicker" Margin = "551,258,129,0" VerticalAlignment="Top"/>
+        <Label x:Name="LblHeure" Content="Heure" HorizontalAlignment="Left" Margin="497,266,0,0" VerticalAlignment="Top"/>
+        <ListBox Name="listBox" HorizontalContentAlignment="Stretch" Margin="32,63,400,17" SelectionChanged="listBox_SelectionChanged">
+            <ListBox.ItemTemplate>
+                <DataTemplate >
+                    <Grid Margin="0,2">
+                        <StackPanel Margin="3" >
+                            <DockPanel>
+                                <TextBlock Text="{Binding name}"  FontWeight="Bold" />
+                                <TextBlock Text="{Binding _id}"  FontWeight="Bold" Visibility="Hidden" />
+                            </DockPanel>
+                            <DockPanel>
+                                <TextBlock Text="{Binding date}" />
+                                <TextBlock Text=", " />
+                                <TextBlock Text="{Binding client}" />
+                            </DockPanel>
+                        </StackPanel>
+                    </Grid>
+                </DataTemplate>
+            </ListBox.ItemTemplate>
+        </ListBox>
+        <Button x:Name="btnValider" Content="Valider" HorizontalAlignment="Left" Margin="573,312,0,0" VerticalAlignment="Top" Cursor="Hand" Click="btnValider_Click"/>
+    </Grid>
+</Window>
