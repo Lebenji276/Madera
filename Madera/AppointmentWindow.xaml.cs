@@ -31,12 +31,33 @@ namespace Madera
 
         private async void btnValider_Click(object sender, RoutedEventArgs e)
         {
-            _date = _date.Add(((DateTime)arrivalTimePicker.SelectedTime).TimeOfDay);
-            var client = comboBox.SelectedItem.ToString();
+            bool err = false;
+            DateTime timePicker;
+            var client = comboBox.Text;
             var titre = textBox.Text;
+            if (!DateTime.TryParse(arrivalTimePicker.SelectedTime.ToString(), out timePicker))
+            {
+                lbl_error_Hour.Content = "Veuillez sélectionner un horaire valide";
+                err = true;
+            }
+            if (string.IsNullOrEmpty(client))
+            {
+                lbl_error_Client.Content = "Veuillez sélectionner un client";
+                err = true;
+            }
+            if (string.IsNullOrEmpty(titre))
+            {
+                lbl_error_Titre.Content = "Veuillez sélectionner un titre";
+                err = true;
+            }
+
+            _date = _date.Add(timePicker.TimeOfDay);
             var appointment = new Appointment() { name = titre, date = _date, client = client };
-            await Appointment.PostAppointment(appointment);
-            Close();
+            if (!err)
+            {
+                await Appointment.PostAppointment(appointment);
+                Close();
+            }
         }
 
         private async void listBox_SelectionChanged(object sender, RoutedEventArgs e)
@@ -44,11 +65,14 @@ namespace Madera
             MessageBoxResult messageBoxResult = MessageBox.Show("Voulez-vous supprimer ce rendez-vous", "Comfirmation de suppression", MessageBoxButton.YesNo);
             if (messageBoxResult == MessageBoxResult.Yes)
             {
-               await Appointment.DeleteAppointment((listBox.SelectedItem as Appointment)._id);
+                await Appointment.DeleteAppointment((listBox.SelectedItem as Appointment)._id);
             }
             Close();
         }
 
-
+        private void comboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            lbl_error_Client.Content = "";
+        }
     }
 }
