@@ -9,12 +9,12 @@
     <Grid>
         <Label x:Name="LblBeforeDate" Content="Rendez-vous du : " HorizontalAlignment="Left" Margin="239,10,0,0" VerticalAlignment="Top"/>
         <Label x:Name="lblDate" Content="" HorizontalAlignment="Left" Margin="346,10,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.263,0.029"/>
-        <ComboBox x:Name="comboBox" HorizontalAlignment="Left" Margin="551,177,0,0" VerticalAlignment="Top" Width="120"/>
+        <ComboBox x:Name="comboBox" HorizontalAlignment="Left" Margin="551,177,0,0" VerticalAlignment="Top" Width="120" SelectionChanged="comboBox_SelectionChanged"/>
         <Label x:Name="LblClient" Content="Client" HorizontalAlignment="Left" Margin="499,177,0,0" VerticalAlignment="Top"/>
-        <TextBox x:Name="textBox" HorizontalAlignment="Left" Margin="551,215,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
-        <Label x:Name="LblTitre" Content="Titre" HorizontalAlignment="Left" Margin="497,217,0,0" VerticalAlignment="Top"/>
-        <materialDesign:TimePicker x:Name = "arrivalTimePicker" Margin = "551,258,129,0" VerticalAlignment="Top"/>
-        <Label x:Name="LblHeure" Content="Heure" HorizontalAlignment="Left" Margin="497,266,0,0" VerticalAlignment="Top"/>
+        <TextBox x:Name="textBox" HorizontalAlignment="Left" Margin="556,248,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" TextChanged="textBox_TextChanged"/>
+        <Label x:Name="LblTitre" Content="Titre" HorizontalAlignment="Left" Margin="502,250,0,0" VerticalAlignment="Top"/>
+        <materialDesign:TimePicker x:Name = "arrivalTimePicker" Margin = "550,315,130,0" VerticalAlignment="Top"/>
+        <Label x:Name="LblHeure" Content="Heure" HorizontalAlignment="Left" Margin="496,323,0,0" VerticalAlignment="Top"/>
         <ListBox Name="listBox" HorizontalContentAlignment="Stretch" Margin="32,63,400,17" SelectionChanged="listBox_SelectionChanged">
             <ListBox.ItemTemplate>
                 <DataTemplate >
@@ -34,6 +34,9 @@
                 </DataTemplate>
             </ListBox.ItemTemplate>
         </ListBox>
-        <Button x:Name="btnValider" Content="Valider" HorizontalAlignment="Left" Margin="573,312,0,0" VerticalAlignment="Top" Cursor="Hand" Click="btnValider_Click"/>
+        <Button x:Name="btnValider" Content="Valider" HorizontalAlignment="Left" Margin="573,359,0,0" VerticalAlignment="Top" Cursor="Hand" Click="btnValider_Click"/>
+        <Label x:Name="lbl_error_Client" Content="" HorizontalAlignment="Left" Margin="551,148,0,0" VerticalAlignment="Top" Height="24" Width="239" Foreground="#FFE00000" FontWeight="Bold"/>
+        <Label x:Name="lbl_error_Titre" Content="" HorizontalAlignment="Left" Margin="551,219,0,0" VerticalAlignment="Top" Height="24" Width="239" Foreground="#FFE00000" FontWeight="Bold"/>
+        <Label x:Name="lbl_error_Hour" Content="" HorizontalAlignment="Left" Margin="551,286,0,0" VerticalAlignment="Top" Height="24" Width="239" Foreground="#FFE00000" FontWeight="Bold"/>
     </Grid>
 </Window>
