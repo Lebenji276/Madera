@@ -30,11 +30,11 @@ namespace Madera
                 btn_synchro.IsEnabled = false;
         }
 
-        private async void btnListClient_Click(object sender, RoutedEventArgs e)
+        private void btnListClient_Click(object sender, RoutedEventArgs e)
         {
             try
             {
-                var clients = await Client.GetAllClient();
+                var clients = Client.GetAllClient();
 
                 ListeClientWindow listeClient = new ListeClientWindow(clients);
                 App.Current.MainWindow = listeClient;

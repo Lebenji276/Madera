@@ -26,7 +26,7 @@ namespace Madera
 
         private async void DateChanged(object sender, RoutedEventArgs e)
         {
-            var clients = await Client.GetAllClient();
+            var clients = Client.GetAllClient();
             var appointmentDay = await Appointment.GetAppointmentDay((DateTime)(sender as Calendar).SelectedDate);
 
             AppointmentWindow appointment = new AppointmentWindow((DateTime)(sender as Calendar).SelectedDate, clients, appointmentDay);

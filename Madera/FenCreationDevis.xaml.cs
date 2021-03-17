@@ -19,7 +19,7 @@ namespace Madera
         private void getClients()
         {
             var toto = Client.GetAllClient();
-            ComboClients.ItemsSource = toto.Result;
+            ComboClients.ItemsSource = toto;
             var modules = Module.GetAllModule();
             ListeModules.ItemsSource = modules.Result;
             ComModules.ItemsSource = modules.Result;
