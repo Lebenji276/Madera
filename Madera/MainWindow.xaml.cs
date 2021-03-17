@@ -1,9 +1,12 @@
 ﻿using Madera.Classe;
 using System;
+using System.IO;
 using System.Net.Http;
 using System.Text.Json;
 using System.Threading.Tasks;
 using System.Windows;
+using System.Windows.Controls;
+using System.Windows.Media.Imaging;
 
 namespace Madera
 {
@@ -17,6 +20,24 @@ namespace Madera
         public MainWindow()
         {
             InitializeComponent();
+            addImage();
+        }
+
+        private void addImage()
+        {
+            var image = new Image();
+            image.HorizontalAlignment = HorizontalAlignment.Left;
+            image.Height = 100;
+            image.Margin = new Thickness(32, 22, 0, 0);
+            image.VerticalAlignment = VerticalAlignment.Top;
+
+            string currentDir = Directory.GetCurrentDirectory();
+            string[] currentDirSplitted = currentDir.Split("\\bin");
+            var uriSource = new Uri(currentDirSplitted[0] + "\\madera.png", UriKind.Absolute);
+
+            image.Source = new BitmapImage(uriSource);
+            image.Width = 350;
+            grid_principal.Children.Add(image);
         }
         private void resetErrors()
         {
@@ -24,7 +45,7 @@ namespace Madera
             lbl_error_password.Content = "";
         }
 
-        async void OnClick1(object sender, RoutedEventArgs e)
+        void OnClickValidate(object sender, RoutedEventArgs e)
         {
             int errors = 0;
             String username = textBox.Text;
@@ -46,21 +67,27 @@ namespace Madera
                 return;
             }
 
-            label_1.Content = "User : " + username;
-            label_2.Content = "MDP : " + password;
             try
             {
-                Auth auth = await Auth.postAuth(username, password);
+                if (Auth.checkAuth(username, password))
+                {
+                    var user = User.getUser(username);
+                    Console.WriteLine(user);
+                    App.user = user;
+                    Console.WriteLine(App.user);
 
-                MenuWindow main = new MenuWindow();
-                App.Current.MainWindow = main;
-                this.Close();
-                main.Show();
+                    MenuWindow main = new MenuWindow();
+                    App.Current.MainWindow = main;
+                    this.Close();
+                    main.Show();
+                } else
+                {
+                    throw new Exception("Impossible de connecter l'utilisateur");
+                }
             } catch (Exception error)
             {
                 lbl_error_login.Content = error.Message;
             }
-            
         }
 
     }
