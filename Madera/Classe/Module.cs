@@ -15,6 +15,8 @@ namespace Madera.Classe
         public DateTime createdAt { get; set; }
         public DateTime updatedAt { get; set; }
         public string description { get; set; }
+
+        public string composant { get; set; }
         public string composantsString
         {
 
@@ -60,7 +62,8 @@ namespace Madera.Classe
                 var values = new List<KeyValuePair<string, string>>
                 {
                     new KeyValuePair<string, string>("nomModule", module.nomModule),
-                    new KeyValuePair<string, string>("description",module.description)
+                    new KeyValuePair<string, string>("description",module.description),
+                    new KeyValuePair<string,string>("composants",module.composant)
                 };
 
                 //var valuesComposants = new List<KeyValuePair<string, Composant[]>>
@@ -76,7 +79,6 @@ namespace Madera.Classe
 
                 var appointmentResponse = await response.Content.ReadAsStringAsync();
                 var appointmentJson = JsonConvert.DeserializeObject<Module>(appointmentResponse);
-
 
                 return appointmentJson;
             }

@@ -1,4 +1,5 @@
 ﻿using Madera.Classe;
+using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -59,15 +60,23 @@ namespace Madera
             Module module = new Module();
             int i = 0;
             int taille = ListComposantsModule.Items.Count;
-            //List<Composant> listModules = new List<Composant>();
             Composant[] tabComposants = new Composant[taille];
+            String[] tabId = new string[taille];
+            List<String> listestr = new List<String>();
+            foreach(Composant composant in ListComposantsModule.Items)
+            {
+                listestr.Add(composant._id);
+            }
             for (i=0;i<taille; i++)
             {
                 tabComposants[i] = (Composant)ListComposantsModule.Items[i];
             }
-            module.composants = tabComposants;
+            String[] tab = new String[taille];
+            string newJson = JsonConvert.SerializeObject(listestr, Formatting.None);
+            module.composant = newJson;
             module.nomModule = TextBoxName.Text;
             module.description = TextBoxDescription.Text;
+            Module.CreateModule(module);
         }
     }
 }
