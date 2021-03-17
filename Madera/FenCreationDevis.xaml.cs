@@ -15,7 +15,13 @@ namespace Madera
             getClients();
             
         }
-
+        private void btnRetour_Click(object sender, RoutedEventArgs e)
+        {
+            MenuWindow menu = new MenuWindow();
+            App.Current.MainWindow = menu;
+            Close();
+            menu.Show();
+        }
         private void getClients()
         {
             var toto = Client.GetAllClient();

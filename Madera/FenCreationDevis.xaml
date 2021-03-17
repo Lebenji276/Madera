@@ -21,6 +21,7 @@
                     <Label Content="Référence du projet" HorizontalAlignment="Left" Margin="130,171,0,0" VerticalAlignment="Top" Grid.Column="4"/>
                     <Label Content="Client" HorizontalAlignment="Left" Margin="130,214,0,0" VerticalAlignment="Top" Grid.Column="4"/>
                     <Label Content="Date" HorizontalAlignment="Left" Margin="130,255,0,0" VerticalAlignment="Top" Grid.Column="4"/>
+                    <Button x:Name="btnRetour" Content="Menu" HorizontalAlignment="Left" Margin="10,357,0,0" VerticalAlignment="Top" Background="#FFB8B8B8" Click="btnRetour_Click" Cursor="Hand" Grid.ColumnSpan="3"/>
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="30*"/>
                         <ColumnDefinition Width="47*"/>
