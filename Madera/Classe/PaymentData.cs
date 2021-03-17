@@ -10,5 +10,6 @@ namespace Madera.Classe
         public string Payment { get; set; }
         public string Interest { get; set; }
         public string Balance { get; set; }
+        public string Sum { get; set; }
     }
 }
