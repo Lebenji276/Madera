@@ -26,10 +26,38 @@ namespace Madera
             initialiseListView();
         }
 
+        public bool testSaisie()
+        {
+            if (TextBoxName.Text == "")
+            {
+                MessageBox.Show("Veuillez entrer le nom du module.");
+                return false;
+            }
+            if(TextBoxDescription.Text == "")
+            {
+                MessageBox.Show("Veuillez entrer la description du module.");
+                return false;
+            }
+            if (ListComposantsModule.Items.Count == 0)
+            {
+                MessageBox.Show("Veuillez entrer au moins un composant.");
+                return false;
+            }
+            return true;
+        }
+
         public void initialiseListView()
         {
             var composants = Composant.GetAllComposant();
             ListComposants.ItemsSource = composants.Result;
+        }
+
+        public void resetFields()
+        {
+            TextBoxName.Text = "";
+            TextBoxDescription.Text = "";
+            ListComposantsModule.Items.Clear();
+            MessageBox.Show("Module créé.");
         }
 
         private void AddComposant(object sender, RoutedEventArgs e)
@@ -40,7 +68,7 @@ namespace Madera
             {
                 if (composant.nomComposant == nomComposant)
                 {
-                    MessageBox.Show("Ce module est déjà utilisé.");
+                    MessageBox.Show("Ce composant est déjà utilisé.");
                     return;
                 }
             }
@@ -57,6 +85,10 @@ namespace Madera
 
         private void createModule(object sender, RoutedEventArgs e)
         {
+            if (testSaisie() == false)
+            {
+                return;
+            }
             Module module = new Module();
             int i = 0;
             int taille = ListComposantsModule.Items.Count;
@@ -77,6 +109,7 @@ namespace Madera
             module.nomModule = TextBoxName.Text;
             module.description = TextBoxDescription.Text;
             Module.CreateModule(module);
+            resetFields();
         }
     }
 }
