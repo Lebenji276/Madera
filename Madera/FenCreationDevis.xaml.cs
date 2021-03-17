@@ -9,10 +9,10 @@ namespace Madera
     /// </summary>
     public partial class FenCreationDevis : Window
     {
-        public FenCreationDevis()
+        public FenCreationDevis(Module[] listmodules)
         {
             InitializeComponent();
-            getClients();
+            getClients(listmodules);
             
         }
         private void btnRetour_Click(object sender, RoutedEventArgs e)
@@ -22,13 +22,13 @@ namespace Madera
             Close();
             menu.Show();
         }
-        private void getClients()
+
+        private void getClients(Module[] listmodules)
         {
             var toto = Client.GetAllClient();
             ComboClients.ItemsSource = toto;
-            var modules = Module.GetAllModule();
-            ListeModules.ItemsSource = modules.Result;
-            ComModules.ItemsSource = modules.Result;
+            ListeModules.ItemsSource = listmodules;
+            ComModules.ItemsSource = listmodules;
             ComboComposants.Items.Add("Angle entrant");
             ComboComposants.Items.Add("Angle sortant");
             var gammes = Gamme.GetAllGammes();

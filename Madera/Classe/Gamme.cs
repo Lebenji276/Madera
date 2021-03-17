@@ -18,6 +18,7 @@ namespace Madera
         public string module { get; set; }
 
         public string description { get; set; }
+        public string listmodules { get; set; }
         public override string ToString()
         {
             return this.nomGamme;
