@@ -19,19 +19,24 @@ namespace Madera
     /// </summary>
     public partial class ListeGamme : Window
     {
+        Module[] _listmodules;
         public ListeGamme(Module[] listmodules)
         {
-
+            _listmodules = listmodules;
             InitializeComponent();
             var listeGammes = Gamme.GetAllGammes().Result;
+            var listModuleAdd = new List<Module>();
             foreach (var gamme in listeGammes)
             {
+                listModuleAdd = new List<Module>();
                 foreach (var module in listmodules)
                 {
                     if (gamme.modules.Contains(module._id))
                     {
-                        gamme.listmodules += module.nomModule +", ";
+                        gamme.listmodulesString += module.nomModule +", ";
+                        listModuleAdd.Add(module);
                     }
+                    gamme.listmodules = listModuleAdd;
                 }
             }
             lvUsers.ItemsSource = listeGammes;
@@ -48,7 +53,7 @@ namespace Madera
         {
             ListViewItem item = sender as ListViewItem;
             Gamme obj = (Gamme)item.Content;
-            new Details_Update_Gamme(obj);
+            new Details_Update_Gamme(obj, _listmodules);
         }
     }
 }

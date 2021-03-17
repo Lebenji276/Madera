@@ -24,7 +24,7 @@
                 <GridView>
                     <GridViewColumn Header="Nom" Width="Auto" DisplayMemberBinding="{Binding nomGamme}"/>
                     <GridViewColumn Header="Description" Width="Auto" DisplayMemberBinding="{Binding description}" />
-                    <GridViewColumn Header="Module associés" Width="Auto" DisplayMemberBinding="{Binding listmodules}" />
+                    <GridViewColumn Header="Module associés" Width="Auto" DisplayMemberBinding="{Binding listmodulesString}" />
                 </GridView>
             </ListView.View>
         </ListView>
