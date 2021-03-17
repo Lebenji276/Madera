@@ -1,5 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
+using System.Runtime.CompilerServices;
 using System.Text;
 using System.Windows;
 using System.Windows.Controls;
@@ -20,6 +22,11 @@ namespace Madera
         public MenuWindow()
         {
             InitializeComponent();
+
+            if (App.haveConnection)
+                btn_synchro.IsEnabled = true;
+            else 
+                btn_synchro.IsEnabled = false;
         }
 
         private async void btnListClient_Click(object sender, RoutedEventArgs e)
