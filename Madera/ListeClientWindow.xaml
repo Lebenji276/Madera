@@ -7,26 +7,29 @@
         mc:Ignorable="d"
         Title="ListeClientWindow" Height="450" Width="800">
     <Grid>
-        <Button x:Name="btnRetour" Content="Retour" HorizontalAlignment="Left" Margin="10,0,0,0" VerticalAlignment="Top" Background="#FFB8B8B8" Click="btnRetour_Click"/>
-
-        <ListView Name="lvUsers" Margin="0,36,0,0">
+        <Button x:Name="btnRetour" Content="Retour" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Click="btnRetour_Click"/>
+        <ListView Name="lvUsers" HorizontalAlignment="Stretch" Margin="0,50,0,0">
+            <ListView.Resources>
+                <Style TargetType="{x:Type GridViewColumnHeader}">
+                    <Setter Property="HorizontalContentAlignment" Value="Center"/>
+                </Style>
+            </ListView.Resources>
+            <ListView.ItemContainerStyle>
+                <Style TargetType="ListViewItem">
+                    <EventSetter Event="MouseDoubleClick" Handler="listViewItem_MouseDoubleClick" />
+                </Style>
+            </ListView.ItemContainerStyle>
             <ListView.View>
                 <GridView>
-                    <GridViewColumn Header="Prénom Nom" Width="Auto" DisplayMemberBinding="{Binding first_name}" />
+                    <GridViewColumn Header="Prénom Nom" Width="Auto" DisplayMemberBinding="{Binding first_name}"/>
                     <GridViewColumn Header="Mail" Width="Auto" DisplayMemberBinding="{Binding mail}" />
+                    <GridViewColumn Header="Phone" Width="Auto" DisplayMemberBinding="{Binding phone}" />
+                    <GridViewColumn Header="Adress" Width="Auto" DisplayMemberBinding="{Binding address}"/>
+                    <GridViewColumn Header="Postal Code" Width="Auto" DisplayMemberBinding="{Binding postal_code}"/>
+                    <GridViewColumn Header="City" Width="Auto" DisplayMemberBinding="{Binding city}"/>
+                    <GridViewColumn Header="Country" Width="Auto" DisplayMemberBinding="{Binding country}"/>
                 </GridView>
             </ListView.View>
-
-            <ListView.GroupStyle>
-                <GroupStyle>
-                    <GroupStyle.HeaderTemplate>
-                        <DataTemplate>
-                            <TextBlock FontWeight="Bold" FontSize="14" Text="{Binding first_name}"/>
-                        </DataTemplate>
-                    </GroupStyle.HeaderTemplate>
-                </GroupStyle>
-            </ListView.GroupStyle>
         </ListView>
-
     </Grid>
 </Window>
