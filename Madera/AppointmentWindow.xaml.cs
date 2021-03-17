@@ -74,5 +74,10 @@ namespace Madera
         {
             lbl_error_Client.Content = "";
         }
+
+        private void textBox_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            lbl_error_Titre.Content = "";
+        }
     }
 }
