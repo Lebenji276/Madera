@@ -89,6 +89,5 @@ namespace Madera
                 lbl_error_login.Content = error.Message;
             }
         }
-
     }
 }

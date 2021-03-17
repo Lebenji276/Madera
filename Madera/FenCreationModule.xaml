@@ -1,0 +1,38 @@
+﻿<Window x:Class="Madera.FenCreationModule"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Madera"
+        mc:Ignorable="d"
+        Title="FenCreationModule" Height="450" Width="800">
+    <Grid>
+        <TextBox x:Name="TextBoxName" HorizontalAlignment="Left" Margin="286,71,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="365" Height="27"/>
+        <Label Content="Nom :" HorizontalAlignment="Left" Margin="171,68,0,0" VerticalAlignment="Top" FontSize="16"/>
+        <TextBox x:Name="TextBoxDescription" HorizontalAlignment="Left" Margin="286,115,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="365" Height="27"/>
+        <Label Content="Description :" HorizontalAlignment="Left" Margin="171,112,0,0" VerticalAlignment="Top" FontSize="16"/>
+        <Button Content="Soumettre" HorizontalAlignment="Left" Margin="346,388,0,0" VerticalAlignment="Top" Width="128" FontSize="16" Height="36" Click="createModule"/>
+        <Label Content="Création d'un module" HorizontalAlignment="Center" Margin="0,15,0,0" VerticalAlignment="Top" FontSize="18"/>
+        <ListView x:Name="ListComposants" Margin="76,170,440,71">
+            <ListView.View>
+                <GridView>
+                    <GridViewColumn/>
+                </GridView>
+            </ListView.View>
+        </ListView>
+        <ListView x:Name="ListComposantsModule" Margin="450,170,64,71" Width="284">
+            <ListView.View>
+                <GridView>
+                    <GridViewColumn/>
+                </GridView>
+            </ListView.View>
+        </ListView>
+        <Button HorizontalAlignment="Left" Margin="385,217,0,0" VerticalAlignment="Top" FontSize="50" Width="42" Height="50" Click="AddComposant">
+            <Image Source="images/plus.png" Height="40" Width="40"></Image>
+        </Button>
+        <Button HorizontalAlignment="Left" Margin="385,272,0,0" VerticalAlignment="Top" FontSize="50" Width="42" Height="50" Click="removeComposant">
+            <Image Source="/Images/moins.png" Height="40" Width="40"/>
+        </Button>
+
+    </Grid>
+</Window>

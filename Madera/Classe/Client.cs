@@ -30,10 +30,23 @@ namespace Madera
         {
             try
             {
-                HttpResponseMessage response = await App.httpClient.GetAsync("http://localhost:5000/client");
+            /*    HttpResponseMessage response = await App.httpClient.GetAsync("http://localhost:5000/client");
                 var responseContent = await response.Content.ReadAsStringAsync();
                 var responseString = JsonConvert.DeserializeObject<Client[]>(responseContent);
-                return responseString;
+                return responseString;*/
+
+              
+                var response = App.httpClient.GetAsync("http://localhost:5000/client").Result;
+
+                if (response.IsSuccessStatusCode)
+                {
+                    var responseContent = response.Content;
+                    string responseString = responseContent.ReadAsStringAsync().Result;
+                    var listClient = JsonConvert.DeserializeObject<Client[]>(responseString);
+                    return listClient;
+                }
+
+                return null;
             }
             catch (HttpRequestException)
             {
