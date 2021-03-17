@@ -47,5 +47,28 @@ namespace Madera.Classe
 
             return clients;
         }
+
+        public static async Task<bool> launchSyncroToAPI()
+        {
+            try
+            {
+                await synchroRolesToAPI();
+                await synchroClientsToAPI();
+                return true;
+            } catch (Exception)
+            {
+                return false;
+            }
+        }
+
+        private static async Task<bool> synchroRolesToAPI()
+        {
+            return await Role.synchroRoleAPI();
+        }
+
+        private static async Task<bool> synchroClientsToAPI()
+        {
+            return await Client.synchroClientsToAPI();
+        }
     }
 }

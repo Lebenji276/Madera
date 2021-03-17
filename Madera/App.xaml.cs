@@ -45,10 +45,25 @@ namespace Madera
             if (haveConnection)
             {
                 var Synchro = new Synchro();
+
+                launchSynchroToAPI();
             }
 
             configureTimerConnexion();
             
+        }
+
+        public static async void launchSynchroToAPI()
+        {
+            System.Timers.Timer timer = new System.Timers.Timer(15000);
+            timer.AutoReset = true;
+            timer.Elapsed += new System.Timers.ElapsedEventHandler(launchSynchroEveryTime);
+            timer.Start();
+        }
+
+        public static async void launchSynchroEveryTime(object sender, ElapsedEventArgs e)
+        {
+            await Synchro.launchSyncroToAPI();
         }
 
         public static void configureTimerConnexion()
