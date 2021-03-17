@@ -7,14 +7,9 @@
         mc:Ignorable="d" Height="450" Width="800">
     <Grid>
         <Label Content="Soumettre un nouveau produit" HorizontalAlignment="Center" Margin="0,65,0,0" VerticalAlignment="Top" FontSize="18"/>
-        <TextBox x:Name="TextBoxName" HorizontalAlignment="Left" Margin="330,206,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="255" Height="27"/>
-        <RadioButton x:Name="RadioGamme" IsChecked="True" Content="Gamme" HorizontalAlignment="Left" Margin="221,146,0,0" VerticalAlignment="Top" FontSize="16"/>
-        <RadioButton x:Name="RadioModule" Content="Module" HorizontalAlignment="Left" Margin="355,146,0,0" VerticalAlignment="Top" FontSize="16"/>
-        <RadioButton x:Name="RadioComposant" Content="Composant" HorizontalAlignment="Left" Margin="485,146,0,0" VerticalAlignment="Top" FontSize="16"/>
-        <Label Content="Nom :" HorizontalAlignment="Left" Margin="219,204,0,0" VerticalAlignment="Top" FontSize="16"/>
-        <TextBox x:Name="TextBoxDescription" HorizontalAlignment="Left" Margin="330,268,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="255" Height="27"/>
-        <Label Content="Description :" HorizontalAlignment="Left" Margin="219,266,0,0" VerticalAlignment="Top" FontSize="16"/>
-        <Button Content="Soumettre" HorizontalAlignment="Left" Margin="458,336,0,0" VerticalAlignment="Top" Width="127" FontSize="16" Height="36" Click="Button_Click"/>
+        <Button Content="Composant" HorizontalAlignment="Left" Margin="211,217,0,0" VerticalAlignment="Top" FontSize="18" Width="110" Height="35" Click="OpenComposant"/>
+        <Button Content="Module" HorizontalAlignment="Left" Margin="359,217,0,0" VerticalAlignment="Top" FontSize="18" Width="110" Height="35" Click="OpenModule"/>
+        <Button Content="Gamme" HorizontalAlignment="Left" Margin="498,217,0,0" VerticalAlignment="Top" FontSize="18" Width="110" Height="35" Click="OpenGamme"/>
 
     </Grid>
 </Window>

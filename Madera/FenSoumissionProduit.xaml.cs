@@ -26,39 +26,25 @@ namespace Madera
             InitializeComponent();
         }
 
-        public void resetFields()
+        private void OpenModule(object sender, RoutedEventArgs e)
         {
-            TextBoxName.Text = "";
-            TextBoxDescription.Text = "";
-            MessageBox.Show("Produit enregistré.");
+            FenCreationModule main = new FenCreationModule();
+            App.Current.MainWindow = main;
+            main.Show();
         }
 
-        private void Button_Click(object sender, RoutedEventArgs e)
+        private void OpenComposant(object sender, RoutedEventArgs e)
         {
-            if (RadioGamme.IsChecked == true)
-            {
-                Gamme gamme = new Gamme();
-                gamme.nomGamme = TextBoxName.Text;
-                gamme.description = TextBoxDescription.Text;
-                Gamme.CreateGamme(gamme);
-                resetFields();
-            }
-            if (RadioModule.IsChecked == true)
-            {
-                Module module = new Module();
-                module.nomModule = TextBoxName.Text;
-                module.description = TextBoxDescription.Text;
-                Module.CreateModule(module);
-                resetFields();
-            }
-            if (RadioComposant.IsChecked == true)
-            {
-                Composant composant = new Composant();
-                composant.nomComposant = TextBoxName.Text;
-                composant.description = TextBoxDescription.Text;
-                Composant.CreateComposant(composant);
-                resetFields();
-            }
+            FenCreationComposant main = new FenCreationComposant();
+            App.Current.MainWindow = main;
+            main.Show();
+        }
+
+        private void OpenGamme(object sender, RoutedEventArgs e)
+        {
+            FenCreationGamme main = new FenCreationGamme();
+            App.Current.MainWindow = main;
+            main.Show();
         }
     }
 }

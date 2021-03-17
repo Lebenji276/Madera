@@ -46,7 +46,8 @@ namespace Madera.Classe
                 var values = new List<KeyValuePair<string, string>>
                 {
                     new KeyValuePair<string, string>("nomComposant", composant.nomComposant),
-                    new KeyValuePair<string, string>("description",composant.description)
+                    new KeyValuePair<string, string>("description",composant.description),
+                    new KeyValuePair<string, string>("unité",composant.unité)
                 };
 
                 HttpResponseMessage response = await client.PostAsync(

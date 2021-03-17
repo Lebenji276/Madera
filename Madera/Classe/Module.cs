@@ -63,6 +63,11 @@ namespace Madera.Classe
                     new KeyValuePair<string, string>("description",module.description)
                 };
 
+                //var valuesComposants = new List<KeyValuePair<string, Composant[]>>
+                //{
+                 //   new KeyValuePair<string,Composant[]>("composants",module.composants)
+                //};
+
                 HttpResponseMessage response = await client.PostAsync(
                     "http://localhost:5000/module",
                     new FormUrlEncodedContent(values)
