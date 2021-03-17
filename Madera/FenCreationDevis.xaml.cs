@@ -12,6 +12,12 @@ namespace Madera
         public FenCreationDevis()
         {
             InitializeComponent();
+            getClients();
+            
+        }
+
+        private void getClients()
+        {
             var toto = Client.GetAllClient();
             ComboClients.ItemsSource = toto.Result;
             var modules = Module.GetAllModule();
@@ -19,16 +25,8 @@ namespace Madera
             ComModules.ItemsSource = modules.Result;
             ComboComposants.Items.Add("Angle entrant");
             ComboComposants.Items.Add("Angle sortant");
-            //try
-            //{
-                var gammes = Gamme.GetAllGammes();
-                ComboGammes.ItemsSource = gammes.Result;
-            //}
-            //catch (AggregateException e)
-            //{
-              //  Console.WriteLine(e);
-            //}
-            
+            var gammes = Gamme.GetAllGammes();
+            ComboGammes.ItemsSource = gammes.Result;
         }
     }
 }

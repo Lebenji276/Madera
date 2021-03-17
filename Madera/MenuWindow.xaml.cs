@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Madera.Classe;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Runtime.CompilerServices;
@@ -69,6 +70,22 @@ namespace Madera
             App.Current.MainWindow = agenda;
             this.Close();
             agenda.Show();
+        }
+
+        void OnClick1(object sender, RoutedEventArgs e)
+        {
+            FenSoumissionProduit main = new FenSoumissionProduit();
+            App.Current.MainWindow = main;
+            this.Close();
+            main.Show();
+        }
+
+        void OnClick2(object sender, RoutedEventArgs e)
+        {
+            FenCreationDevis main = new FenCreationDevis();
+            App.Current.MainWindow = main;
+            this.Close();
+            main.Show();
         }
     }
 }

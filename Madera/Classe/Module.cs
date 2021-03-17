@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace Madera.Classe
 {
-    class Module
+    public class Module
     {
         public string _id { get; set; }
         public Composant[] composants { get; set; }
