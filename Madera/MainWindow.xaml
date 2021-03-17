@@ -12,6 +12,8 @@
         <PasswordBox x:Name="passwordBox" HorizontalAlignment="Center" VerticalAlignment="Center" Width="120"/>
         <Label x:Name="label_1" Content="Label" HorizontalAlignment="Left" Margin="148,362,0,0" VerticalAlignment="Top"/>
         <Label x:Name="label_2" Content="Label" HorizontalAlignment="Left" Margin="406,362,0,0" VerticalAlignment="Top"/>
+        <Button x:Name="btn_valider_Copy" Content="Valider" HorizontalAlignment="Left" Margin="518,246,0,0" Click="OnClick1" VerticalAlignment="Top" ClickMode="Release"/>
+        <Button x:Name="btn_valider_Copy1" Content="Valider" HorizontalAlignment="Left" Margin="679,256,0,0" Click="OnClick1" VerticalAlignment="Top" ClickMode="Release"/>
 
     </Grid>
 </Window>

@@ -21,6 +21,11 @@ namespace Madera
         public DateTime createdAt { get; set; }
         public DateTime updatedAt { get; set; }
 
+        public override string ToString()
+        {
+            return this.first_name;
+        }
+
         public static async Task<Client[]> GetAllClient()
         {
             using (var client = new HttpClient())

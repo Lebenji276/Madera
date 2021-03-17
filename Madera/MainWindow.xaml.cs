@@ -21,12 +21,7 @@ namespace Madera
         }
         void OnClick1(object sender, RoutedEventArgs e)
         {
-            label_1.Content = "User : " + textBox.Text;
-            label_2.Content = "MDP : " + passwordBox.Password;
-
-            var a = 1 + 1;
-
-            MenuWindow main = new MenuWindow();
+            FenSoumissionProduit main = new FenSoumissionProduit();
             App.Current.MainWindow = main;
             this.Close();
             main.Show();
