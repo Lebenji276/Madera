@@ -26,6 +26,13 @@ namespace Madera
             InitializeComponent();
         }
 
+        private void btnRetour_Click(object sender, RoutedEventArgs e)
+        {
+            MenuWindow menu = new MenuWindow();
+            App.Current.MainWindow = menu;
+            Close();
+            menu.Show();
+        }
         private void OpenModule(object sender, RoutedEventArgs e)
         {
             FenCreationModule main = new FenCreationModule();

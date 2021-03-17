@@ -15,6 +15,8 @@ namespace Madera
         public DateTime updatedAt { get; set; }
         public string _id { get; set; }
 
+        public string module { get; set; }
+
         public string description { get; set; }
         public override string ToString()
         {
@@ -45,7 +47,8 @@ namespace Madera
                 var values = new List<KeyValuePair<string, string>>
                 {
                     new KeyValuePair<string, string>("nomGamme", gamme.nomGamme),
-                    new KeyValuePair<string, string>("description",gamme.description)
+                    new KeyValuePair<string, string>("description",gamme.description),
+                    new KeyValuePair<string,string>("modules",gamme.module)
                 };
 
                 HttpResponseMessage response = await client.PostAsync(

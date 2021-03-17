@@ -11,27 +11,25 @@
         <Label Content="Nom :" HorizontalAlignment="Left" Margin="171,68,0,0" VerticalAlignment="Top" FontSize="16"/>
         <TextBox x:Name="TextBoxDescription" HorizontalAlignment="Left" Margin="286,115,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="365" Height="27"/>
         <Label Content="Description :" HorizontalAlignment="Left" Margin="171,112,0,0" VerticalAlignment="Top" FontSize="16"/>
-        <Button Content="Soumettre" HorizontalAlignment="Left" Margin="346,388,0,0" VerticalAlignment="Top" Width="128" FontSize="16" Height="36" Click="createModule"/>
+        <Button Content="Soumettre" HorizontalAlignment="Center" Margin="0,373,0,0" VerticalAlignment="Top" Width="128" FontSize="16" Height="36" Click="createModule" RenderTransformOrigin="0.502,-0.327"/>
         <Label Content="Création d'un module" HorizontalAlignment="Center" Margin="0,15,0,0" VerticalAlignment="Top" FontSize="18"/>
-        <ListView x:Name="ListComposants" Margin="76,170,440,71">
+        <ListView x:Name="ListComposants" Margin="22,170,494,71" Width="284">
             <ListView.View>
                 <GridView>
                     <GridViewColumn/>
                 </GridView>
             </ListView.View>
         </ListView>
-        <ListView x:Name="ListComposantsModule" Margin="450,170,64,71" Width="284">
+        <ListView x:Name="ListComposantsModule" Margin="495,170,21,71" Width="284">
             <ListView.View>
                 <GridView>
                     <GridViewColumn/>
                 </GridView>
             </ListView.View>
         </ListView>
-        <Button HorizontalAlignment="Left" Margin="385,217,0,0" VerticalAlignment="Top" FontSize="50" Width="42" Height="50" Click="AddComposant">
-            <Image Source="images/plus.png" Height="40" Width="40"></Image>
+        <Button Content ="Ajouter" HorizontalAlignment="Center" Margin="0,217,0,0" VerticalAlignment="Top" FontSize="12" Width="91" Height="50" Click="AddComposant">
         </Button>
-        <Button HorizontalAlignment="Left" Margin="385,272,0,0" VerticalAlignment="Top" FontSize="50" Width="42" Height="50" Click="removeComposant">
-            <Image Source="/Images/moins.png" Height="40" Width="40"/>
+        <Button Content="Supprimer" HorizontalAlignment="Center" Margin="0,272,0,0" VerticalAlignment="Top" FontSize="12" Width="91" Height="50" Click="removeComposant">
         </Button>
 
     </Grid>
