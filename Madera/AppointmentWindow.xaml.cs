@@ -19,35 +19,32 @@ namespace Madera
     public partial class AppointmentWindow : Window
     {
         DateTime _date;
-        private Client[] _clients { get; set; }
 
-        public AppointmentWindow(DateTime date, Client[] clients)
+        public AppointmentWindow(DateTime date, Client[] clients, Appointment[] appointments)
         {
             InitializeComponent();
-            this._clients = clients;
-
             lblDate.Content = date.ToLongDateString();
-            comboBox.ItemsSource = _clients;
+            comboBox.ItemsSource = clients;
             _date = date;
-            listBox.ItemsSource = Appointment.GetAppointmentDay(_date).Result;
+            listBox.ItemsSource = appointments;
         }
 
-        private void btnValider_Click(object sender, RoutedEventArgs e)
+        private async void btnValider_Click(object sender, RoutedEventArgs e)
         {
             _date = _date.Add(((DateTime)arrivalTimePicker.SelectedTime).TimeOfDay);
             var client = comboBox.SelectedItem.ToString();
             var titre = textBox.Text;
             var appointment = new Appointment() { name = titre, date = _date, client = client };
-            Appointment.PostAppointment(appointment);
+            await Appointment.PostAppointment(appointment);
             Close();
         }
 
-        private void listBox_SelectionChanged(object sender, RoutedEventArgs e)
+        private async void listBox_SelectionChanged(object sender, RoutedEventArgs e)
         {
             MessageBoxResult messageBoxResult = MessageBox.Show("Voulez-vous supprimer ce rendez-vous", "Comfirmation de suppression", MessageBoxButton.YesNo);
             if (messageBoxResult == MessageBoxResult.Yes)
             {
-                Appointment.DeleteAppointment((listBox.SelectedItem as Appointment)._id);
+               await Appointment.DeleteAppointment((listBox.SelectedItem as Appointment)._id);
             }
             Close();
         }

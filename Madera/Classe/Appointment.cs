@@ -19,36 +19,32 @@ namespace Madera.Classe
 
         public static async Task<Appointment[]> GetAllAppointment()
         {
-            using (var client = new HttpClient())
+            try
             {
-                var response = client.GetAsync("http://localhost:5000/appointement").Result;
-
-                if (response.IsSuccessStatusCode)
-                {
-                    var responseContent = response.Content;
-                    string responseString = responseContent.ReadAsStringAsync().Result;
-                    var listAppointment = JsonConvert.DeserializeObject<Appointment[]>(responseString);
-                    return listAppointment;
-                }
+                HttpResponseMessage response = await App.httpClient.GetAsync("http://localhost:5000/appointement");
+                var responseContent = await response.Content.ReadAsStringAsync();
+                var responseString = JsonConvert.DeserializeObject<Appointment[]>(responseContent);
+                return responseString;
             }
-            return null;
+            catch (HttpRequestException)
+            {
+                throw new Exception("Impossible de récupérer la liste des rendez-vous");
+            }
         }
 
         public static async Task<Appointment[]> GetAppointmentDay(DateTime date)
         {
-            using (var client = new HttpClient())
+            try
             {
-                var response = client.GetAsync("http://localhost:5000/appointement/" + date.ToString("MM-dd-yyyy")).Result;
-
-                if (response.IsSuccessStatusCode)
-                {
-                    var responseContent = response.Content;
-                    string responseString = responseContent.ReadAsStringAsync().Result;
-                    var listAppointment = JsonConvert.DeserializeObject<Appointment[]>(responseString);
-                    return listAppointment;
-                }
+                HttpResponseMessage response = await App.httpClient.GetAsync("http://localhost:5000/appointement/" + date.ToString("MM-dd-yyyy"));
+                var responseContent = await response.Content.ReadAsStringAsync();
+                var responseString = JsonConvert.DeserializeObject<Appointment[]>(responseContent);
+                return responseString;
             }
-            return null;
+            catch (HttpRequestException)
+            {
+                throw new Exception("Impossible de récupérer la liste des rendez-vous");
+            }
         }
 
         public static async Task<Appointment> PostAppointment(Appointment appointment)

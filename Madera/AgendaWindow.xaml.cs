@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Madera.Classe;
+using System;
 using System.Collections.Generic;
 using System.Text;
 using System.Windows;
@@ -26,8 +27,9 @@ namespace Madera
         private async void DateChanged(object sender, RoutedEventArgs e)
         {
             var clients = await Client.GetAllClient();
+            var appointmentDay = await Appointment.GetAppointmentDay((DateTime)(sender as Calendar).SelectedDate);
 
-            AppointmentWindow appointment = new AppointmentWindow((DateTime)(sender as Calendar).SelectedDate, clients);
+            AppointmentWindow appointment = new AppointmentWindow((DateTime)(sender as Calendar).SelectedDate, clients, appointmentDay);
             appointment.ShowDialog();
         }
 
