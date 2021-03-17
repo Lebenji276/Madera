@@ -18,6 +18,7 @@ namespace Madera.Classe
             await this.LogToApiCS();
             await this.synchroniseRoles();
             await this.synchroniseUsers();
+            await this.synchroniseClients();
         }
 
         private async Task<Auth> LogToApiCS()
@@ -38,6 +39,13 @@ namespace Madera.Classe
             var users = await User.getAllUsers(true);
 
             return users;
+        }
+
+        private async Task<Client[]> synchroniseClients()
+        {
+            var clients = await Client.GetAllClientSynchro();
+
+            return clients;
         }
     }
 }

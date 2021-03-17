@@ -24,7 +24,7 @@ namespace Madera
         {
             InitializeComponent();
             var toto = Client.GetAllClient();
-            lvUsers.ItemsSource = toto.Result;
+            lvUsers.ItemsSource = toto;
         }
 
 
