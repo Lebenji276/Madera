@@ -74,12 +74,46 @@ namespace Madera
                     Payment = payment.ToString("c"),
                     Interest = interest.ToString("c"),
                     Balance = balance.ToString("c"),
+                    Sum = (payment + interest).ToString("c")
                 };
                 lvwPayments.Items.Add(data);
             }
-
+            radiobtnCB.Visibility = Visibility.Visible;
+            radiobtnCheque.Visibility = Visibility.Visible;
+            radiobtnVirement.Visibility = Visibility.Visible;
             // Display the total payments.
             lblTotalPayments.Content = total_payments.ToString("c");
+        }
+
+        private void btnPayer_Click(object sender, RoutedEventArgs e)
+        {
+            if (radiobtnCheque.IsChecked == true)
+            {
+                MessageBox.Show("Réceptionez les chèques");
+            }
+            if (radiobtnCB.IsChecked == true)
+            {
+                MessageBox.Show("Utilisez votre lecteur");
+            }
+            if (radiobtnVirement.IsChecked == true)
+            {
+                MessageBox.Show("IBAN : FR7630001007941234567890185 \nCode banque : 30001 \nCode guichet : 00794 \nNuméro de compte: 12345678901 \nClé du RIB: 85");
+            }
+        }
+
+        private void radiobtnCB_Checked(object sender, RoutedEventArgs e)
+        {
+            btnPayer.Visibility = Visibility.Visible;
+        }
+
+        private void radiobtnCheque_Checked(object sender, RoutedEventArgs e)
+        {
+            btnPayer.Visibility = Visibility.Visible;
+        }
+
+        private void radiobtnVirement_Checked(object sender, RoutedEventArgs e)
+        {
+            btnPayer.Visibility = Visibility.Visible;
         }
     }
 }
