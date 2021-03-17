@@ -1,0 +1,64 @@
+﻿<Window x:Class="Madera.PaymentCreditWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Madera"
+        mc:Ignorable="d"
+        Title="PaymentCreditWindow" Height="450" Width="800">
+    <Grid>
+        <ListView Grid.Row="0"
+    Name="lvwPayments" Margin="292,0,0,60">
+            <ListView.ItemContainerStyle>
+                <Style TargetType="ListViewItem">
+                    <Setter Property="HorizontalContentAlignment"
+            Value="Stretch" />
+                </Style>
+            </ListView.ItemContainerStyle>
+            <ListView.View>
+                <GridView>
+                    <GridViewColumn Header="n°" Width="Auto"
+                DisplayMemberBinding="{Binding Path=Period}"/>
+
+                    <GridViewColumn Header="Paiement (sans intérêt)" Width="Auto">
+                        <GridViewColumn.CellTemplate>
+                            <DataTemplate>
+                                <TextBlock Text="{Binding Payment}"
+                            TextAlignment="Right"/>
+                            </DataTemplate>
+                        </GridViewColumn.CellTemplate>
+                    </GridViewColumn>
+
+                    <GridViewColumn Header="Intérêt" Width="Auto">
+                        <GridViewColumn.CellTemplate>
+                            <DataTemplate>
+                                <TextBlock Text="{Binding Interest}"
+                            TextAlignment="Right"/>
+                            </DataTemplate>
+                        </GridViewColumn.CellTemplate>
+                    </GridViewColumn>
+
+                    <GridViewColumn Header="Reste à payer" Width="Auto">
+                        <GridViewColumn.CellTemplate>
+                            <DataTemplate>
+                                <TextBlock Text="{Binding Balance}"
+                            TextAlignment="Right"/>
+                            </DataTemplate>
+                        </GridViewColumn.CellTemplate>
+                    </GridViewColumn>
+                </GridView>
+            </ListView.View>
+        </ListView>
+        <Button x:Name="btnGo" Content="Calculer" HorizontalAlignment="Left" Margin="187,232,0,0" VerticalAlignment="Top" Click="btnGo_Click"/>
+        <TextBox x:Name="txtInitialBalance" HorizontalAlignment="Left" Margin="150,26,0,0" VerticalAlignment="Top" Width="120"/>
+        <TextBox x:Name="txtInterestRate" HorizontalAlignment="Left" Margin="150,74,0,0" VerticalAlignment="Top" Width="120"/>
+        <TextBox x:Name="txtPaymentPercent" HorizontalAlignment="Left" Margin="150,122,0,0" VerticalAlignment="Top" Width="120"/>
+        <TextBox x:Name="txtMinPayment" HorizontalAlignment="Left" Margin="150,180,0,0" VerticalAlignment="Top" Width="120"/>
+        <Label x:Name="lblTotalPayments" Content="Label" HorizontalAlignment="Left" Margin="578,374,0,0" VerticalAlignment="Top"/>
+        <Label x:Name="label" Content="Total à payer&#xD;&#xA;sans intérét" HorizontalAlignment="Left" Margin="35,22,0,0" VerticalAlignment="Top"/>
+        <Label x:Name="label_Copy" Content="Taux d'intérêt" HorizontalAlignment="Left" Margin="35,74,0,0" VerticalAlignment="Top"/>
+        <Label x:Name="label1" Content="Taux de paiement" HorizontalAlignment="Left" Margin="35,123,0,0" VerticalAlignment="Top"/>
+        <Label x:Name="label1_Copy" Content="Paiement minimum" HorizontalAlignment="Left" Margin="17,175,0,0" VerticalAlignment="Top"/>
+        <Label x:Name="label1_Copy1" Content="Total à payer" HorizontalAlignment="Left" Margin="457,374,0,0" VerticalAlignment="Top"/>
+    </Grid>
+</Window>
