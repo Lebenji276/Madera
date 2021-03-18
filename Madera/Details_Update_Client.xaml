@@ -5,8 +5,11 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Madera"
         mc:Ignorable="d"
-        Title="Details_Update_Client" Height="429" Width="406">
-    <Grid>
+        Title="Details_Update_Client" Height="495" Width="406">
+    <Grid Margin="0,0,0,-6">
+        <Grid.Background>
+            <ImageBrush ImageSource="/Background.jpg"/>
+        </Grid.Background>
         <Label x:Name="Detail_Title" Content="Details Client" HorizontalAlignment="Center" VerticalAlignment="Top" Width="184" FontWeight="Bold" HorizontalContentAlignment="Center" FontSize="24" Margin="0,8,0,0"/>
         <TextBox x:Name="Detail_client_value_name" HorizontalAlignment="Left" Margin="152,62,0,0" Text="TextBlock" TextWrapping="Wrap" VerticalAlignment="Top" Width="203" HorizontalContentAlignment="Center"/>
         <Label x:Name="Detail_Client_Label_Name" Content="Nom :" HorizontalAlignment="Left" Margin="10,62,0,0" VerticalAlignment="Top" Width="157" HorizontalContentAlignment="Center"/>
@@ -24,5 +27,6 @@
         <Label x:Name="Detail_Client_Label_country" Content="Country :" HorizontalAlignment="Left" Margin="10,302,0,0" VerticalAlignment="Top" Width="157" HorizontalContentAlignment="Center"/>
         <Button Content="Fermer" HorizontalAlignment="Left" Margin="220,347,0,0" VerticalAlignment="Top" Width="100" Click="ClickQuit"/>
         <Button Content="Modifier" HorizontalAlignment="Left" Margin="88,347,0,0" VerticalAlignment="Top" Width="100" Click="ClickModify"/>
+        <Button Content="Supprimer" HorizontalAlignment="Center" Margin="0,400,0,0" VerticalAlignment="Top" Width="100" Click="ClickDelete" Cursor="Hand"/>
     </Grid>
 </Window>

@@ -7,6 +7,9 @@
         mc:Ignorable="d"
         Title="PaymentCreditWindow" Height="450" Width="948">
     <Grid Margin="10,0,0,0">
+        <Grid.Background>
+            <ImageBrush ImageSource="/Background.jpg"/>
+        </Grid.Background>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="801*"/>
             <ColumnDefinition Width="272*"/>

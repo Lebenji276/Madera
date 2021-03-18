@@ -24,6 +24,8 @@ namespace Madera
         {
             InitializeComponent();
 
+            label.Content = "Bonjour " + App.user.prenom + " " + App.user.nom;
+
             if (App.haveConnection)
                 btn_synchro.IsEnabled = true;
             else 

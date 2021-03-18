@@ -7,6 +7,9 @@
         mc:Ignorable="d"
         Title="AppointmentWindow" Height="450" Width="800">
     <Grid>
+        <Grid.Background>
+            <ImageBrush ImageSource="/Background.jpg"/>
+        </Grid.Background>
         <Label x:Name="LblBeforeDate" Content="Rendez-vous du : " HorizontalAlignment="Left" Margin="239,10,0,0" VerticalAlignment="Top"/>
         <Label x:Name="lblDate" Content="" HorizontalAlignment="Left" Margin="346,10,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.263,0.029"/>
         <ComboBox x:Name="comboBox" HorizontalAlignment="Left" Margin="551,177,0,0" VerticalAlignment="Top" Width="120" SelectionChanged="comboBox_SelectionChanged"/>

@@ -7,13 +7,17 @@
         mc:Ignorable="d"
         Title="MenuWindow" Height="450" Width="800">
     <Grid>
-        <Label x:Name="label" Content="Bienvenue" HorizontalAlignment="Center" Margin="0,191,0,0" VerticalAlignment="Top"/>
-        <Button x:Name="btnListClient" Content="Liste Client" HorizontalAlignment="Left" Margin="114,115,0,0" VerticalAlignment="Top" Height="52" Width="117" Click="btnListClient_Click"/>
-        <Button x:Name="btnListModule" Content="Liste Module" HorizontalAlignment="Left" Margin="587,115,0,0" VerticalAlignment="Top" Height="52" Width="117" Click="btnListModule_Click"/>
+        <Grid.Background>
+            <ImageBrush ImageSource="/Background.jpg"/>
+        </Grid.Background>
+        <Label x:Name="label" HorizontalContentAlignment="Center" FontWeight="Bold" Content="Bonjour Léandre Guegan&#xD;&#xA;" HorizontalAlignment="Center" Margin="0,15,0,0" VerticalAlignment="Top" Width="428" FontSize="25"/>
+        <Button x:Name="btnListClient" Content="Liste Client" HorizontalAlignment="Left" Margin="30,42,0,0" VerticalAlignment="Top" Height="52" Width="157" Click="btnListClient_Click"/>
+        <Button x:Name="btnListModule" Content="Liste Module" HorizontalAlignment="Left" Margin="30,107,0,0" VerticalAlignment="Top" Height="52" Width="157" Click="btnListModule_Click"/>
         <Label x:Name="lbl_error_liste_client" Content="" HorizontalAlignment="Left" Margin="47,74,0,0" VerticalAlignment="Top" Width="251" Height="28" Foreground="#DDFF0000" FontWeight="Bold" />
-        <Button x:Name="btnAgenda" Content="Agenda" HorizontalAlignment="Left" Margin="114,313,0,0" VerticalAlignment="Top" Height="52" Width="117" Click="btnAgenda_Click"/>
+        <Button x:Name="btnAgenda" Content="Agenda" HorizontalAlignment="Left" Margin="30,353,0,0" VerticalAlignment="Top" Height="52" Width="157" Click="btnAgenda_Click"/>
         <Button x:Name="btn_synchro" Content="Synchronisation" HorizontalAlignment="Left" Margin="646,20,0,0" VerticalAlignment="Top" Cursor="Hand" x:FieldModifier="public" />
-        <Button x:Name="btnSoumissionProduit" Content="Créer un produit" HorizontalAlignment="Left" Margin="274,313,0,0" VerticalAlignment="Top" Height="52" Width="157" Click="OnClick1" Cursor="Hand"/>
-        <Button x:Name="btnCreationDevis" Content="Créer un devis" HorizontalAlignment="Left" Margin="464,313,0,0" VerticalAlignment="Top" Height="52" Width="157" Click="OnClick2" Cursor="Hand"/>
+        <Button x:Name="btnSoumissionProduit" Content="Créer un produit" HorizontalAlignment="Left" Margin="30,282,0,0" VerticalAlignment="Top" Height="52" Width="157" Click="OnClick1" Cursor="Hand"/>
+        <Button x:Name="btnCreationDevis" Content="Créer un devis" HorizontalAlignment="Left" Margin="30,171,0,0" VerticalAlignment="Top" Height="52" Width="157" Click="OnClick2" Cursor="Hand"/>
+        <Image Margin="288,168,87,168" Stretch="Fill" Source="/madera.png"/>
     </Grid>
 </Window>

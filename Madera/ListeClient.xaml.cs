@@ -20,13 +20,13 @@ namespace Madera
     /// </summary>
     public partial class ListeClient : Page
     {
+        private Client[] clients;
+
         public  ListeClient()
         {
             InitializeComponent();
-            var toto = Client.GetAllClient();
-            lvUsers.ItemsSource = toto;
+            clients = Client.GetAllClient();
+            lvUsers.ItemsSource = clients;
         }
-
-
     }
 }

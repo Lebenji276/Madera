@@ -9,7 +9,10 @@
     <Grid>
         <TabControl>
             <TabItem Header="Général">
-                <Grid Background="#FFE5E5E5">
+                <Grid>
+                    <Grid.Background>
+                        <ImageBrush ImageSource="/Background.jpg"/>
+                    </Grid.Background>
 
                     <Button HorizontalAlignment="Left" Margin="579,363,0,0" VerticalAlignment="Top" Grid.Column="4"/>
                     <Button HorizontalAlignment="Left" Margin="579,25,0,0" VerticalAlignment="Top" Grid.Column="4"/>
