@@ -41,7 +41,7 @@ namespace Madera
                 var gammes = await Gamme.GetAllGammes();
                 var allCompo = await Composant.GetAllComposant();
                 Detail_module_value_gamme.ItemsSource = gammes;
-                Data = new ViewModelModule(gammes, obj.composants, allCompo);
+                Data = new ViewModelModule(gammes, obj.composantsArray, allCompo);
                 this.DataContext = Data;
                 for (int i = 0; i < Detail_module_value_gamme.Items.Count; i++)
                 {
@@ -65,10 +65,14 @@ namespace Madera
         {
             List<String> listestr = new List<String>();
             Module module = new Module();
-            foreach (Composant composant in Detail_module_value_composant.Items)
+            if (Detail_module_value_composant.Items.Count > 0)
             {
-                listestr.Add(composant._id);
+                foreach (Composant composant in Detail_module_value_composant.Items)
+                {
+                    listestr.Add(composant._id);
+                }
             }
+            
             string newJson = JsonConvert.SerializeObject(listestr, Formatting.None);
             _obj.composant = newJson;
             _obj.nomModule = Detail_module_value_name.Text;
@@ -104,9 +108,12 @@ namespace Madera
             //}
 
             this.CollecCompo = new ObservableCollection<Composant>();
-            foreach (Composant composant in Oc)
+            if (Oc != null && Oc.Length > 0)
             {
-                this.CollecCompo.Add(composant);
+                foreach (Composant composant in Oc)
+                {
+                    this.CollecCompo.Add(composant);
+                }
             }
 
             this.CollecAllCompo = new ObservableCollection<Composant>();

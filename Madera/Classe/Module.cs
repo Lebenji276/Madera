@@ -20,7 +20,7 @@ namespace Madera.Classe
         public string nomGamme { get; set; } = "";
         public DateTime createdAt { get; set; }
         public DateTime updatedAt { get; set; }
-        public string description { get; set; } = ""
+        public string description { get; set; } = "";
         public bool isSynchronised { get; set; } = true;
         public bool isDeleted { get; set; } = false;
         public string composant { get; set; }
@@ -111,7 +111,7 @@ namespace Madera.Classe
         public static async Task<Module[]> GetAllModuleSynchro()
         {
             HttpResponseMessage response = await App.httpClient.GetAsync(
-                "http://localhost:5000/module/all"
+                "http://localhost:5000/module/allCs"
             );
             var modules = await response.Content.ReadAsStringAsync();
 
