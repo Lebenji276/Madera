@@ -13,9 +13,10 @@ namespace Madera.Classe
 {
     public class Module
     {
+
         public string _id { get; set; }
         public String[] composants { get; set; }
-        public Composant[] composantsArray { get; set; }
+        public List<Composant> composantsArray { get; set; }
         public string nomModule { get; set; }
         public string nomGamme { get; set; } = "";
         public DateTime createdAt { get; set; }
@@ -27,7 +28,7 @@ namespace Madera.Classe
         public string composantsString
         {
 
-            get => listComposantToString(composantsArray);
+            get => listComposantToString(composants);
         }
 
         public override string ToString()
@@ -50,17 +51,35 @@ namespace Madera.Classe
                 throw new Exception("Impossible de récupérer la liste des modules");
             }
         }
-
-        private string listComposantToString(Composant[] composants)
+        
+        private string listComposantToString(string[] listcomposants)
         {
+            var composants = Composant.GetAllComposant();
+            composantsArray = new List<Composant>();
             string result = "";
-            if (composants != null && composants.Length != 0)
+
+            if (listcomposants != null)
             {
-                foreach (var item in composants)
+                foreach (var com in listcomposants)
                 {
-                    result += item.ToString() + ", ";
+                    foreach (var comp in composants.Result)
+                    {
+                        if (com == comp._id)
+                        {
+                            composantsArray.Add(comp);
+                        }
+                    }
+                }
+
+                if (composantsArray != null && composantsArray.Count != 0)
+                {
+                    foreach (var item in composantsArray)
+                    {
+                        result += item.ToString() + ", ";
+                    }
                 }
             }
+
             
             return result != "" ? result.Substring(0, result.Length - 2) : result;
         }
