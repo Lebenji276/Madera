@@ -1,4 +1,5 @@
 ﻿using Madera.Classe;
+using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -20,9 +21,11 @@ namespace Madera
     public partial class Details_Update_Module : Window
     {
         ViewModelModule Data { get; set; }
+        Module _obj;
         public Details_Update_Module(Module obj)
         {
             InitializeComponent();
+            _obj = obj;
             SetValue(obj);
             SetComboBox(obj);
             this.Show();
@@ -60,7 +63,19 @@ namespace Madera
 
         private void ClickModify(object sender, RoutedEventArgs e)
         {
-            //TODO
+            List<String> listestr = new List<String>();
+            Module module = new Module();
+            foreach (Composant composant in Detail_module_value_composant.Items)
+            {
+                listestr.Add(composant._id);
+            }
+            string newJson = JsonConvert.SerializeObject(listestr, Formatting.None);
+            _obj.composant = newJson;
+            _obj.nomModule = Detail_module_value_name.Text;
+            _obj.nomGamme = Detail_module_value_gamme.SelectedItem.ToString();
+
+            Module.UpdateModule(_obj);
+            Close();
         }
         private void ClickDelete(object sender, RoutedEventArgs e)
         {

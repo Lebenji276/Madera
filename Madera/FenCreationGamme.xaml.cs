@@ -25,9 +25,9 @@ namespace Madera
             initialiseListView();
         }
 
-        public async void initialiseListView()
+        public void initialiseListView()
         {
-            var modules = await Module.GetAllModule();
+            var modules = Module.GetAllModule();
             ListModules.ItemsSource = modules;
         }
 
