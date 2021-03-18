@@ -10,9 +10,9 @@
             <ImageBrush ImageSource="/Background.jpg"/>
         </Grid.Background>
         <Label Content="Soumettre un nouveau produit" HorizontalAlignment="Center" Margin="0,65,0,0" VerticalAlignment="Top" FontSize="18"/>
-        <Button Content="Composant" HorizontalAlignment="Left" Margin="211,217,0,0" VerticalAlignment="Top" FontSize="18" Width="110" Height="35" Click="OpenComposant"/>
-        <Button Content="Module" HorizontalAlignment="Left" Margin="359,217,0,0" VerticalAlignment="Top" FontSize="18" Width="110" Height="35" Click="OpenModule"/>
-        <Button Content="Gamme" HorizontalAlignment="Left" Margin="498,217,0,0" VerticalAlignment="Top" FontSize="18" Width="110" Height="35" Click="OpenGamme"/>
+        <Button Content="Composant" HorizontalAlignment="Left" Margin="165,217,0,0" VerticalAlignment="Top" FontSize="18" Width="142" Height="35" Click="OpenComposant"/>
+        <Button Content="Module" HorizontalAlignment="Left" Margin="333,217,0,0" VerticalAlignment="Top" FontSize="18" Width="142" Height="35" Click="OpenModule"/>
+        <Button Content="Gamme" HorizontalAlignment="Left" Margin="499,217,0,0" VerticalAlignment="Top" FontSize="18" Width="142" Height="35" Click="OpenGamme"/>
         <Button x:Name="btnRetour" Content="Retour" HorizontalAlignment="Left" Margin="10,8,0,0" VerticalAlignment="Top" Click="btnRetour_Click" Cursor="Hand"/>
 
     </Grid>
