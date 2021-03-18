@@ -88,7 +88,7 @@
         <Label x:Name="lbl_error_Interet" Content="" HorizontalAlignment="Left" Margin="21,56,0,0" VerticalAlignment="Top" Height="24" Width="239" Foreground="#FFE00000" FontWeight="Bold"/>
         <Label x:Name="lbl_error_TauxPaiement" Content="" HorizontalAlignment="Left" Margin="21,106,0,0" VerticalAlignment="Top" Height="24" Width="239" Foreground="#FFE00000" FontWeight="Bold"/>
         <Label x:Name="lbl_error_PaiementMini" Content="" HorizontalAlignment="Left" Margin="21,159,0,0" VerticalAlignment="Top" Height="24" Width="249" Foreground="#FFE00000" FontWeight="Bold"/>
-        <Button x:Name="btnCreate" Content="Valider le devis" HorizontalAlignment="Left" Margin="292,151,0,0"  VerticalAlignment="Top" Visibility="Hidden" Click="btnPayer_Click" Cursor="Hand" Grid.Row="1"/>
+        <Button x:Name="btnCreate" Content="Valider le devis" HorizontalAlignment="Left" Margin="292,151,0,0"  VerticalAlignment="Top" Visibility="Hidden" Click="btnCreate_Click" Cursor="Hand" Grid.Row="1"/>
 
     </Grid>
 </Window>

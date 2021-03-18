@@ -37,7 +37,8 @@ namespace Madera
 
         private void btnPayer_Click(object sender, RoutedEventArgs e)
         {
-            PaymentCreditWindow payment = new PaymentCreditWindow();
+            
+            PaymentCreditWindow payment = new PaymentCreditWindow(/*devis*/);
             App.Current.MainWindow = payment;
             payment.ShowDialog();
         }
