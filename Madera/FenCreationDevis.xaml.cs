@@ -23,7 +23,7 @@ namespace Madera
             menu.Show();
         }
 
-        private void getClients(Module[] listmodules)
+        private async void getClients(Module[] listmodules)
         {
             var toto = Client.GetAllClient();
             ComboClients.ItemsSource = toto;
@@ -31,8 +31,8 @@ namespace Madera
             ComModules.ItemsSource = listmodules;
             ComboComposants.Items.Add("Angle entrant");
             ComboComposants.Items.Add("Angle sortant");
-            var gammes = Gamme.GetAllGammes();
-            ComboGammes.ItemsSource = gammes.Result;
+            var gammes = await Gamme.GetAllGammes();
+            ComboGammes.ItemsSource = gammes;
         }
     }
 }

@@ -37,6 +37,7 @@ namespace Madera
             {
                 var gammes = await Gamme.GetAllGammes();
                 var allCompo = await Composant.GetAllComposant();
+                Detail_module_value_gamme.ItemsSource = gammes;
                 Data = new ViewModelModule(gammes, obj.composants, allCompo);
                 this.DataContext = Data;
                 for (int i = 0; i < Detail_module_value_gamme.Items.Count; i++)
@@ -81,11 +82,11 @@ namespace Madera
 
         public ViewModelModule(Gamme[] Og, Composant[] Oc, Composant[] Oac)
         {
-            this.CollecGamme = new ObservableCollection<Gamme>();
-            foreach (Gamme gamme in Og)
-            {
-                this.CollecGamme.Add(gamme);
-            }
+            //this.CollecGamme = new ObservableCollection<Gamme>();
+            //foreach (Gamme gamme in Og)
+            //{
+            //    this.CollecGamme.Add(gamme);
+            //}
 
             this.CollecCompo = new ObservableCollection<Composant>();
             foreach (Composant composant in Oc)

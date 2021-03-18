@@ -25,10 +25,10 @@ namespace Madera
             initialiseListView();
         }
 
-        public void initialiseListView()
+        public async void initialiseListView()
         {
-            var modules = Module.GetAllModule();
-            ListModules.ItemsSource = modules.Result;
+            var modules = await Module.GetAllModule();
+            ListModules.ItemsSource = modules;
         }
 
         public bool testSaisie()
@@ -82,7 +82,7 @@ namespace Madera
             }
         }
 
-        private void createGamme(object sender, RoutedEventArgs e)
+        private async void createGamme(object sender, RoutedEventArgs e)
         {
             if (testSaisie() == false)
             {
@@ -107,7 +107,7 @@ namespace Madera
             gamme.module = newJson;
             gamme.nomGamme= TextBoxName.Text;
             gamme.description = TextBoxDescription.Text;
-            Gamme.CreateGamme(gamme);
+            await Gamme.CreateGamme(gamme);
             resetFields();
         }
     }
