@@ -14,7 +14,7 @@
                         <ImageBrush ImageSource="/Background.jpg"/>
                     </Grid.Background>
 
-                    <Button HorizontalAlignment="Left" Margin="579,363,0,0" VerticalAlignment="Top" Grid.Column="4"/>
+                    <Button HorizontalAlignment="Left" Margin="579,363,0,0" VerticalAlignment="Top" Grid.Column="4" Click="createDevis"/>
                     <Button HorizontalAlignment="Left" Margin="579,25,0,0" VerticalAlignment="Top" Grid.Column="4"/>
                     <TextBox HorizontalAlignment="Left" Margin="253,135,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="133" Grid.Column="4"/>
                     <TextBox HorizontalAlignment="Left" Margin="253,175,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="133" Grid.Column="4"/>
@@ -106,7 +106,7 @@
                     <Label Content="Longueur" HorizontalAlignment="Left" Margin="90,100,0,0" VerticalAlignment="Top" Grid.Column="3"/>
                     <ComboBox x:Name="ComboComposants" HorizontalAlignment="Left" Margin="39,135,0,0" VerticalAlignment="Top" Width="273" Grid.RowSpan="2" Grid.Column="2" Grid.ColumnSpan="2"/>
                     <Button Content="Supprimer" Grid.Column="3" HorizontalAlignment="Left" Margin="160,42,0,0" Grid.Row="1" VerticalAlignment="Top"/>
-                    <Button Content="Ajouter" Grid.Column="3" HorizontalAlignment="Left" Margin="92,42,0,0" Grid.Row="1" VerticalAlignment="Top" Width="59"/>
+                    <Button Content="Ajouter" Grid.Column="3" HorizontalAlignment="Left" Margin="40,42,0,0" Grid.Row="1" VerticalAlignment="Top" Width="109"/>
                     <ComboBox x:Name="ComModules" Grid.Column="3" HorizontalAlignment="Left" Margin="46,34,0,0" VerticalAlignment="Top" Width="171"/>
                 </Grid>
             </TabItem>

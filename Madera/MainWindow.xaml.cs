@@ -39,6 +39,17 @@ namespace Madera
             image.Width = 350;
             grid_principal.Children.Add(image);
         }
+
+        private void createDevis(object sender, RoutedEventArgs e)
+        {
+            Devis devis = new Devis();
+            Client client = new Client();
+            client.first_name = "Léandre";
+            devis.client = client._id;
+            devis.nomProjet = "projet test";
+            Devis.CreateDevis(devis);
+
+        }
         private void resetErrors()
         {
             lbl_error_login.Content = "";
