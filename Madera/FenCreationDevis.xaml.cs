@@ -31,8 +31,8 @@ namespace Madera
             ComModules.ItemsSource = listmodules;
             ComboComposants.Items.Add("Angle entrant");
             ComboComposants.Items.Add("Angle sortant");
-            var gammes = await Gamme.GetAllGammes();
-            ComboGammes.ItemsSource = gammes;
+            //var gammes = await Gamme.GetAllGammes();
+            //ComboGammes.ItemsSource = gammes;
         }
 
         private void btnPayer_Click(object sender, RoutedEventArgs e)

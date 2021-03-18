@@ -83,10 +83,12 @@
         <RadioButton x:Name="radiobtnCB" Content="CB" HorizontalAlignment="Left" Margin="86,115,0,0" VerticalAlignment="Top" Checked="radiobtnCB_Checked" Visibility="Hidden" Grid.Row="1"/>
         <RadioButton x:Name="radiobtnCheque" Content="Chèque" HorizontalAlignment="Left" Margin="86,138,0,0" VerticalAlignment="Top" Checked="radiobtnCheque_Checked"  Visibility="Hidden" Grid.Row="1"/>
         <RadioButton x:Name="radiobtnVirement" Content="Virement" HorizontalAlignment="Left" Margin="86,161,0,0" VerticalAlignment="Top" Checked="radiobtnVirement_Checked" Visibility="Hidden" Grid.Row="1"/>
-        <Button x:Name="btnPayer" Content="Payer" HorizontalAlignment="Left" Margin="209,151,0,0" VerticalAlignment="Top" Click="btnPayer_Click" Visibility="Hidden" Grid.Row="1"/>
+        <Button x:Name="btnPayer" Content="Payer" HorizontalAlignment="Left" Margin="209,151,0,0" VerticalAlignment="Top" Click="btnPayer_Click" Visibility="Hidden" Grid.Row="1" Cursor="Hand"/>
         <Label x:Name="lbl_error_Total" Content="" HorizontalAlignment="Left" Margin="21,2,0,0" VerticalAlignment="Top" Height="24" Width="239" Foreground="#FFE00000" FontWeight="Bold"/>
         <Label x:Name="lbl_error_Interet" Content="" HorizontalAlignment="Left" Margin="21,56,0,0" VerticalAlignment="Top" Height="24" Width="239" Foreground="#FFE00000" FontWeight="Bold"/>
         <Label x:Name="lbl_error_TauxPaiement" Content="" HorizontalAlignment="Left" Margin="21,106,0,0" VerticalAlignment="Top" Height="24" Width="239" Foreground="#FFE00000" FontWeight="Bold"/>
         <Label x:Name="lbl_error_PaiementMini" Content="" HorizontalAlignment="Left" Margin="21,159,0,0" VerticalAlignment="Top" Height="24" Width="249" Foreground="#FFE00000" FontWeight="Bold"/>
+        <Button x:Name="btnCreate" Content="Valider le devis" HorizontalAlignment="Left" Margin="292,151,0,0"  VerticalAlignment="Top" Visibility="Hidden" Click="btnPayer_Click" Cursor="Hand" Grid.Row="1"/>
+
     </Grid>
 </Window>

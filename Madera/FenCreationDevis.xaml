@@ -5,11 +5,11 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Madera"
         mc:Ignorable="d"
-        Title="FenCreationDevis" Height="450" Width="800">
+        Title="FenCreationDevis" Height="504" Width="800">
     <Grid>
         <TabControl>
-            <TabItem Header="Général">
-                <Grid>
+            <TabItem Header="Général" Height="24" Margin="-2,-2,-2,0" VerticalAlignment="Top">
+                <Grid Height="456">
                     <Grid.Background>
                         <ImageBrush ImageSource="/Background.jpg"/>
                     </Grid.Background>
@@ -24,8 +24,8 @@
                     <Label Content="Référence du projet" HorizontalAlignment="Left" Margin="130,171,0,0" VerticalAlignment="Top" Grid.Column="4"/>
                     <Label Content="Client" HorizontalAlignment="Left" Margin="130,214,0,0" VerticalAlignment="Top" Grid.Column="4"/>
                     <Label Content="Date" HorizontalAlignment="Left" Margin="130,255,0,0" VerticalAlignment="Top" Grid.Column="4"/>
-                    <Button x:Name="btnRetour" Content="Menu" HorizontalAlignment="Left" Margin="10,357,0,0" VerticalAlignment="Top" Click="btnRetour_Click" Cursor="Hand" Grid.ColumnSpan="3"/>
-                    <Button x:Name="btnPayer" Content="Payer" HorizontalAlignment="Left" Margin="0,357,0,0" VerticalAlignment="Top" Click="btnPayer_Click" Cursor="Hand" Grid.ColumnSpan="2" Grid.Column="3"/>
+                    <Button x:Name="btnRetour" Content="Menu" HorizontalAlignment="Left" Margin="10,384,0,0" VerticalAlignment="Top" Click="btnRetour_Click" Cursor="Hand" Grid.ColumnSpan="3"/>
+                    <Button x:Name="btnPayer" Content="Payer" HorizontalAlignment="Left" Margin="0,357,0,13" Click="btnPayer_Click" Cursor="Hand" Grid.ColumnSpan="2" Grid.Column="3"/>
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="30*"/>
                         <ColumnDefinition Width="47*"/>
@@ -35,7 +35,7 @@
                     </Grid.ColumnDefinitions>
                 </Grid>
             </TabItem>
-            <TabItem Header="Gammes">
+            <TabItem Header="Gammes" Height="22" Margin="-2,-2,-2,0" VerticalAlignment="Top">
                 <Grid Background="#FFE5E5E5">
                     <ComboBox x:Name="ComboGammes" HorizontalAlignment="Left" Margin="10,25,0,0" VerticalAlignment="Top" Width="246"/>
                     <ListView x:Name="listeModules" Margin="10,72,538,19">
@@ -60,7 +60,7 @@
                     <Label Content="Finition extérieure" HorizontalAlignment="Left" Margin="290,236,0,0" VerticalAlignment="Top"/>
                 </Grid>
             </TabItem>
-            <TabItem Header="Modules">
+            <TabItem Header="Modules" HorizontalAlignment="Left" Margin="-2,-2,0,0" Width="62">
                 <Grid Background="#FFE5E5E5">
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="15*"/>
