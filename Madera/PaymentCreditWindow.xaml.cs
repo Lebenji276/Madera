@@ -123,7 +123,7 @@ namespace Madera
                 MessageBox.Show("IBAN : FR7630001007941234567890185 \nCode banque : 30001 \nCode guichet : 00794 \nNuméro de compte: 12345678901 \nClé du RIB: 85");
             }
 
-            PaymentData paymentData = new PaymentData() { Balance = txtInitialBalance.Text,Interest = txtInterestRate.Text,Payment = txtPaymentPercent.Text,Period = txtMinPayment.Text};
+            PaymentData paymentData = new PaymentData() { Balance = txtInitialBalance.Text, Interest = txtInterestRate.Text, Payment = txtPaymentPercent.Text, Period = txtMinPayment.Text, Sum = lblTotalPayments.Content.ToString() };
             btnCreate.Visibility = Visibility.Visible;
         }
 
