@@ -49,11 +49,11 @@ namespace Madera
             }
         }
 
-        private async void btnListModule_Click(object sender, RoutedEventArgs e)
+        private void btnListModule_Click(object sender, RoutedEventArgs e)
         {
             try
             {
-                var modules = await Module.GetAllModule();
+                var modules = Module.GetAllModule();
 
                 ListeModuleWindow listeModule = new ListeModuleWindow(modules);
                 App.Current.MainWindow = listeModule;
@@ -82,18 +82,18 @@ namespace Madera
             main.Show();
         }
 
-        async void  OnClick2(object sender, RoutedEventArgs e)
+        void  OnClick2(object sender, RoutedEventArgs e)
         {
-            var modules = await Module.GetAllModule();
+            var modules = Module.GetAllModule();
             FenCreationDevis main = new FenCreationDevis(modules);
             App.Current.MainWindow = main;
             this.Close();
             main.Show();
         }
 
-        private async void btnListGamme_Click(object sender, RoutedEventArgs e)
+        private void btnListGamme_Click(object sender, RoutedEventArgs e)
         {
-            var modules = await Module.GetAllModule();
+            var modules = Module.GetAllModule();
 
             ListeGamme listeGamme = new ListeGamme(modules);
             App.Current.MainWindow = listeGamme;

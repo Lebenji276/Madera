@@ -19,6 +19,7 @@ namespace Madera.Classe
             await this.synchroniseRoles();
             await this.synchroniseUsers();
             await this.synchroniseClients();
+            await synchroniseModules();
         }
 
         private async Task<Auth> LogToApiCS()
@@ -48,12 +49,20 @@ namespace Madera.Classe
             return clients;
         }
 
+        private async Task<Module[]> synchroniseModules()
+        {
+            var modules = await Module.GetAllModuleSynchro();
+
+            return modules;
+        }
+
         public static async Task<bool> launchSyncroToAPI()
         {
             try
             {
                 await synchroRolesToAPI();
                 await synchroClientsToAPI();
+                await synchroModulesToAPI();
                 return true;
             } catch (Exception)
             {
@@ -69,6 +78,10 @@ namespace Madera.Classe
         private static async Task<bool> synchroClientsToAPI()
         {
             return await Client.synchroClientsToAPI();
+        }
+        private static async Task<bool> synchroModulesToAPI()
+        {
+            return await Module.synchroModulesToAPI();
         }
     }
 }
