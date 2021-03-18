@@ -37,6 +37,7 @@ namespace Madera
             {
                 var path = Json.getPath("clients");
                 Client[] clients = JsonConvert.DeserializeObject<Client[]>(File.ReadAllText(path));
+                clients = clients.Where(c => c.isDeleted == false).ToArray();
 
                 return clients;
             }
@@ -44,6 +45,46 @@ namespace Madera
             {
                 throw new Exception("Impossible de récupérer la liste des clients");
             }
+        }
+
+        public static Client GetClientById(string id)
+        {
+            try
+            {
+                var path = Json.getPath("clients");
+                Client[] clients = JsonConvert.DeserializeObject<Client[]>(File.ReadAllText(path));
+                var client = clients.FirstOrDefault(client => client._id == id);
+
+                return client;
+            }
+            catch (HttpRequestException)
+            {
+                throw new Exception("Impossible de récupérer la liste des clients");
+            }
+        }
+
+        public static Client updateClient(Client client)
+        {
+            var path = Json.getPath("clients");
+            Client[] clients = JsonConvert.DeserializeObject<Client[]>(File.ReadAllText(path));
+            var cli = clients.FirstOrDefault(c => c._id == client._id);
+            cli = client;
+
+            List<Client> clientsToRewrite = new List<Client>();
+            foreach(var c in clients)
+            {
+                if(c._id != cli._id)
+                {
+                    clientsToRewrite.Add(c);
+                }
+            }
+
+            clientsToRewrite.Insert(0, cli);
+
+            string newJson = JsonConvert.SerializeObject(clientsToRewrite, Formatting.None);
+            Json.writeJson("clients", newJson, true);
+
+            return client;
         }
 
         public static async Task<Client[]> GetAllClientSynchro()
@@ -63,6 +104,7 @@ namespace Madera
 
         public static void synchroClientsBase(string clients)
         {
+            // clients = api
             var path = Json.writeJson("clients", clients);
             List<Client> newArrayRoles = new List<Client>();
 
@@ -76,7 +118,8 @@ namespace Madera
                 // On parcourt tout les roles de l'api
                 foreach (var client in clientsUnserialized)
                 {
-                    // On cherche si le role est contenu dans notre fichier
+                    // Client = client de l'api
+                    // On cherche si le client est contenu dans notre fichier
                     var searchedClient = clientsJsonFile.SingleOrDefault(item => item._id == client._id);
                     client.isDeleted = searchedClient.isDeleted ? searchedClient.isDeleted : false;
                     client.isSynchronised = searchedClient.isSynchronised ? searchedClient.isSynchronised : false;

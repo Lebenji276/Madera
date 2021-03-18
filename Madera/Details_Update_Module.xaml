@@ -7,6 +7,9 @@
         mc:Ignorable="d"
         Title="Details_Update_Module" Height="407" Width="406">
     <Grid>
+        <Grid.Background>
+            <ImageBrush ImageSource="/Background.jpg"/>
+        </Grid.Background>
         <Label x:Name="Detail_Title" Content="Details Module" HorizontalAlignment="Center" VerticalAlignment="Top" Width="184" FontWeight="Bold" HorizontalContentAlignment="Center" FontSize="24" Margin="0,8,0,0"/>
         <TextBox x:Name="Detail_module_value_name" HorizontalAlignment="Left" Margin="152,62,0,0" Text="TextBlock" TextWrapping="Wrap" VerticalAlignment="Top" Width="203" HorizontalContentAlignment="Center"/>
         <Label x:Name="Detail_module_Label_Name" Content="Nom :" HorizontalAlignment="Left" Margin="10,62,0,0" VerticalAlignment="Top" Width="157" HorizontalContentAlignment="Center"/>

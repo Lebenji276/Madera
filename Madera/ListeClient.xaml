@@ -9,6 +9,9 @@
       Title="ListeClient">
 
     <Grid>
+        <Grid.Background>
+            <ImageBrush ImageSource="/Background.jpg"/>
+        </Grid.Background>
         <ListView Name="lvUsers">
             <ListView.View>
                 <GridView>

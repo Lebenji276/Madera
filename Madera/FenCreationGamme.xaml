@@ -7,6 +7,9 @@
         mc:Ignorable="d"
         Title="FenCreationGamme" Height="450" Width="800">
     <Grid>
+        <Grid.Background>
+            <ImageBrush ImageSource="/Background.jpg"/>
+        </Grid.Background>
         <TextBox x:Name="TextBoxName" HorizontalAlignment="Left" Margin="286,71,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="365" Height="27"/>
         <Label Content="Nom :" HorizontalAlignment="Left" Margin="171,68,0,0" VerticalAlignment="Top" FontSize="16"/>
         <TextBox x:Name="TextBoxDescription" HorizontalAlignment="Left" Margin="286,115,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="365" Height="27"/>

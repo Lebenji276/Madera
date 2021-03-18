@@ -38,7 +38,7 @@ namespace Madera
         {
             ListViewItem item = sender as ListViewItem;
             Client obj = (Client)item.Content;
-            new Details_Update_Client(obj);
+            new Details_Update_Client(obj, this);
         }
     }
 }
