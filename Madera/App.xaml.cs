@@ -54,7 +54,7 @@ namespace Madera
 
         public static async void launchSynchroToAPI()
         {
-            System.Timers.Timer timer = new System.Timers.Timer(TimeSpan.FromSeconds(10).TotalMilliseconds);
+            System.Timers.Timer timer = new System.Timers.Timer(TimeSpan.FromSeconds(30).TotalMilliseconds);
             timer.AutoReset = true;
             timer.Elapsed += new System.Timers.ElapsedEventHandler(launchSynchroEveryTime);
             timer.Start();

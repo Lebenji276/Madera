@@ -50,7 +50,7 @@ namespace Madera
                     {
                         Detail_module_value_gamme.SelectedItem = item;
                     }
-                }*/
+                }
             }
             catch (Exception error)
             {
