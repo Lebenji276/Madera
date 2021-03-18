@@ -82,6 +82,8 @@ namespace Madera
 
             }
 
+            _obj.isSynchronised = false;
+
             Module.UpdateModule(_obj);
             Close();
         }

@@ -51,7 +51,20 @@ namespace Madera.Classe
                 throw new Exception("Impossible de récupérer la liste des modules");
             }
         }
-        
+
+        public static Module[] getModulesByDevis(string[] moduleIds)
+        {
+            var allModules = Module.GetAllModule();
+            List<Module> modulesSearches = new List<Module>();
+
+            foreach (var id in moduleIds)
+            {
+                modulesSearches.Add(allModules.SingleOrDefault(mod => mod._id == id));
+            }
+
+            return modulesSearches.ToArray();
+        }
+
         private string listComposantToString(string[] listcomposants)
         {
             var composants = Composant.GetAllComposant();
@@ -213,6 +226,7 @@ namespace Madera.Classe
             {
                 // On convertit en JSON
                 var clientToSendJSON = JsonConvert.SerializeObject(module, Formatting.None);
+                Console.WriteLine(clientToSendJSON);
 
                 // On le delete si il a été delete
                 if (module.isDeleted)
@@ -228,6 +242,7 @@ namespace Madera.Classe
                 {
                     // On essaye de récup par client id voir si il existe
                     var get = await App.httpClient.GetAsync("http://localhost:5000/module/" + module._id);
+                    Console.WriteLine(get);
                     HttpResponseMessage create;
 
                     var values = new List<KeyValuePair<string, string>>

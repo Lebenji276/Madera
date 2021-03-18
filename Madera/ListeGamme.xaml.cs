@@ -31,13 +31,19 @@ namespace Madera
         {
             var listeGammes = await Gamme.GetAllGammes();
 
-            foreach (var compo in listeGammes)
+            if (listeGammes != null)
             {
-                foreach (var comp in compo.modules)
+                foreach (var compo in listeGammes)
                 {
-                    if (! String.IsNullOrEmpty(comp.nomComposant))
+                    if (compo.composants != null)
                     {
-                        compo.listmodulesString += comp.nomComposant + ", ";
+                        foreach (var comp in compo.composants)
+                        {
+                            if (!String.IsNullOrEmpty(comp.nomComposant))
+                            {
+                                compo.listmodulesString += comp.nomComposant + ", ";
+                            }
+                        }
                     }
                 }
             }

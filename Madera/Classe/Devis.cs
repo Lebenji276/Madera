@@ -37,10 +37,18 @@ namespace Madera.Classe
 
                 return devis;
             }
-            catch (HttpRequestException)
+            catch (Exception)
             {
                 throw new Exception("Impossible de récupérer la liste des devis");
             }
+        }
+
+        public static Devis[] getDevisByClientId(string idClient)
+        {
+            var devis = Devis.GetAllDevis();
+            devis = devis.Where(d => d.client == idClient).ToArray();
+
+            return devis;
         }
 
         public static Devis GetDevisById(string id)

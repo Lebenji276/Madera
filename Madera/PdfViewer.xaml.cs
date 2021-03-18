@@ -9,6 +9,8 @@ using System.Drawing;
 using System.Windows;
 using Syncfusion.Pdf.Grid;
 using System.Data;
+using System.IO;
+using Madera.Classe;
 
 namespace Madera
 {
@@ -19,19 +21,27 @@ namespace Madera
     {
         private XpsDocument xpsDocument;
 
-        public PdfViewer()
+        public PdfViewer(Devis devis, Client client)
         {
             InitializeComponent();
             ComponentInfo.SetLicense("FREE-LIMITED-KEY");
-            GeneratePdf();
-            using (var document = GemBox.Pdf.PdfDocument.Load("D:\\Scolarité\\Cesi\\Projets\\Livrable_3\\Client_Lourd\\Madera\\pdf\\Output.pdf"))
+            GeneratePdf(devis, client);
+
+            string currentDir = Directory.GetCurrentDirectory();
+            string[] currentDirSplitted = currentDir.Split("\\bin");
+            var filename = devis.nomProjet + devis.dateDevis.Trim().Replace("/", "_").Replace(":", "");
+            var fullPath = currentDirSplitted[0] + "\\pdf\\" + filename + ".pdf";
+
+            using (var document = GemBox.Pdf.PdfDocument.Load(fullPath))
             {
                 this.xpsDocument = document.ConvertToXpsDocument(GemBox.Pdf.SaveOptions.Xps);
                 this.DocumentViewer.Document = this.xpsDocument.GetFixedDocumentSequence();
             }
+            
+            this.Show();
         }
 
-        public void GeneratePdf()
+        public void GeneratePdf(Devis devis, Client client)
         {
             using (Syncfusion.Pdf.PdfDocument document = new Syncfusion.Pdf.PdfDocument())
             {
@@ -53,15 +63,15 @@ namespace Madera
                 graphics.DrawString("CP Ville", fontText, PdfBrushes.Black, new PointF(0, 80));
                 graphics.DrawString("Telephone", fontText, PdfBrushes.Black, new PointF(0, 100));
 
-                graphics.DrawString("Reference :", fontText, PdfBrushes.Black, new PointF(0, 200));
-                graphics.DrawString("Date :", fontText, PdfBrushes.Black, new PointF(0, 220));
-                graphics.DrawString("Numeros Client :", fontText, PdfBrushes.Black, new PointF(0, 240));
+                graphics.DrawString("Reference : " + devis.referenceProjet, fontText, PdfBrushes.Black, new PointF(0, 200));
+                graphics.DrawString("Date : " + devis.dateDevis, fontText, PdfBrushes.Black, new PointF(0, 220));
+                graphics.DrawString("Numeros Client : " + client.phone, fontText, PdfBrushes.Black, new PointF(0, 240));
 
-                graphics.DrawString("Nom Client", fontTitleSecond, PdfBrushes.Black, new PointF(330, 130));
-                graphics.DrawString("Adresse :", fontText, PdfBrushes.Black, new PointF(330, 160));
-                graphics.DrawString("CP Ville :", fontText, PdfBrushes.Black, new PointF(330, 180));
+                graphics.DrawString(client.first_name, fontTitleSecond, PdfBrushes.Black, new PointF(330, 130));
+                graphics.DrawString("Adresse : " + client.address, fontText, PdfBrushes.Black, new PointF(330, 160));
+                graphics.DrawString("CP Ville : " + client.postal_code + ", "+ client.city, fontText, PdfBrushes.Black, new PointF(330, 180));
 
-                graphics.DrawString("Intitule : Description du projet et/ou Produit facture", fontText, PdfBrushes.Black, new PointF(0, 300));
+                graphics.DrawString("Intitule : " + devis.nomProjet, fontText, PdfBrushes.Black, new PointF(0, 300));
 
                 //Create a PdfGrid.
                 PdfGrid pdfGrid = new PdfGrid();
@@ -73,9 +83,24 @@ namespace Madera
                 dataTable.Columns.Add("Prix Unitaire HT");
                 dataTable.Columns.Add("Prix Total HT");
 
-                dataTable.Rows.Add("4", "Mur en Bois", "100.54 euros" ,"402.16 euros" );
-                dataTable.Rows.Add("4", "Mur en Bois", "100.54 euros", "402.16 euros");
-                dataTable.Rows.Add("4", "Mur en Bois", "100.54 euros", "402.16 euros");
+                var modules = Module.getModulesByDevis(devis.modules);
+
+                if (modules.Length == 0)
+                {
+                    dataTable.Rows.Add("",
+                        "",
+                        "",
+                        "");
+                }
+
+                foreach (var module in modules)
+                {
+                    dataTable.Rows.Add("1", 
+                        module.nomModule + (module.nomGamme != "" ? " / " + module.nomGamme : ""), 
+                        "100.54 euros", 
+                        "402.16 euros");
+                }
+
                 //Assign data source.
                 pdfGrid.DataSource = dataTable;
                 //Draw grid to the page of PDF document.
@@ -101,12 +126,13 @@ namespace Madera
                 graphics.DrawString("Date :", fontText, PdfBrushes.Black, new PointF(0, startDraw + 140));
                 graphics.DrawString("Signature :", fontText, PdfBrushes.Black, new PointF(330, startDraw + 140));
 
-
-
-
-
                 //Save the document
-                document.Save("D:\\Scolarité\\Cesi\\Projets\\Livrable_3\\Client_Lourd\\Madera\\pdf\\Output.pdf");
+                string currentDir = Directory.GetCurrentDirectory();
+                string[] currentDirSplitted = currentDir.Split("\\bin");
+                var filename = devis.nomProjet + devis.dateDevis.Trim().Replace("/", "_").Replace(":", "");
+                var fullPath = currentDirSplitted[0] + "\\pdf\\" + filename + ".pdf";
+
+                document.Save(fullPath);
             }
         }
     }

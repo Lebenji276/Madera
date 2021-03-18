@@ -1,5 +1,7 @@
-﻿using System;
+﻿using Madera.Classe;
+using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Text;
 using System.Windows;
 using System.Windows.Controls;
@@ -19,13 +21,30 @@ namespace Madera
     {
         private string clientId {get;set;}
         private ListeClientWindow lscWindow { get; set; }
+
+        private Client client;
+
         public Details_Update_Client(Client obj, ListeClientWindow lscWindow)
         {
+            this.client = obj;
             this.clientId = obj._id;
             this.lscWindow = lscWindow;
             InitializeComponent();
             SetValue(obj);
+            setDevisClient(obj._id);
             this.Show();
+        }
+
+        private void setDevisClient(string idClient)
+        {
+            var devis = Devis.getDevisByClientId(idClient);
+
+            this.DataContext = new ViewModelClient(devis);
+        }
+
+        private void listBoxItem_MouseDoubleClick(object sender, RoutedEventArgs e)
+        {
+            new PdfViewer((Devis)Detail_module_value_composant.SelectedItem, client);
         }
 
         public void SetValue(Client obj)
@@ -87,6 +106,20 @@ namespace Madera
             this.lscWindow.lvUsers.ItemsSource = Client.GetAllClient();
 
             this.Close();
+        }
+    }
+
+    public class ViewModelClient
+    {
+        public ObservableCollection<Devis> CollecDevis { get; set; }
+
+        public ViewModelClient(Devis[] Od)
+        {
+            this.CollecDevis = new ObservableCollection<Devis>();
+            foreach (Devis dev in Od)
+            {
+                this.CollecDevis.Add(dev);
+            }
         }
     }
 }

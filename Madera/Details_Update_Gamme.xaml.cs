@@ -31,9 +31,11 @@ namespace Madera
         }
         public void SetValue()
         {
-            
+
             Detail_module_value_name.Text = _obj.nomGamme;
-            Detail_module_value_Description.Text = _obj.description;
+            Detail_module_value_Description.Text = String.IsNullOrEmpty(Detail_module_value_Description.Text) 
+                                                            ? _obj.description : 
+                                                            Detail_module_value_Description.Text;
             ListModulesGamme.ItemsSource = "";
             ListModulesGamme.ItemsSource = _obj.listmodules;
             ListModules.ItemsSource = "";
@@ -73,6 +75,7 @@ namespace Madera
         {
             Module moduleSelect = (Module)ListModules.SelectedItem;
             string nomModule = ListModules.SelectedValue.ToString();
+            List<Module> lm = new List<Module>();
             foreach (Module module in ListModulesGamme.Items)
             {
                 if (module.nomModule == nomModule)
@@ -81,7 +84,17 @@ namespace Madera
                     return;
                 }
             }
-            _obj.listmodules.Add(moduleSelect);
+
+            if (_obj.listmodules == null)
+            {
+                lm.Add(moduleSelect);
+                _obj.listmodules = lm;
+            }
+            else
+            {
+                _obj.listmodules.Add(moduleSelect);
+            }
+
             SetValue();
         }
 

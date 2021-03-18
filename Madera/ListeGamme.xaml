@@ -24,9 +24,8 @@
             </ListView.ItemContainerStyle>
             <ListView.View>
                 <GridView>
-                    <GridViewColumn Header="Nom" Width="Auto" DisplayMemberBinding="{Binding nomGamme}"/>
-                    <GridViewColumn Header="Description" Width="Auto" DisplayMemberBinding="{Binding description}" />
-                    <GridViewColumn Header="Module associés" Width="Auto" DisplayMemberBinding="{Binding listmodulesString}" />
+                    <GridViewColumn Header="Nom" Width="200" DisplayMemberBinding="{Binding nomGamme}"/>
+                    <GridViewColumn Header="Description" Width="300" DisplayMemberBinding="{Binding description}" />
                 </GridView>
             </ListView.View>
         </ListView>

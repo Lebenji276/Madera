@@ -10,7 +10,7 @@ namespace Madera
 {
     public class Gamme
     {
-        public Composant[] modules { get; set; }
+        public Composant[] composants { get; set; }
         public string nomGamme { get; set; }
         public DateTime createdAt { get; set; }
         public DateTime updatedAt { get; set; }
@@ -34,7 +34,7 @@ namespace Madera
             {
                 string responseString = await response.Content.ReadAsStringAsync();
                 var listGammes = JsonConvert.DeserializeObject<Gamme[]>(responseString);
-                Console.WriteLine("test");
+
                 return listGammes;
             }
             return null;
@@ -42,27 +42,24 @@ namespace Madera
 
         public static async Task<Gamme> CreateGamme(Gamme gamme)
         {
-            using (var client = new HttpClient())
+            var values = new List<KeyValuePair<string, string>>
             {
-                var values = new List<KeyValuePair<string, string>>
-                {
-                    new KeyValuePair<string, string>("nomGamme", gamme.nomGamme),
-                    new KeyValuePair<string, string>("description",gamme.description),
-                    new KeyValuePair<string,string>("modules",gamme.module)
-                };
+                new KeyValuePair<string, string>("nomGamme", gamme.nomGamme),
+                new KeyValuePair<string, string>("description",gamme.description),
+                new KeyValuePair<string,string>("modules",gamme.module)
+            };
 
-                HttpResponseMessage response = await client.PostAsync(
-                    "http://localhost:5000/gamme",
-                    new FormUrlEncodedContent(values)
-                );
+            HttpResponseMessage response = await App.httpClient.PostAsync(
+                "http://localhost:5000/gamme/post",
+                new FormUrlEncodedContent(values)
+            );
 
 
-                var appointmentResponse = await response.Content.ReadAsStringAsync();
-                var appointmentJson = JsonConvert.DeserializeObject<Gamme>(appointmentResponse);
+            var appointmentResponse = await response.Content.ReadAsStringAsync();
+            var appointmentJson = JsonConvert.DeserializeObject<Gamme>(appointmentResponse);
 
 
-                return appointmentJson;
-            }
+            return appointmentJson;
             
         }
         public static async Task<Gamme> UpdateGamme(Gamme gamme)
