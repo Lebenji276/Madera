@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:Madera"
         mc:Ignorable="d"
         Title="ListeClientWindow" Height="450" Width="800">
-    <Grid>
+    <Grid Margin="0,0,-80,0">
         <Grid.Background>
             <ImageBrush ImageSource="/Background.jpg"/>
         </Grid.Background>
