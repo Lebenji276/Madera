@@ -18,6 +18,7 @@
         <Button x:Name="btn_synchro" Content="Synchronisation" HorizontalAlignment="Left" Margin="646,20,0,0" VerticalAlignment="Top" Cursor="Hand" x:FieldModifier="public" />
         <Button x:Name="btnSoumissionProduit" Content="Créer un produit" HorizontalAlignment="Left" Margin="30,282,0,0" VerticalAlignment="Top" Height="52" Width="157" Click="OnClick1" Cursor="Hand"/>
         <Button x:Name="btnCreationDevis" Content="Créer un devis" HorizontalAlignment="Left" Margin="30,171,0,0" VerticalAlignment="Top" Height="52" Width="157" Click="OnClick2" Cursor="Hand"/>
+        <Button x:Name="btnListGamme" Content="Liste Gamme" HorizontalAlignment="Left" Margin="455,115,0,0" VerticalAlignment="Top" Height="52" Width="117" Click="btnListGamme_Click" Cursor="Hand"/>
         <Image Margin="288,168,87,168" Stretch="Fill" Source="/madera.png"/>
     </Grid>
 </Window>

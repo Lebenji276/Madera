@@ -1,0 +1,36 @@
+﻿<Window x:Class="Madera.Details_Update_Gamme"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Madera"
+        mc:Ignorable="d"
+        Title="Details_Update_Gamme" Height="450" Width="686">
+    <Grid HorizontalAlignment="Center" Width="686">
+        <Label x:Name="Detail_Title" Content="Details Gamme" HorizontalAlignment="Center" VerticalAlignment="Top" Width="184" FontWeight="Bold" HorizontalContentAlignment="Center" FontSize="24" Margin="0,8,0,0"/>
+        <TextBox x:Name="Detail_module_value_name" HorizontalAlignment="Left" Margin="343,61,0,0" Text="TextBlock" TextWrapping="Wrap" VerticalAlignment="Top" Width="203" HorizontalContentAlignment="Center"/>
+        <Label x:Name="Detail_module_Label_Name" Content="Nom :" HorizontalAlignment="Left" Margin="159,69,0,0" VerticalAlignment="Top" Width="157" HorizontalContentAlignment="Center"/>
+        <ListView x:Name="ListModules" Margin="23,170,427,71">
+            <ListView.View>
+                <GridView>
+                    <GridViewColumn/>
+                </GridView>
+            </ListView.View>
+        </ListView>
+        <ListView x:Name="ListModulesGamme" Margin="432,170,34,71">
+            <ListView.View>
+                <GridView>
+                    <GridViewColumn/>
+                </GridView>
+            </ListView.View>
+        </ListView>
+        <Button Content="Ajouter" HorizontalAlignment="Center" Margin="0,217,0,0" VerticalAlignment="Top" FontSize="12" Width="98" Height="50" Click="AddModule" Cursor="Hand">
+        </Button>
+        <Button Content="Supprimer" HorizontalAlignment="Center" Margin="0,272,0,0" VerticalAlignment="Top" FontSize="12" Width="98" Height="50" Click="removeModule">
+        </Button>
+        <Button Content="Fermer" HorizontalAlignment="Left" Margin="420,381,0,0" VerticalAlignment="Top" Width="100" Click="ClickQuit"/>
+        <Button Content="Modifier" HorizontalAlignment="Left" Margin="159,381,0,0" VerticalAlignment="Top" Width="100" Click="ClickModify" Cursor="Hand"/>
+        <Label x:Name="Detail_module_Label_Description" Content="Description :" HorizontalAlignment="Left" Margin="159,93,0,0" VerticalAlignment="Top" Width="157" HorizontalContentAlignment="Center"/>
+        <TextBox x:Name="Detail_module_value_Description" HorizontalAlignment="Left" Margin="343,92,0,0" Text="TextBlock" TextWrapping="Wrap" VerticalAlignment="Top" Width="203" HorizontalContentAlignment="Center"/>
+    </Grid>
+</Window>

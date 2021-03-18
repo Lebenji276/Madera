@@ -1,4 +1,5 @@
-﻿using Newtonsoft.Json;
+﻿using Madera.Classe;
+using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.Net.Http;
@@ -18,6 +19,8 @@ namespace Madera
         public string module { get; set; }
 
         public string description { get; set; }
+        public string listmodulesString { get; set; }
+        public List<Module> listmodules { get; set; }
         public override string ToString()
         {
             return this.nomGamme;
@@ -65,7 +68,31 @@ namespace Madera
             }
             
         }
+        public static async Task<Gamme> UpdateGamme(Gamme gamme)
+        {
+            using (var client = new HttpClient())
+            {
+                var values = new List<KeyValuePair<string, string>>
+                {
+                    //new KeyValuePair<string, string>("nomGamme", gamme.nomGamme),
+                    //new KeyValuePair<string, string>("description",gamme.description),
+                    new KeyValuePair<string,string>("modules",gamme.module)
+                };
 
+                HttpResponseMessage response = await client.PutAsync(
+                    "http://localhost:5000/gamme/modules/"+ gamme._id,
+                    new FormUrlEncodedContent(values)
+                );
+
+
+                var appointmentResponse = await response.Content.ReadAsStringAsync();
+                var appointmentJson = JsonConvert.DeserializeObject<Gamme>(appointmentResponse);
+
+
+                return appointmentJson;
+            }
+
+        }
 
     }
 }

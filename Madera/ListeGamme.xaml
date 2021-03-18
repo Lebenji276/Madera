@@ -1,0 +1,32 @@
+﻿<Window x:Class="Madera.ListeGamme"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Madera"
+        mc:Ignorable="d"
+        Title="ListeGamme" Height="450" Width="800">
+    <Grid>
+
+        <Button x:Name="btnRetour" Content="Retour" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Click="btnRetour_Click"/>
+        <ListView Name="lvUsers" HorizontalAlignment="Stretch" Margin="0,50,0,0">
+            <ListView.Resources>
+                <Style TargetType="{x:Type GridViewColumnHeader}">
+                    <Setter Property="HorizontalContentAlignment" Value="Center"/>
+                </Style>
+            </ListView.Resources>
+            <ListView.ItemContainerStyle>
+                <Style TargetType="ListViewItem">
+                    <EventSetter Event="MouseDoubleClick" Handler="listViewItem_MouseDoubleClick" />
+                </Style>
+            </ListView.ItemContainerStyle>
+            <ListView.View>
+                <GridView>
+                    <GridViewColumn Header="Nom" Width="Auto" DisplayMemberBinding="{Binding nomGamme}"/>
+                    <GridViewColumn Header="Description" Width="Auto" DisplayMemberBinding="{Binding description}" />
+                    <GridViewColumn Header="Module associés" Width="Auto" DisplayMemberBinding="{Binding listmodulesString}" />
+                </GridView>
+            </ListView.View>
+        </ListView>
+    </Grid>
+</Window>

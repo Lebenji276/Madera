@@ -82,12 +82,23 @@ namespace Madera
             main.Show();
         }
 
-        void OnClick2(object sender, RoutedEventArgs e)
+        async void  OnClick2(object sender, RoutedEventArgs e)
         {
-            FenCreationDevis main = new FenCreationDevis();
+            var modules = await Module.GetAllModule();
+            FenCreationDevis main = new FenCreationDevis(modules);
             App.Current.MainWindow = main;
             this.Close();
             main.Show();
+        }
+
+        private async void btnListGamme_Click(object sender, RoutedEventArgs e)
+        {
+            var modules = await Module.GetAllModule();
+
+            ListeGamme listeGamme = new ListeGamme(modules);
+            App.Current.MainWindow = listeGamme;
+            this.Close();
+            listeGamme.Show();
         }
     }
 }
