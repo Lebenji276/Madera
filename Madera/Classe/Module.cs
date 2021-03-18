@@ -12,6 +12,7 @@ namespace Madera.Classe
         public string _id { get; set; }
         public Composant[] composants { get; set; }
         public string nomModule { get; set; }
+        public string nomGamme { get; set; }
         public DateTime createdAt { get; set; }
         public DateTime updatedAt { get; set; }
         public string description { get; set; }

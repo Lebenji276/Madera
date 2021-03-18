@@ -24,9 +24,7 @@ namespace Madera.Classe
 
         public static async Task<Composant[]> GetAllComposant()
         {
-            using (var client = new HttpClient())
-            {
-                var response = client.GetAsync("http://localhost:5000/composant").Result;
+            var response = App.httpClient.GetAsync("http://localhost:5000/composant").Result;
 
                 if (response.IsSuccessStatusCode)
                 {
@@ -35,7 +33,6 @@ namespace Madera.Classe
                     var listClient = JsonConvert.DeserializeObject<Composant[]>(responseString);
                     return listClient;
                 }
-            }
             return null;
         }
 
@@ -62,8 +59,6 @@ namespace Madera.Classe
 
                 return appointmentJson;
             }
-
         }
-
     }
 }

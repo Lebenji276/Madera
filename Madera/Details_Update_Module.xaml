@@ -5,17 +5,22 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Madera"
         mc:Ignorable="d"
-        Title="Details_Update_Module" Height="407" Width="406">
+        Title="Details_Update_Module" Height="426" Width="416">
     <Grid>
         <Grid.Background>
             <ImageBrush ImageSource="/Background.jpg"/>
         </Grid.Background>
-        <Label x:Name="Detail_Title" Content="Details Module" HorizontalAlignment="Center" VerticalAlignment="Top" Width="184" FontWeight="Bold" HorizontalContentAlignment="Center" FontSize="24" Margin="0,8,0,0"/>
-        <TextBox x:Name="Detail_module_value_name" HorizontalAlignment="Left" Margin="152,62,0,0" Text="TextBlock" TextWrapping="Wrap" VerticalAlignment="Top" Width="203" HorizontalContentAlignment="Center"/>
-        <Label x:Name="Detail_module_Label_Name" Content="Nom :" HorizontalAlignment="Left" Margin="10,62,0,0" VerticalAlignment="Top" Width="157" HorizontalContentAlignment="Center"/>
-        <Label x:Name="Detail_module_Label_gamme" Content="Gamme :" HorizontalAlignment="Center" Margin="0,104,0,0" VerticalAlignment="Top" Width="158" HorizontalContentAlignment="Center"/>
-
-        <Button Content="Fermer" HorizontalAlignment="Left" Margin="220,319,0,0" VerticalAlignment="Top" Width="100" Click="ClickQuit"/>
-        <Button Content="Modifier" HorizontalAlignment="Left" Margin="88,319,0,0" VerticalAlignment="Top" Width="100" Click="ClickModify"/>
+        <Label x:Name="Detail_Title" Content="Details Module" HorizontalAlignment="Center" VerticalAlignment="Top" Width="184" FontWeight="Bold" HorizontalContentAlignment="Center" FontSize="24" Margin="0,10,0,0"/>
+        <TextBox x:Name="Detail_module_value_name" HorizontalAlignment="Left" Margin="150,60,0,0" Text="TextBlock" TextWrapping="Wrap" VerticalAlignment="Top" Width="203" HorizontalContentAlignment="Center"/>
+        <Label x:Name="Detail_module_Label_Name" Content="Nom :" HorizontalAlignment="Left" Margin="10,60,0,0" VerticalAlignment="Top" Width="157" HorizontalContentAlignment="Center"/>
+        <Label x:Name="Detail_module_Label_gamme" Content="Gamme :" HorizontalAlignment="Left" Margin="10,100,0,0" VerticalAlignment="Top" Width="157" HorizontalContentAlignment="Center"/>
+        <ComboBox x:Name="Detail_module_value_gamme" HorizontalAlignment="Left" Margin="150,100,0,0" VerticalAlignment="Top" Width="203" HorizontalContentAlignment="Center" ItemsSource="{Binding CollecGamme}" DisplayMemberPath="nomGamme" SelectedValuePath="Content"/>
+        <Label x:Name="Detail_module_Label_composant" Content="Composants :" HorizontalAlignment="Left" Margin="10,181,0,0" VerticalAlignment="Top" Width="157" HorizontalContentAlignment="Center"/>
+        <ListBox x:Name="Detail_module_value_composant" Margin="150,145,50,115" ItemsSource="{Binding CollecCompo}" DisplayMemberPath="nomComposant"/>
+        <Button Content="Supprimer" HorizontalAlignment="Left" Margin="38,220,0,0" VerticalAlignment="Top" Width="100" Height="30" Click="ClickDelete" FontSize="14" VerticalContentAlignment="Center"/>
+        <Button Content="Ajouter" HorizontalAlignment="Left" Margin="38,280,0,0" VerticalAlignment="Top" Width="100" Height="30" Click="ClickAdd" FontSize="14" VerticalContentAlignment="Center"/>
+        <ComboBox x:Name="Add_selected_compo" HorizontalAlignment="Left" Margin="150,283,0,0" VerticalAlignment="Top" Width="203" HorizontalContentAlignment="Center" ItemsSource="{Binding CollecAllCompo}" DisplayMemberPath="nomComposant"/>
+        <Button Content="Fermer" HorizontalAlignment="Left" Margin="220,340,0,0" VerticalAlignment="Top" Width="100" Click="ClickQuit"/>
+        <Button Content="Modifier" HorizontalAlignment="Left" Margin="88,340,0,0" VerticalAlignment="Top" Width="100" Click="ClickModify"/>
     </Grid>
 </Window>

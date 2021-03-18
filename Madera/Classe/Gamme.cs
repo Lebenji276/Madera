@@ -10,7 +10,7 @@ namespace Madera
 {
     public class Gamme
     {
-        public String[] modules { get; set; }
+        public Composant[] modules { get; set; }
         public string nomGamme { get; set; }
         public DateTime createdAt { get; set; }
         public DateTime updatedAt { get; set; }
@@ -28,17 +28,14 @@ namespace Madera
 
         public static async Task<Gamme[]> GetAllGammes()
         {
-            using (var gamme = new HttpClient())
-            {
-                var response = gamme.GetAsync("http://localhost:5000/gamme/all").Result;
+            var response = await App.httpClient.GetAsync("http://localhost:5000/gamme/all");
 
-                if (response.IsSuccessStatusCode)
-                {
-                    var responseContent = response.Content;
-                    string responseString = responseContent.ReadAsStringAsync().Result;
-                    var listGammes = JsonConvert.DeserializeObject<Gamme[]>(responseString);
-                    return listGammes;
-                }
+            if (response.IsSuccessStatusCode)
+            {
+                string responseString = await response.Content.ReadAsStringAsync();
+                var listGammes = JsonConvert.DeserializeObject<Gamme[]>(responseString);
+                Console.WriteLine("test");
+                return listGammes;
             }
             return null;
         }
