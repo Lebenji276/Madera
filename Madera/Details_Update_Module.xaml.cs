@@ -41,7 +41,7 @@ namespace Madera
                 var gammes = await Gamme.GetAllGammes();
                 var allCompo = await Composant.GetAllComposant();
                 Detail_module_value_gamme.ItemsSource = gammes;
-                Data = new ViewModelModule(gammes, obj.composants, allCompo);
+              /*  Data = new ViewModelModule(gammes, obj.composants, allCompo);
                 this.DataContext = Data;
                 for (int i = 0; i < Detail_module_value_gamme.Items.Count; i++)
                 {
@@ -50,7 +50,7 @@ namespace Madera
                     {
                         Detail_module_value_gamme.SelectedItem = item;
                     }
-                }
+                }*/
             }
             catch (Exception error)
             {

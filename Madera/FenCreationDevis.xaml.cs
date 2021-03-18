@@ -26,11 +26,16 @@ namespace Madera
         private void createDevis(object sender, RoutedEventArgs e)
         {
             Devis devis = new Devis();
-            Client client = new Client();
-            client.first_name = "Léandre";
-            devis.client = client._id;
-            devis.nomProjet = "projet test";
+            devis.dateDevis = dateProjet.Text;
+            devis.client = Client.GetClientByName(ComboClients.SelectedItem.ToString());
+            devis.nomProjet = nomProjet.Text;
+            devis.referenceProjet = refProjet.Text;
+            devis.createdAt = DateTime.Now;
+            devis.isSynchronised = false;
+            devis.modules = new string[0];
+         
             Devis.CreateDevis(devis);
+            validationDevis.Content = "Devis créé !";
 
         }
 

@@ -63,6 +63,22 @@ namespace Madera
             }
         }
 
+        public static string GetClientByName(string name)
+        {
+            try
+            {
+                var path = Json.getPath("clients");
+                Client[] clients = JsonConvert.DeserializeObject<Client[]>(File.ReadAllText(path));
+                var client = clients.FirstOrDefault(client => client.first_name == name);
+
+                return client._id;
+            }
+            catch (HttpRequestException)
+            {
+                throw new Exception("Impossible de récupérer la liste des clients");
+            }
+        }
+
         public static Client updateClient(Client client)
         {
             var path = Json.getPath("clients");

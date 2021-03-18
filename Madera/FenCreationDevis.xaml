@@ -14,11 +14,11 @@
                         <ImageBrush ImageSource="/Background.jpg"/>
                     </Grid.Background>
 
-                    <Button HorizontalAlignment="Left" Margin="579,363,0,0" VerticalAlignment="Top" Grid.Column="4" Click="createDevis"/>
+                    <Button x:Name="btn_create_devis" Content="Sauvegarder le devis" HorizontalAlignment="Left" Margin="418,363,0,0" VerticalAlignment="Top" Grid.Column="4" Click="createDevis" Cursor="Hand" Width="193"/>
                     <Button HorizontalAlignment="Left" Margin="579,25,0,0" VerticalAlignment="Top" Grid.Column="4"/>
-                    <TextBox HorizontalAlignment="Left" Margin="253,135,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="133" Grid.Column="4"/>
-                    <TextBox HorizontalAlignment="Left" Margin="253,175,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="133" Grid.Column="4"/>
-                    <TextBox HorizontalAlignment="Left" Margin="253,259,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="133" Grid.Column="4"/>
+                    <TextBox Name="nomProjet" HorizontalAlignment="Left" Margin="253,135,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="133" Grid.Column="4"/>
+                    <TextBox Name="refProjet" HorizontalAlignment="Left" Margin="253,175,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="133" Grid.Column="4"/>
+                    <TextBox Name="dateProjet" HorizontalAlignment="Left" Margin="253,259,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="133" Grid.Column="4"/>
                     <ComboBox x:Name="ComboClients" HorizontalAlignment="Left" Margin="253,216,0,0" VerticalAlignment="Top" Width="133" Grid.Column="4"/>
                     <Label Content="Nom du projet" HorizontalAlignment="Left" Margin="130,131,0,0" VerticalAlignment="Top" Grid.Column="4"/>
                     <Label Content="Référence du projet" HorizontalAlignment="Left" Margin="130,171,0,0" VerticalAlignment="Top" Grid.Column="4"/>
@@ -26,6 +26,7 @@
                     <Label Content="Date" HorizontalAlignment="Left" Margin="130,255,0,0" VerticalAlignment="Top" Grid.Column="4"/>
                     <Button x:Name="btnRetour" Content="Menu" HorizontalAlignment="Left" Margin="10,384,0,0" VerticalAlignment="Top" Click="btnRetour_Click" Cursor="Hand" Grid.ColumnSpan="3"/>
                     <Button x:Name="btnPayer" Content="Payer" HorizontalAlignment="Left" Margin="0,357,0,13" Click="btnPayer_Click" Cursor="Hand" Grid.ColumnSpan="2" Grid.Column="3"/>
+                    <Label Name="validationDevis" Content="" Grid.Column="4" HorizontalAlignment="Center" Margin="130,58,0,0" VerticalAlignment="Top" Width="385" Foreground="#DD4EC341" FontSize="20" FontWeight="Bold"/>
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="30*"/>
                         <ColumnDefinition Width="47*"/>
