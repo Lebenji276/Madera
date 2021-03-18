@@ -76,7 +76,11 @@ namespace Madera
             string newJson = JsonConvert.SerializeObject(listestr, Formatting.None);
             _obj.composant = newJson;
             _obj.nomModule = Detail_module_value_name.Text;
+            if (Detail_module_value_gamme.Text != "")
+            {
             _obj.nomGamme = Detail_module_value_gamme.SelectedItem.ToString();
+
+            }
 
             Module.UpdateModule(_obj);
             Close();
@@ -99,7 +103,7 @@ namespace Madera
         public ObservableCollection<Composant> CollecCompo { get; set; }
         public ObservableCollection<Composant> CollecAllCompo { get; set; }
 
-        public ViewModelModule(Gamme[] Og, Composant[] Oc, Composant[] Oac)
+        public ViewModelModule(Gamme[] Og, List<Composant> Oc, Composant[] Oac)
         {
             //this.CollecGamme = new ObservableCollection<Gamme>();
             //foreach (Gamme gamme in Og)
@@ -108,7 +112,7 @@ namespace Madera
             //}
 
             this.CollecCompo = new ObservableCollection<Composant>();
-            if (Oc != null && Oc.Length > 0)
+            if (Oc != null && Oc.Count > 0)
             {
                 foreach (Composant composant in Oc)
                 {
