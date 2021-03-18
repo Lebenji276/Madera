@@ -6,11 +6,14 @@
         xmlns:local="clr-namespace:Madera"
         mc:Ignorable="d"
         Title="Details_Update_Gamme" Height="450" Width="686">
-    <Grid HorizontalAlignment="Center" Width="686">
+    <Grid>
+        <Grid.Background>
+            <ImageBrush ImageSource="/Background.jpg"/>
+        </Grid.Background>
         <Label x:Name="Detail_Title" Content="Details Gamme" HorizontalAlignment="Center" VerticalAlignment="Top" Width="184" FontWeight="Bold" HorizontalContentAlignment="Center" FontSize="24" Margin="0,8,0,0"/>
-        <TextBox x:Name="Detail_module_value_name" HorizontalAlignment="Left" Margin="343,61,0,0" Text="TextBlock" TextWrapping="Wrap" VerticalAlignment="Top" Width="203" HorizontalContentAlignment="Center"/>
-        <Label x:Name="Detail_module_Label_Name" Content="Nom :" HorizontalAlignment="Left" Margin="159,69,0,0" VerticalAlignment="Top" Width="157" HorizontalContentAlignment="Center"/>
-        <ListView x:Name="ListModules" Margin="23,170,427,71">
+        <TextBox x:Name="Detail_module_value_name" HorizontalAlignment="Left" Margin="343,61,0,0" Text="TextBlock" TextWrapping="Wrap" VerticalAlignment="Top" Width="203" HorizontalContentAlignment="Center" FontWeight="Bold"/>
+        <Label x:Name="Detail_module_Label_Name" Content="Nom :" HorizontalAlignment="Left" Margin="159,69,0,0" VerticalAlignment="Top" Width="157" HorizontalContentAlignment="Center" FontWeight="Bold"/>
+        <ListView x:Name="ListModules" Margin="23,170,427,71" FontWeight="Bold">
             <ListView.View>
                 <GridView>
                     <GridViewColumn/>
@@ -30,7 +33,7 @@
         </Button>
         <Button Content="Fermer" HorizontalAlignment="Left" Margin="420,381,0,0" VerticalAlignment="Top" Width="100" Click="ClickQuit"/>
         <Button Content="Modifier" HorizontalAlignment="Left" Margin="159,381,0,0" VerticalAlignment="Top" Width="100" Click="ClickModify" Cursor="Hand"/>
-        <Label x:Name="Detail_module_Label_Description" Content="Description :" HorizontalAlignment="Left" Margin="159,93,0,0" VerticalAlignment="Top" Width="157" HorizontalContentAlignment="Center"/>
-        <TextBox x:Name="Detail_module_value_Description" HorizontalAlignment="Left" Margin="343,92,0,0" Text="TextBlock" TextWrapping="Wrap" VerticalAlignment="Top" Width="203" HorizontalContentAlignment="Center"/>
+        <Label x:Name="Detail_module_Label_Description" Content="Description :" HorizontalAlignment="Left" Margin="159,93,0,0" VerticalAlignment="Top" Width="157" HorizontalContentAlignment="Center" FontWeight="Bold"/>
+        <TextBox x:Name="Detail_module_value_Description" HorizontalAlignment="Left" Margin="343,92,0,0" Text="TextBlock" TextWrapping="Wrap" VerticalAlignment="Top" Width="203" HorizontalContentAlignment="Center" FontWeight="Bold"/>
     </Grid>
 </Window>

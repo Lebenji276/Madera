@@ -10,15 +10,15 @@
         <Grid.Background>
             <ImageBrush ImageSource="/Background.jpg"/>
         </Grid.Background>
-        <Label x:Name="LblBeforeDate" Content="Rendez-vous du : " HorizontalAlignment="Left" Margin="239,10,0,0" VerticalAlignment="Top"/>
-        <Label x:Name="lblDate" Content="" HorizontalAlignment="Left" Margin="346,10,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.263,0.029"/>
-        <ComboBox x:Name="comboBox" HorizontalAlignment="Left" Margin="551,177,0,0" VerticalAlignment="Top" Width="120" SelectionChanged="comboBox_SelectionChanged"/>
-        <Label x:Name="LblClient" Content="Client" HorizontalAlignment="Left" Margin="499,177,0,0" VerticalAlignment="Top"/>
-        <TextBox x:Name="textBox" HorizontalAlignment="Left" Margin="556,248,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" TextChanged="textBox_TextChanged"/>
-        <Label x:Name="LblTitre" Content="Titre" HorizontalAlignment="Left" Margin="502,250,0,0" VerticalAlignment="Top"/>
-        <materialDesign:TimePicker x:Name = "arrivalTimePicker" Margin = "550,315,130,0" VerticalAlignment="Top"/>
-        <Label x:Name="LblHeure" Content="Heure" HorizontalAlignment="Left" Margin="496,323,0,0" VerticalAlignment="Top"/>
-        <ListBox Name="listBox" HorizontalContentAlignment="Stretch" Margin="32,63,400,17" SelectionChanged="listBox_SelectionChanged">
+        <Label x:Name="LblBeforeDate" Content="Rendez-vous du : " HorizontalAlignment="Left" Margin="239,10,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
+        <Label x:Name="lblDate" Content="" HorizontalAlignment="Left" Margin="346,10,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.263,0.029" FontWeight="Bold"/>
+        <ComboBox x:Name="comboBox" HorizontalAlignment="Left" Margin="551,177,0,0" VerticalAlignment="Top" Width="120" SelectionChanged="comboBox_SelectionChanged" FontWeight="Bold"/>
+        <Label x:Name="LblClient" Content="Client" HorizontalAlignment="Left" Margin="499,177,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
+        <TextBox x:Name="textBox" HorizontalAlignment="Left" Margin="556,248,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" TextChanged="textBox_TextChanged" FontWeight="Bold"/>
+        <Label x:Name="LblTitre" Content="Titre" HorizontalAlignment="Left" Margin="502,250,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
+        <materialDesign:TimePicker x:Name = "arrivalTimePicker" Margin = "550,315,130,0" VerticalAlignment="Top" FontWeight="Bold"/>
+        <Label x:Name="LblHeure" Content="Heure" HorizontalAlignment="Left" Margin="496,323,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
+        <ListBox Name="listBox" HorizontalContentAlignment="Stretch" Margin="32,63,400,17" SelectionChanged="listBox_SelectionChanged" FontWeight="Bold">
             <ListBox.ItemTemplate>
                 <DataTemplate >
                     <Grid Margin="0,2">

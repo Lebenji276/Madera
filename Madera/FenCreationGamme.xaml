@@ -10,12 +10,12 @@
         <Grid.Background>
             <ImageBrush ImageSource="/Background.jpg"/>
         </Grid.Background>
-        <TextBox x:Name="TextBoxName" HorizontalAlignment="Left" Margin="286,71,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="365" Height="27" Cursor="IBeam"/>
-        <Label Content="Nom :" HorizontalAlignment="Left" Margin="171,68,0,0" VerticalAlignment="Top" FontSize="16"/>
-        <TextBox x:Name="TextBoxDescription" HorizontalAlignment="Left" Margin="286,115,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="365" Height="27"/>
-        <Label Content="Description :" HorizontalAlignment="Left" Margin="171,112,0,0" VerticalAlignment="Top" FontSize="16"/>
+        <TextBox x:Name="TextBoxName" HorizontalAlignment="Left" Margin="286,71,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="365" Height="27" FontWeight="Bold"/>
+        <Label Content="Nom :" HorizontalAlignment="Left" Margin="171,68,0,0" VerticalAlignment="Top" FontSize="16" FontWeight="Bold"/>
+        <TextBox x:Name="TextBoxDescription" HorizontalAlignment="Left" Margin="286,115,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="365" Height="27" FontWeight="Bold"/>
+        <Label Content="Description :" HorizontalAlignment="Left" Margin="171,112,0,0" VerticalAlignment="Top" FontSize="16" FontWeight="Bold"/>
         <Button Content="Soumettre" HorizontalAlignment="Center" Margin="0,374,0,0" VerticalAlignment="Top" Width="128" FontSize="16" Height="36" Click="createGamme"/>
-        <Label Content="Création d'une gamme" HorizontalAlignment="Center" Margin="0,15,0,0" VerticalAlignment="Top" FontSize="18"/>
+        <Label Content="Création d'une gamme" HorizontalAlignment="Center" Margin="0,15,0,0" VerticalAlignment="Top" FontSize="18" FontWeight="Bold"/>
         <ListView x:Name="ListModules" Margin="23,170,493,71">
             <ListView.View>
                 <GridView>

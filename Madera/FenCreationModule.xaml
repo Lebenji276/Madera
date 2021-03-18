@@ -10,20 +10,20 @@
         <Grid.Background>
             <ImageBrush ImageSource="/Background.jpg"/>
         </Grid.Background>
-        <TextBox x:Name="TextBoxName" HorizontalAlignment="Left" Margin="286,71,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="365" Height="27"/>
-        <Label Content="Nom :" HorizontalAlignment="Left" Margin="171,68,0,0" VerticalAlignment="Top" FontSize="16"/>
-        <TextBox x:Name="TextBoxDescription" HorizontalAlignment="Left" Margin="286,115,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="365" Height="27"/>
-        <Label Content="Description :" HorizontalAlignment="Left" Margin="171,112,0,0" VerticalAlignment="Top" FontSize="16"/>
+        <TextBox x:Name="TextBoxName" HorizontalAlignment="Left" Margin="286,71,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="365" Height="27" FontWeight="Bold"/>
+        <Label Content="Nom :" HorizontalAlignment="Left" Margin="171,68,0,0" VerticalAlignment="Top" FontSize="16" FontWeight="Bold"/>
+        <TextBox x:Name="TextBoxDescription" HorizontalAlignment="Left" Margin="286,115,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="365" Height="27" FontWeight="Bold"/>
+        <Label Content="Description :" HorizontalAlignment="Left" Margin="171,112,0,0" VerticalAlignment="Top" FontSize="16" FontWeight="Bold"/>
         <Button Content="Soumettre" HorizontalAlignment="Center" Margin="0,373,0,0" VerticalAlignment="Top" Width="128" FontSize="16" Height="36" Click="createModule" RenderTransformOrigin="0.502,-0.327"/>
         <Label Content="Création d'un module" HorizontalAlignment="Center" Margin="0,15,0,0" VerticalAlignment="Top" FontSize="18"/>
-        <ListView x:Name="ListComposants" Margin="22,170,494,71" Width="284">
+        <ListView x:Name="ListComposants" Margin="22,170,494,71" Width="284" FontWeight="Bold">
             <ListView.View>
                 <GridView>
                     <GridViewColumn/>
                 </GridView>
             </ListView.View>
         </ListView>
-        <ListView x:Name="ListComposantsModule" Margin="495,170,21,71" Width="284">
+        <ListView x:Name="ListComposantsModule" Margin="495,170,21,71" Width="284" FontWeight="Bold">
             <ListView.View>
                 <GridView>
                     <GridViewColumn/>

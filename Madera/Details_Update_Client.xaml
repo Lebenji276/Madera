@@ -5,28 +5,41 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Madera"
         mc:Ignorable="d"
-        Title="Details_Update_Client" Height="495" Width="406">
+        Title="Details_Update_Client" Height="683" Width="406">
     <Grid Margin="0,0,0,-6">
         <Grid.Background>
             <ImageBrush ImageSource="/Background.jpg"/>
         </Grid.Background>
         <Label x:Name="Detail_Title" Content="Details Client" HorizontalAlignment="Center" VerticalAlignment="Top" Width="184" FontWeight="Bold" HorizontalContentAlignment="Center" FontSize="24" Margin="0,8,0,0"/>
-        <TextBox x:Name="Detail_client_value_name" HorizontalAlignment="Left" Margin="152,62,0,0" Text="TextBlock" TextWrapping="Wrap" VerticalAlignment="Top" Width="203" HorizontalContentAlignment="Center"/>
-        <Label x:Name="Detail_Client_Label_Name" Content="Nom :" HorizontalAlignment="Left" Margin="10,62,0,0" VerticalAlignment="Top" Width="157" HorizontalContentAlignment="Center"/>
-        <TextBox x:Name="Detail_client_value_mail" HorizontalAlignment="Left" Margin="152,102,0,0" Text="TextBlock" TextWrapping="Wrap" VerticalAlignment="Top" Width="203" HorizontalContentAlignment="Center"/>
-        <Label x:Name="Detail_Client_Label_mail" Content="Mail :" HorizontalAlignment="Left" Margin="10,102,0,0" VerticalAlignment="Top" Width="157" HorizontalContentAlignment="Center"/>
-        <TextBox x:Name="Detail_client_value_phone" HorizontalAlignment="Left" Margin="152,142,0,0" Text="TextBlock" TextWrapping="Wrap" VerticalAlignment="Top" Width="203" HorizontalContentAlignment="Center"/>
-        <Label x:Name="Detail_Client_Label_phone" Content="Phone :" HorizontalAlignment="Left" Margin="10,142,0,0" VerticalAlignment="Top" Width="157" HorizontalContentAlignment="Center"/>
-        <TextBox x:Name="Detail_client_value_address" HorizontalAlignment="Left" Margin="152,182,0,0" Text="TextBlock" TextWrapping="Wrap" VerticalAlignment="Top" Width="203" HorizontalContentAlignment="Center"/>
-        <Label x:Name="Detail_Client_Label_address" Content="Address :" HorizontalAlignment="Left" Margin="10,182,0,0" VerticalAlignment="Top" Width="157" HorizontalContentAlignment="Center"/>
-        <TextBox x:Name="Detail_client_value_postal_code" HorizontalAlignment="Left" Margin="152,222,0,0" Text="TextBlock" TextWrapping="Wrap" VerticalAlignment="Top" Width="203" HorizontalContentAlignment="Center"/>
-        <Label x:Name="Detail_Client_Label_postal_code" Content="Postal Code :" HorizontalAlignment="Left" Margin="10,222,0,0" VerticalAlignment="Top" Width="157" HorizontalContentAlignment="Center"/>
-        <TextBox x:Name="Detail_client_value_city" HorizontalAlignment="Left" Margin="152,262,0,0" Text="TextBlock" TextWrapping="Wrap" VerticalAlignment="Top" Width="203" HorizontalContentAlignment="Center"/>
-        <Label x:Name="Detail_Client_Label_city" Content="City :" HorizontalAlignment="Left" Margin="10,262,0,0" VerticalAlignment="Top" Width="157" HorizontalContentAlignment="Center"/>
-        <TextBox x:Name="Detail_client_value_country" HorizontalAlignment="Left" Margin="152,302,0,0" Text="TextBlock" TextWrapping="Wrap" VerticalAlignment="Top" Width="203" HorizontalContentAlignment="Center"/>
-        <Label x:Name="Detail_Client_Label_country" Content="Country :" HorizontalAlignment="Left" Margin="10,302,0,0" VerticalAlignment="Top" Width="157" HorizontalContentAlignment="Center"/>
-        <Button Content="Fermer" HorizontalAlignment="Left" Margin="220,347,0,0" VerticalAlignment="Top" Width="100" Click="ClickQuit"/>
-        <Button Content="Modifier" HorizontalAlignment="Left" Margin="88,347,0,0" VerticalAlignment="Top" Width="100" Click="ClickModify"/>
-        <Button Content="Supprimer" HorizontalAlignment="Center" Margin="0,400,0,0" VerticalAlignment="Top" Width="100" Click="ClickDelete" Cursor="Hand"/>
+        <TextBox x:Name="Detail_client_value_name" HorizontalAlignment="Left" Margin="152,62,0,0" Text="TextBlock" TextWrapping="Wrap" VerticalAlignment="Top" Width="203" HorizontalContentAlignment="Center" FontWeight="Bold"/>
+        <Label x:Name="Detail_Client_Label_Name" Content="Nom :" HorizontalAlignment="Left" Margin="10,62,0,0" VerticalAlignment="Top" Width="157" HorizontalContentAlignment="Center" FontWeight="Bold"/>
+        <TextBox x:Name="Detail_client_value_mail" HorizontalAlignment="Left" Margin="152,102,0,0" Text="TextBlock" TextWrapping="Wrap" VerticalAlignment="Top" Width="203" HorizontalContentAlignment="Center" FontWeight="Bold"/>
+        <Label x:Name="Detail_Client_Label_mail" Content="Mail :" HorizontalAlignment="Left" Margin="10,102,0,0" VerticalAlignment="Top" Width="157" HorizontalContentAlignment="Center" FontWeight="Bold"/>
+        <TextBox x:Name="Detail_client_value_phone" Margin="152,142,0,0" Text="TextBlock" TextWrapping="Wrap" VerticalAlignment="Top" HorizontalContentAlignment="Center" FontWeight="Bold" HorizontalAlignment="Left" Width="203" Cursor="IBeam"/>
+        <Label x:Name="Detail_Client_Label_phone" Content="Phone :" HorizontalAlignment="Left" Margin="10,142,0,0" VerticalAlignment="Top" Width="157" HorizontalContentAlignment="Center" FontWeight="Bold"/>
+        <TextBox x:Name="Detail_client_value_address" HorizontalAlignment="Left" Margin="152,182,0,0" Text="TextBlock" TextWrapping="Wrap" VerticalAlignment="Top" Width="203" HorizontalContentAlignment="Center" FontWeight="Bold"/>
+        <Label x:Name="Detail_Client_Label_address" Content="Address :" HorizontalAlignment="Left" Margin="10,182,0,0" VerticalAlignment="Top" Width="157" HorizontalContentAlignment="Center" FontWeight="Bold"/>
+        <TextBox x:Name="Detail_client_value_postal_code" HorizontalAlignment="Left" Margin="152,222,0,0" Text="TextBlock" TextWrapping="Wrap" VerticalAlignment="Top" Width="203" HorizontalContentAlignment="Center" FontWeight="Bold"/>
+        <Label x:Name="Detail_Client_Label_postal_code" Content="Postal Code :" HorizontalAlignment="Left" Margin="10,222,0,0" VerticalAlignment="Top" Width="157" HorizontalContentAlignment="Center" FontWeight="Bold"/>
+        <TextBox x:Name="Detail_client_value_city" HorizontalAlignment="Left" Margin="152,262,0,0" Text="TextBlock" TextWrapping="Wrap" VerticalAlignment="Top" Width="203" HorizontalContentAlignment="Center" FontWeight="Bold"/>
+        <Label x:Name="Detail_Client_Label_city" Content="City :" HorizontalAlignment="Left" Margin="10,262,0,0" VerticalAlignment="Top" Width="157" HorizontalContentAlignment="Center" FontWeight="Bold"/>
+        <TextBox x:Name="Detail_client_value_country" HorizontalAlignment="Left" Margin="152,302,0,0" Text="TextBlock" TextWrapping="Wrap" VerticalAlignment="Top" Width="203" HorizontalContentAlignment="Center" FontWeight="Bold"/>
+        <Label x:Name="Detail_Client_Label_country" Content="Country :" HorizontalAlignment="Left" Margin="10,302,0,0" VerticalAlignment="Top" Width="157" HorizontalContentAlignment="Center" FontWeight="Bold"/>
+        <Label x:Name="Detail_Client_Label_devis" Content="Devis :" HorizontalAlignment="Left" Margin="10,420,0,0" VerticalAlignment="Top" Width="157" HorizontalContentAlignment="Center" FontWeight="Bold"/>
+        <ListBox x:Name="Detail_module_value_composant" Margin="150,349,35,125" ItemsSource="{Binding CollecCompo}" DisplayMemberPath="nomComposant" FontWeight="Bold">
+            <ListBoxItem>test</ListBoxItem>
+            <ListBoxItem>test</ListBoxItem>
+            <ListBoxItem>test</ListBoxItem>
+            <ListBoxItem>test</ListBoxItem>
+            <ListBoxItem>test</ListBoxItem>
+            <ListBoxItem>test</ListBoxItem>
+            <ListBoxItem>test</ListBoxItem>
+            <ListBoxItem>test</ListBoxItem>
+            <ListBoxItem>test</ListBoxItem>
+            <ListBoxItem>test</ListBoxItem>
+        </ListBox>
+        <Button Content="Fermer" HorizontalAlignment="Left" Margin="221,543,0,0" VerticalAlignment="Top" Width="100" Click="ClickQuit"/>
+        <Button Content="Modifier" HorizontalAlignment="Left" Margin="89,543,0,0" VerticalAlignment="Top" Width="100" Click="ClickModify"/>
+        <Button Content="Supprimer" HorizontalAlignment="Center" Margin="0,596,0,0" VerticalAlignment="Top" Width="100" Click="ClickDelete" Cursor="Hand"/>
     </Grid>
 </Window>
