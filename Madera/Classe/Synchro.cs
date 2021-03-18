@@ -15,12 +15,18 @@ namespace Madera.Classe
 
         private async void synchroniseDatas()
         {
-            await this.LogToApiCS();
-            await this.synchroniseRoles();
-            await this.synchroniseUsers();
-            await this.synchroniseClients();
-            await synchroniseModules();
-            await this.synchroniseDevis();
+            try
+            {
+                await this.LogToApiCS();
+                await this.synchroniseRoles();
+                await this.synchroniseUsers();
+                await this.synchroniseClients();
+                await synchroniseModules();
+                await this.synchroniseDevis();
+            } catch (Exception)
+            {
+            }
+            
         }
 
         private async Task<Auth> LogToApiCS()
