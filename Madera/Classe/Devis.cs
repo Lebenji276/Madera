@@ -59,6 +59,15 @@ namespace Madera.Classe
             }
         }
 
+        public static Devis CreateDevis(Devis devis)
+        {
+            var path = Json.getPath("devis");
+            string newJson = JsonConvert.SerializeObject(devis, Formatting.None);
+            Json.writeJson("devis", newJson, true);
+
+            return devis;
+        }
+
         public static Devis updateDevis(Devis devis)
         {
             var path = Json.getPath("devis");
