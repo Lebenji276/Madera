@@ -24,21 +24,24 @@ namespace Madera
         {
             _listmodules = listmodules;
             InitializeComponent();
-            var listeGammes = Gamme.GetAllGammes().Result;
-            var listModuleAdd = new List<Module>();
-            foreach (var gamme in listeGammes)
+            this.setListeGamme();
+        }
+
+        private async void setListeGamme()
+        {
+            var listeGammes = await Gamme.GetAllGammes();
+
+            foreach (var compo in listeGammes)
             {
-                listModuleAdd = new List<Module>();
-                foreach (var module in listmodules)
+                foreach (var comp in compo.modules)
                 {
-                    if (gamme.modules.Contains(module._id))
+                    if (! String.IsNullOrEmpty(comp.nomComposant))
                     {
-                        gamme.listmodulesString += module.nomModule +", ";
-                        listModuleAdd.Add(module);
+                        compo.listmodulesString += comp.nomComposant + ", ";
                     }
-                    gamme.listmodules = listModuleAdd;
                 }
             }
+
             lvUsers.ItemsSource = listeGammes;
         }
 
