@@ -20,6 +20,7 @@ namespace Madera.Classe
             await this.synchroniseUsers();
             await this.synchroniseClients();
             await synchroniseModules();
+            await this.synchroniseDevis();
         }
 
         private async Task<Auth> LogToApiCS()
@@ -33,6 +34,13 @@ namespace Madera.Classe
             var roles = await Role.getAllRoles(true);
 
             return roles;
+        }
+
+        private async Task<Devis[]> synchroniseDevis()
+        {
+            var devis = await Devis.GetAllDevisSynchro();
+
+            return devis;
         }
 
         private async Task<User[]> synchroniseUsers()
@@ -63,6 +71,7 @@ namespace Madera.Classe
                 await synchroRolesToAPI();
                 await synchroClientsToAPI();
                 await synchroModulesToAPI();
+                await synchroDevisToAPI();
                 return true;
             } catch (Exception)
             {
@@ -82,6 +91,10 @@ namespace Madera.Classe
         private static async Task<bool> synchroModulesToAPI()
         {
             return await Module.synchroModulesToAPI();
+        }
+        private static async Task<bool> synchroDevisToAPI()
+        {
+            return await Devis.synchroDevisToAPI();
         }
     }
 }
