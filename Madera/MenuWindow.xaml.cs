@@ -117,5 +117,10 @@ namespace Madera
                 lbl_error_liste_client.Content = error.Message;
             }
         }
+
+        private void btn_synchro_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }

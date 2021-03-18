@@ -36,31 +36,6 @@
                     </Grid.ColumnDefinitions>
                 </Grid>
             </TabItem>
-            <TabItem Header="Gammes" Height="22" Margin="-2,-2,-2,0" VerticalAlignment="Top">
-                <Grid Background="#FFE5E5E5">
-                    <ComboBox x:Name="ComboGammes" HorizontalAlignment="Left" Margin="10,25,0,0" VerticalAlignment="Top" Width="246"/>
-                    <ListView x:Name="listeModules" Margin="10,72,538,19">
-                        <ListView.View>
-                            <GridView>
-                                <GridViewColumn/>
-                            </GridView>
-                        </ListView.View>
-                    </ListView>
-                    <ListView x:Name="listeModules_Copy1" Margin="538,72,10,19">
-                        <ListView.View>
-                            <GridView>
-                                <GridViewColumn/>
-                            </GridView>
-                        </ListView.View>
-                    </ListView>
-                    <ComboBox x:Name="ComboGammes_Copy" HorizontalAlignment="Center" Margin="0,143,0,0" VerticalAlignment="Top" Width="214"/>
-                    <ComboBox x:Name="ComboGammes_Copy1" HorizontalAlignment="Center" VerticalAlignment="Top" Width="214" Margin="0,203,0,0"/>
-                    <ComboBox x:Name="ComboGammes_Copy2" HorizontalAlignment="Center" Margin="0,267,0,0" VerticalAlignment="Top" Width="214"/>
-                    <Label Content="Type de remplissage" HorizontalAlignment="Left" Margin="290,112,0,0" VerticalAlignment="Top"/>
-                    <Label Content="Finition intérieure" HorizontalAlignment="Left" Margin="290,172,0,0" VerticalAlignment="Top"/>
-                    <Label Content="Finition extérieure" HorizontalAlignment="Left" Margin="290,236,0,0" VerticalAlignment="Top"/>
-                </Grid>
-            </TabItem>
             <TabItem Header="Modules" HorizontalAlignment="Left" Margin="-2,-2,0,0" Width="62">
                 <Grid Background="#FFE5E5E5">
                     <Grid.ColumnDefinitions>
