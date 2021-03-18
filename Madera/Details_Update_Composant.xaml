@@ -1,0 +1,21 @@
+﻿<Window x:Class="Madera.Details_Update_Composant"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        DataContext="{Binding RelativeSource={RelativeSource Self}}"
+        xmlns:local="clr-namespace:Madera"
+        mc:Ignorable="d"
+        Title="Details_Update_Composant" Height="300" Width="406">
+    <Grid>
+        <Label x:Name="Detail_Title" Content="Details Composant" HorizontalAlignment="Center" VerticalAlignment="Top" Width="234" FontWeight="Bold" HorizontalContentAlignment="Center" FontSize="24" Margin="0,10,0,0"/>
+        <TextBox x:Name="Detail_composant_value_name" HorizontalAlignment="Left" Margin="152,62,0,0" Text="TextBlock" TextWrapping="Wrap" VerticalAlignment="Top" Width="203" HorizontalContentAlignment="Center"/>
+        <Label x:Name="Detail_composant_Label_Name" Content="Nom :" HorizontalAlignment="Left" Margin="10,62,0,0" VerticalAlignment="Top" Width="157" HorizontalContentAlignment="Center"/>
+        <ComboBox x:Name="Detail_composant_value_carac" HorizontalAlignment="Left" Margin="152,102,0,0" VerticalAlignment="Top" Width="203" HorizontalContentAlignment="Center" ItemsSource="{Binding CollecCaracteristique}" DisplayMemberPath="nomCaracteristique" SelectedValuePath="Content"/>
+        <Label x:Name="Detail_composant_Label_carac" Content="Caractéristique :" HorizontalAlignment="Left" Margin="10,102,0,0" VerticalAlignment="Top" Width="157" HorizontalContentAlignment="Center"/>
+        <ComboBox x:Name="Detail_composant_value_unite" HorizontalAlignment="Left" Margin="152,141,0,0" Width="203" HorizontalContentAlignment="Center" VerticalAlignment="Top" ItemsSource="{Binding CollecUnite}" DisplayMemberPath="uniteMesure" SelectedValuePath="Content"/>
+        <Label x:Name="Detail_composant_Label_unite" Content="Unité :" HorizontalAlignment="Left" Margin="10,142,0,0" VerticalAlignment="Top" Width="157" HorizontalContentAlignment="Center"/>
+        <Button Content="Fermer" HorizontalAlignment="Left" Margin="220,200,0,0" VerticalAlignment="Top" Width="100" Click="ClickQuit"/>
+        <Button Content="Modifier" HorizontalAlignment="Left" Margin="88,200,0,0" VerticalAlignment="Top" Width="100" Click="ClickModify"/>
+    </Grid>
+</Window>

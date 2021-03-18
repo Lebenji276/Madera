@@ -15,5 +15,6 @@
         <Button x:Name="btn_synchro" Content="Synchronisation" HorizontalAlignment="Left" Margin="646,20,0,0" VerticalAlignment="Top" Cursor="Hand" x:FieldModifier="public" />
         <Button x:Name="btnSoumissionProduit" Content="Créer un produit" HorizontalAlignment="Left" Margin="274,313,0,0" VerticalAlignment="Top" Height="52" Width="157" Click="OnClick1" Cursor="Hand"/>
         <Button x:Name="btnCreationDevis" Content="Créer un devis" HorizontalAlignment="Left" Margin="464,313,0,0" VerticalAlignment="Top" Height="52" Width="157" Click="OnClick2" Cursor="Hand"/>
+        <Button x:Name="btnListeComposant" Content="Liste Composant" HorizontalAlignment="Center" Margin="0,115,0,0" VerticalAlignment="Top" Height="52" Width="156" Click="btnListeComposantClick" Cursor="Hand"/>
     </Grid>
 </Window>

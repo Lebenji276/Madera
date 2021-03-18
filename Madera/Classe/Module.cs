@@ -12,6 +12,7 @@ namespace Madera.Classe
         public string _id { get; set; }
         public Composant[] composants { get; set; }
         public string nomModule { get; set; }
+        public string nomGamme { get; set; }
         public DateTime createdAt { get; set; }
         public DateTime updatedAt { get; set; }
         public string description { get; set; }
@@ -28,17 +29,14 @@ namespace Madera.Classe
 
         public static async Task<Module[]> GetAllModule()
         {
-            using (var client = new HttpClient())
-            {
-                var response = client.GetAsync("http://localhost:5000/module/all").Result;
+            var response = App.httpClient.GetAsync("http://localhost:5000/module/all").Result;
 
-                if (response.IsSuccessStatusCode)
-                {
-                    var responseContent = response.Content;
-                    string responseString = responseContent.ReadAsStringAsync().Result;
-                    var listClient = JsonConvert.DeserializeObject<Module[]>(responseString);
-                    return listClient;
-                }
+            if (response.IsSuccessStatusCode)
+            {
+                var responseContent = response.Content;
+                string responseString = responseContent.ReadAsStringAsync().Result;
+                var listClient = JsonConvert.DeserializeObject<Module[]>(responseString);
+                return listClient;
             }
             return null;
         }

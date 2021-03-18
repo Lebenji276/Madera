@@ -87,5 +87,22 @@ namespace Madera
             this.Close();
             main.Show();
         }
+
+        async void btnListeComposantClick(object sender, RoutedEventArgs e)
+        {
+            try
+            {
+                var composants = await Composant.GetAllComposant();
+
+                ListeComposantWindow main = new ListeComposantWindow(composants);
+                App.Current.MainWindow = main;
+                this.Close();
+                main.Show();
+            }
+            catch (Exception error)
+            {
+                lbl_error_liste_client.Content = error.Message;
+            }
+        }
     }
 }

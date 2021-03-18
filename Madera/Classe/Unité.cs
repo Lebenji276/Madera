@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace Madera.Classe
 {
-    class Unité
+    public class Unité
     {
         public string _id { get; set; }
         public string uniteMesure { get; set; }
@@ -22,9 +22,7 @@ namespace Madera.Classe
 
         public static async Task<Unité[]> GetAllUnités()
         {
-            using (var client = new HttpClient())
-            {
-                var response = client.GetAsync("http://localhost:5000/unite").Result;
+                var response = App.httpClient.GetAsync("http://localhost:5000/unite").Result;
 
                 if (response.IsSuccessStatusCode)
                 {
@@ -33,7 +31,6 @@ namespace Madera.Classe
                     var listClient = JsonConvert.DeserializeObject<Unité[]>(responseString);
                     return listClient;
                 }
-            }
             return null;
         }
     }
