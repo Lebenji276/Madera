@@ -10,18 +10,19 @@ namespace Madera.Classe
     public class Module
     {
         public string _id { get; set; }
-        public Composant[] composants { get; set; }
+        public String[] composants { get; set; }
+        public Composant[] composantsArray { get; set; }
         public string nomModule { get; set; }
-        public string nomGamme { get; set; }
+        public string nomGamme { get; set; } = "";
         public DateTime createdAt { get; set; }
         public DateTime updatedAt { get; set; }
-        public string description { get; set; }
+        public string description { get; set; } = "";
 
         public string composant { get; set; }
         public string composantsString
         {
 
-            get => listComposantToString(composants);
+            get => listComposantToString(composantsArray);
         }
 
         public override string ToString()
@@ -47,10 +48,14 @@ namespace Madera.Classe
         private string listComposantToString(Composant[] composants)
         {
             string result = "";
-            foreach (var item in composants)
+            if (composants != null && composants.Length != 0)
             {
-                result += item.ToString() + ", ";
+                foreach (var item in composants)
+                {
+                    result += item.ToString() + ", ";
+                }
             }
+            
             return result != "" ? result.Substring(0, result.Length - 2) : result;
         }
 

@@ -23,6 +23,17 @@ namespace Madera
             menu.Show();
         }
 
+        private void createDevis(object sender, RoutedEventArgs e)
+        {
+            Devis devis = new Devis();
+            Client client = new Client();
+            client.first_name = "Léandre";
+            devis.client = client._id;
+            devis.nomProjet = "projet test";
+            Devis.CreateDevis(devis);
+
+        }
+
         private void getClients(Module[] listmodules)
         {
             var toto = Client.GetAllClient();

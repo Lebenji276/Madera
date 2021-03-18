@@ -37,7 +37,7 @@ namespace Madera
             {
                 var gammes = await Gamme.GetAllGammes();
                 var allCompo = await Composant.GetAllComposant();
-                Data = new ViewModelModule(gammes, obj.composants, allCompo);
+                Data = new ViewModelModule(gammes, obj.composantsArray, allCompo);
                 this.DataContext = Data;
                 for (int i = 0; i < Detail_module_value_gamme.Items.Count; i++)
                 {

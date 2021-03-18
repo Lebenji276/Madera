@@ -14,13 +14,13 @@ namespace Madera.Classe
     {
         public string _id { get; set; }
         public string nomProjet { get; set; }
-        public Client client { get; set; }
+        public string client { get; set; } = null;
         public String clientString { get; set; }
-        public DateTime dateDevis { get; set; }
+        public string dateDevis { get; set; }
         public String dateDevisString { get; set; }
         public string referenceProjet { get; set; }
-        public Module[] modules { get; set; }
-        public String modulesString { get; set; }
+        public string[] modules { get; set; }
+        public String modulesString { get; set; } = "";
         public PaymentData paiement { get; set; }
         public DateTime createdAt { get; set; }
         public DateTime updatedAt { get; set; }
@@ -62,7 +62,12 @@ namespace Madera.Classe
         public static Devis CreateDevis(Devis devis)
         {
             var path = Json.getPath("devis");
-            string newJson = JsonConvert.SerializeObject(devis, Formatting.None);
+            Devis[] listeDevis = JsonConvert.DeserializeObject<Devis[]>(File.ReadAllText(path));
+
+            List<Devis> devisToRewrite = listeDevis.ToList();
+            devisToRewrite.Add(devis);
+
+            string newJson = JsonConvert.SerializeObject(devisToRewrite, Formatting.None);
             Json.writeJson("devis", newJson, true);
 
             return devis;
@@ -95,7 +100,7 @@ namespace Madera.Classe
         public static async Task<Devis[]> GetAllDevisSynchro()
         {
             HttpResponseMessage response = await App.httpClient.GetAsync(
-                "http://localhost:5000/devis"
+                "http://localhost:5000/devis/allCs"
             );
             var devis = await response.Content.ReadAsStringAsync();
 
@@ -112,11 +117,13 @@ namespace Madera.Classe
             // clients = api
             var path = Json.writeJson("devis", devis);
             List<Devis> newArrayRoles = new List<Devis>();
+            Console.WriteLine(newArrayRoles);
 
             using (StreamReader file = File.OpenText(path))
             {
                 JsonSerializer serializer = new JsonSerializer();
                 Devis[] devisJsonFile = (Devis[])serializer.Deserialize(file, typeof(Devis[]));
+                Console.WriteLine(devisJsonFile);
 
                 var devisUnserialized = JsonConvert.DeserializeObject<Devis[]>(devis);
 
@@ -126,8 +133,8 @@ namespace Madera.Classe
                     // Client = client de l'api
                     // On cherche si le client est contenu dans notre fichier
                     var searchedDevis = devisJsonFile.SingleOrDefault(item => item._id == dev._id);
-                    dev.isDeleted = searchedDevis.isDeleted ? searchedDevis.isDeleted : false;
-                    dev.isSynchronised = searchedDevis.isSynchronised ? searchedDevis.isSynchronised : false;
+                    dev.isDeleted = searchedDevis != null && searchedDevis.isDeleted ? searchedDevis.isDeleted : false;
+                    dev.isSynchronised = searchedDevis != null && searchedDevis.isSynchronised ? searchedDevis.isSynchronised : false;
 
                     // Si il est contenu, on regarde si il y a des différences et on le met à jour
                     if (searchedDevis != null && searchedDevis.updatedAt != dev.updatedAt)
@@ -186,29 +193,32 @@ namespace Madera.Classe
                 // On le delete si il a été delete
                 if (dev.isDeleted)
                 {
-                    var delete = await App.httpClient.DeleteAsync("http://localhost:5000/devis/" + dev._id);
+                    //var delete = await App.httpClient.DeleteAsync("http://localhost:5000/devis/" + dev._id);
 
-                    if (!delete.IsSuccessStatusCode)
-                    {
-                        devisToRewriteJson.Add(dev);
-                    }
+                    //if (!delete.IsSuccessStatusCode)
+                    //{
+                    //    devisToRewriteJson.Add(dev);
+                    //}
                 }
                 else
                 {
                     // On essaye de récup par client id voir si il existe
                     var get = await App.httpClient.GetAsync("http://localhost:5000/devis/" + dev._id);
                     HttpResponseMessage create;
+                    string responseString = await get.Content.ReadAsStringAsync();
+
+                    dev.modulesString = JsonConvert.SerializeObject(dev.modules, Formatting.None);
 
                     var values = new List<KeyValuePair<string, string>>
                     {
                         new KeyValuePair<string, string>("nomProjet", dev.nomProjet),
-                        new KeyValuePair<string, string>("client", dev.clientString),
-                        new KeyValuePair<string, string>("dateDevis", dev.dateDevisString),
+                        new KeyValuePair<string, string>("client", dev.client),
+                        new KeyValuePair<string, string>("dateDevis", dev.dateDevis),
                         new KeyValuePair<string, string>("referenceProjet", dev.referenceProjet),
                         new KeyValuePair<string, string>("modules", dev.modulesString),
                     };
 
-                    if (get.IsSuccessStatusCode)
+                    if (get.IsSuccessStatusCode && !String.IsNullOrEmpty(responseString))
                     {
                         create = await App.httpClient.PutAsync(
                                         "http://localhost:5000/devis/" + dev._id,
@@ -230,6 +240,9 @@ namespace Madera.Classe
 
                         if (create.StatusCode == System.Net.HttpStatusCode.Created)
                         {
+                            var content = await create.Content.ReadAsStringAsync();
+                            var devisToApi = JsonConvert.DeserializeObject<Devis>(content);
+                            dev._id = devisToApi._id;
                             dev.isSynchronised = true;
                         }
                     }
