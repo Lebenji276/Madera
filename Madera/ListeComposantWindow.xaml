@@ -7,8 +7,11 @@
         mc:Ignorable="d"
         Title="ListeComposantWindow" Height="450" Width="800">
     <Grid>
+        <Grid.Background>
+            <ImageBrush ImageSource="/Background.jpg"/>
+        </Grid.Background>
         <Button x:Name="btnRetour" Content="Retour" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Click="btnRetour_Click"/>
-        <ListView Name="lvComposant" HorizontalAlignment="Stretch" Margin="0,50,0,0">
+        <ListView Name="lvComposant" HorizontalAlignment="Stretch" Margin="0,50,0,0" FontWeight="Bold">
             <ListView.Resources>
                 <Style TargetType="{x:Type GridViewColumnHeader}">
                     <Setter Property="HorizontalContentAlignment" Value="Center"/>

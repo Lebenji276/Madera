@@ -13,18 +13,17 @@
                     <Grid.Background>
                         <ImageBrush ImageSource="/Background.jpg"/>
                     </Grid.Background>
-
                     <Button HorizontalAlignment="Left" Margin="579,363,0,0" VerticalAlignment="Top" Grid.Column="4"/>
                     <Button HorizontalAlignment="Left" Margin="579,25,0,0" VerticalAlignment="Top" Grid.Column="4"/>
-                    <TextBox HorizontalAlignment="Left" Margin="253,135,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="133" Grid.Column="4"/>
-                    <TextBox HorizontalAlignment="Left" Margin="253,175,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="133" Grid.Column="4"/>
-                    <TextBox HorizontalAlignment="Left" Margin="253,259,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="133" Grid.Column="4"/>
-                    <ComboBox x:Name="ComboClients" HorizontalAlignment="Left" Margin="253,216,0,0" VerticalAlignment="Top" Width="133" Grid.Column="4"/>
-                    <Label Content="Nom du projet" HorizontalAlignment="Left" Margin="130,131,0,0" VerticalAlignment="Top" Grid.Column="4"/>
-                    <Label Content="Référence du projet" HorizontalAlignment="Left" Margin="130,171,0,0" VerticalAlignment="Top" Grid.Column="4"/>
-                    <Label Content="Client" HorizontalAlignment="Left" Margin="130,214,0,0" VerticalAlignment="Top" Grid.Column="4"/>
-                    <Label Content="Date" HorizontalAlignment="Left" Margin="130,255,0,0" VerticalAlignment="Top" Grid.Column="4"/>
-                    <Button x:Name="btnRetour" Content="Menu" HorizontalAlignment="Left" Margin="10,357,0,0" VerticalAlignment="Top" Background="#FFB8B8B8" Click="btnRetour_Click" Cursor="Hand" Grid.ColumnSpan="3"/>
+                    <TextBox HorizontalAlignment="Left" Margin="253,135,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="133" Grid.Column="4" FontWeight="Bold"/>
+                    <TextBox HorizontalAlignment="Left" Margin="253,175,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="133" Grid.Column="4" FontWeight="Bold"/>
+                    <TextBox HorizontalAlignment="Left" Margin="253,259,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="133" Grid.Column="4" FontWeight="Bold"/>
+                    <ComboBox x:Name="ComboClients" HorizontalAlignment="Left" Margin="253,216,0,0" VerticalAlignment="Top" Width="133" Grid.Column="4" FontWeight="Bold"/>
+                    <Label Content="Nom du projet" HorizontalAlignment="Left" Margin="130,131,0,0" VerticalAlignment="Top" Grid.Column="4" FontWeight="Bold"/>
+                    <Label Content="Référence du projet" HorizontalAlignment="Left" Margin="130,171,0,0" VerticalAlignment="Top" Grid.Column="4" FontWeight="Bold"/>
+                    <Label Content="Client" HorizontalAlignment="Left" Margin="130,214,0,0" VerticalAlignment="Top" Grid.Column="4" FontWeight="Bold"/>
+                    <Label Content="Date" HorizontalAlignment="Left" Margin="130,255,0,0" VerticalAlignment="Top" Grid.Column="4" FontWeight="Bold"/>
+                    <Button x:Name="btnRetour" Content="Menu" HorizontalAlignment="Left" Margin="10,357,0,0" VerticalAlignment="Top" Click="btnRetour_Click" Cursor="Hand" Grid.ColumnSpan="3"/>
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="30*"/>
                         <ColumnDefinition Width="47*"/>
@@ -35,9 +34,9 @@
                 </Grid>
             </TabItem>
             <TabItem Header="Gammes">
-                <Grid Background="#FFE5E5E5">
-                    <ComboBox x:Name="ComboGammes" HorizontalAlignment="Left" Margin="10,25,0,0" VerticalAlignment="Top" Width="246"/>
-                    <ListView x:Name="listeModules" Margin="10,72,538,19">
+                <Grid>
+                    <ComboBox x:Name="ComboGammes" HorizontalAlignment="Left" Margin="10,25,0,0" VerticalAlignment="Top" Width="246" FontWeight="Bold"/>
+                    <ListView x:Name="listeModules" Margin="10,72,538,19" FontWeight="Bold">
                         <ListView.View>
                             <GridView>
                                 <GridViewColumn/>
@@ -51,16 +50,16 @@
                             </GridView>
                         </ListView.View>
                     </ListView>
-                    <ComboBox x:Name="ComboGammes_Copy" HorizontalAlignment="Center" Margin="0,143,0,0" VerticalAlignment="Top" Width="214"/>
-                    <ComboBox x:Name="ComboGammes_Copy1" HorizontalAlignment="Center" VerticalAlignment="Top" Width="214" Margin="0,203,0,0"/>
-                    <ComboBox x:Name="ComboGammes_Copy2" HorizontalAlignment="Center" Margin="0,267,0,0" VerticalAlignment="Top" Width="214"/>
-                    <Label Content="Type de remplissage" HorizontalAlignment="Left" Margin="290,112,0,0" VerticalAlignment="Top"/>
-                    <Label Content="Finition intérieure" HorizontalAlignment="Left" Margin="290,172,0,0" VerticalAlignment="Top"/>
-                    <Label Content="Finition extérieure" HorizontalAlignment="Left" Margin="290,236,0,0" VerticalAlignment="Top"/>
+                    <ComboBox x:Name="ComboGammes_Copy" HorizontalAlignment="Center" Margin="0,143,0,0" VerticalAlignment="Top" Width="214" FontWeight="Bold"/>
+                    <ComboBox x:Name="ComboGammes_Copy1" HorizontalAlignment="Center" VerticalAlignment="Top" Width="214" Margin="0,203,0,0" FontWeight="Bold"/>
+                    <ComboBox x:Name="ComboGammes_Copy2" HorizontalAlignment="Center" Margin="0,267,0,0" VerticalAlignment="Top" Width="214" FontWeight="Bold"/>
+                    <Label Content="Type de remplissage" HorizontalAlignment="Left" Margin="290,112,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
+                    <Label Content="Finition intérieure" HorizontalAlignment="Left" Margin="290,172,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
+                    <Label Content="Finition extérieure" HorizontalAlignment="Left" Margin="290,236,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
                 </Grid>
             </TabItem>
             <TabItem Header="Modules">
-                <Grid Background="#FFE5E5E5">
+                <Grid>
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="15*"/>
                         <ColumnDefinition Width="24*"/>
@@ -71,16 +70,16 @@
                         <RowDefinition Height="141*"/>
                         <RowDefinition Height="265*"/>
                     </Grid.RowDefinitions>
-                    <ListView x:Name="ListeModules" Margin="316,34,30,34" Grid.RowSpan="2" Grid.Column="3">
+                    <ListView x:Name="ListeModules" Margin="316,34,30,34" Grid.RowSpan="2" Grid.Column="3" FontWeight="Bold">
                         <ListView.View>
                             <GridView>
                                 <GridViewColumn/>
                             </GridView>
                         </ListView.View>
                     </ListView>
-                    <TextBox HorizontalAlignment="Right" Margin="0,71,443,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="171" Grid.Column="3"/>
-                    <Label Content="Nombre d'angles" HorizontalAlignment="Left" Margin="31,67,0,0" VerticalAlignment="Top" Grid.Column="2" Grid.ColumnSpan="2"/>
-                    <TextBox HorizontalAlignment="Left" Margin="91,104,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="61" RenderTransformOrigin="0.5,0.5" Grid.Column="2" Grid.ColumnSpan="2">
+                    <TextBox HorizontalAlignment="Right" Margin="0,71,443,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="171" Grid.Column="3" FontWeight="Bold"/>
+                    <Label Content="Nombre d'angles" HorizontalAlignment="Left" Margin="31,67,0,0" VerticalAlignment="Top" Grid.Column="2" Grid.ColumnSpan="2" FontWeight="Bold"/>
+                    <TextBox HorizontalAlignment="Left" Margin="91,104,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="61" RenderTransformOrigin="0.5,0.5" Grid.Column="2" Grid.ColumnSpan="2" FontWeight="Bold">
                         <TextBox.RenderTransform>
                             <TransformGroup>
                                 <ScaleTransform/>
@@ -90,8 +89,8 @@
                             </TransformGroup>
                         </TextBox.RenderTransform>
                     </TextBox>
-                    <Label Content="Section" HorizontalAlignment="Left" Margin="33,100,0,0" VerticalAlignment="Top" Grid.Column="2"/>
-                    <TextBox HorizontalAlignment="Left" Margin="155,104,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="61" RenderTransformOrigin="0.5,0.5" Grid.Column="3">
+                    <Label Content="Section" HorizontalAlignment="Left" Margin="33,100,0,0" VerticalAlignment="Top" Grid.Column="2" FontWeight="Bold"/>
+                    <TextBox HorizontalAlignment="Left" Margin="155,104,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="61" RenderTransformOrigin="0.5,0.5" Grid.Column="3" FontWeight="Bold">
                         <TextBox.RenderTransform>
                             <TransformGroup>
                                 <ScaleTransform/>
@@ -101,12 +100,12 @@
                             </TransformGroup>
                         </TextBox.RenderTransform>
                     </TextBox>
-                    <Label Content="Module" HorizontalAlignment="Left" Margin="32,32,0,0" VerticalAlignment="Top" Grid.Column="2"/>
-                    <Label Content="Longueur" HorizontalAlignment="Left" Margin="90,100,0,0" VerticalAlignment="Top" Grid.Column="3"/>
-                    <ComboBox x:Name="ComboComposants" HorizontalAlignment="Left" Margin="39,135,0,0" VerticalAlignment="Top" Width="273" Grid.RowSpan="2" Grid.Column="2" Grid.ColumnSpan="2"/>
-                    <Button Content="Supprimer" Grid.Column="3" HorizontalAlignment="Left" Margin="160,42,0,0" Grid.Row="1" VerticalAlignment="Top"/>
-                    <Button Content="Ajouter" Grid.Column="3" HorizontalAlignment="Left" Margin="92,42,0,0" Grid.Row="1" VerticalAlignment="Top" Width="59"/>
-                    <ComboBox x:Name="ComModules" Grid.Column="3" HorizontalAlignment="Left" Margin="46,34,0,0" VerticalAlignment="Top" Width="171"/>
+                    <Label Content="Module" HorizontalAlignment="Left" Margin="32,32,0,0" VerticalAlignment="Top" Grid.Column="2" FontWeight="Bold"/>
+                    <Label Content="Longueur" HorizontalAlignment="Left" Margin="90,100,0,0" VerticalAlignment="Top" Grid.Column="3" FontWeight="Bold"/>
+                    <ComboBox x:Name="ComboComposants" HorizontalAlignment="Left" Margin="39,135,0,0" VerticalAlignment="Top" Width="273" Grid.RowSpan="2" Grid.Column="2" Grid.ColumnSpan="2" FontWeight="Bold"/>
+                    <Button Content="Supprimer" Grid.Column="3" HorizontalAlignment="Left" Margin="160,42,0,0" Grid.Row="1" VerticalAlignment="Top" FontWeight="Bold"/>
+                    <Button Content="Ajouter" Grid.Column="3" HorizontalAlignment="Left" Margin="92,42,0,0" Grid.Row="1" VerticalAlignment="Top" Width="59" FontWeight="Bold"/>
+                    <ComboBox x:Name="ComModules" Grid.Column="3" HorizontalAlignment="Left" Margin="46,34,0,0" VerticalAlignment="Top" Width="171" FontWeight="Bold"/>
                 </Grid>
             </TabItem>
         </TabControl>

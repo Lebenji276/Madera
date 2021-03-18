@@ -10,14 +10,14 @@
         <Grid.Background>
             <ImageBrush ImageSource="/Background.jpg"/>
         </Grid.Background>
-        <TextBox x:Name="TextBoxName" HorizontalAlignment="Left" Margin="312,162,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="255" Height="27"/>
-        <Label Content="Nom :" HorizontalAlignment="Left" Margin="201,159,0,0" VerticalAlignment="Top" FontSize="16"/>
-        <TextBox x:Name="TextBoxDescription" HorizontalAlignment="Left" Margin="312,254,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="255" Height="27"/>
-        <Label Content="Description :" HorizontalAlignment="Left" Margin="201,251,0,0" VerticalAlignment="Top" FontSize="16"/>
-        <Button Content="Soumettre" HorizontalAlignment="Left" Margin="440,322,0,0" VerticalAlignment="Top" Width="127" FontSize="16" Height="36" Click="submitComposant"/>
-        <Label Content="Création d'un composant" HorizontalAlignment="Left" Margin="299,90,0,0" VerticalAlignment="Top" FontSize="18"/>
-        <Label Content="Unité :" HorizontalAlignment="Left" Margin="201,206,0,0" VerticalAlignment="Top" FontSize="16"/>
-        <ComboBox x:Name="ComboUnités" HorizontalAlignment="Left" Margin="312,208,0,0" VerticalAlignment="Top" Width="255" Height="27"/>
+        <TextBox x:Name="TextBoxName" HorizontalAlignment="Left" Margin="312,162,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="255" Height="27" FontWeight="Bold"/>
+        <Label Content="Nom :" HorizontalAlignment="Left" Margin="201,159,0,0" VerticalAlignment="Top" FontSize="16" FontWeight="Bold"/>
+        <TextBox x:Name="TextBoxDescription" HorizontalAlignment="Left" Margin="312,254,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="255" Height="27" FontWeight="Bold"/>
+        <Label Content="Description :" HorizontalAlignment="Left" Margin="201,251,0,0" VerticalAlignment="Top" FontSize="16" FontWeight="Bold"/>
+        <Button Content="Soumettre" HorizontalAlignment="Left" Margin="440,322,0,0" VerticalAlignment="Top" Width="127" FontSize="16" Height="36" Click="submitComposant" FontWeight="Bold"/>
+        <Label Content="Création d'un composant" HorizontalAlignment="Left" Margin="299,90,0,0" VerticalAlignment="Top" FontSize="18" FontWeight="Bold"/>
+        <Label Content="Unité :" HorizontalAlignment="Left" Margin="201,206,0,0" VerticalAlignment="Top" FontSize="16" FontWeight="Bold"/>
+        <ComboBox x:Name="ComboUnités" HorizontalAlignment="Left" Margin="312,208,0,0" VerticalAlignment="Top" Width="255" Height="27" FontWeight="Bold"/>
 
     </Grid>
 </Window>
