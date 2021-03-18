@@ -19,8 +19,10 @@ namespace Madera
     /// </summary>
     public partial class PaymentCreditWindow : Window
     {
-        public PaymentCreditWindow()
+        //Devis _devis;
+        public PaymentCreditWindow(/*Devis devis*/)
         {
+            //_devis = devis;
             InitializeComponent();
         }
 
@@ -122,6 +124,16 @@ namespace Madera
             {
                 MessageBox.Show("IBAN : FR7630001007941234567890185 \nCode banque : 30001 \nCode guichet : 00794 \nNuméro de compte: 12345678901 \nClé du RIB: 85");
             }
+
+            btnCreate.Visibility = Visibility.Visible;
+        }
+
+        private void btnCreate_Click(object sender, RoutedEventArgs e)
+        {
+            PaymentData paymentData = new PaymentData() { Balance = txtInitialBalance.Text, Interest = txtInterestRate.Text, Payment = txtPaymentPercent.Text, Period = txtMinPayment.Text, Sum = lblTotalPayments.Content.ToString() };
+            //devis.paymentdata = paymentData;
+            //createdevis(devis)
+            Close();
         }
 
         private void radiobtnCB_Checked(object sender, RoutedEventArgs e)
