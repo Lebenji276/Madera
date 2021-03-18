@@ -34,5 +34,12 @@ namespace Madera
             var gammes = await Gamme.GetAllGammes();
             ComboGammes.ItemsSource = gammes;
         }
+
+        private void btnPayer_Click(object sender, RoutedEventArgs e)
+        {
+            PaymentCreditWindow payment = new PaymentCreditWindow();
+            App.Current.MainWindow = payment;
+            payment.ShowDialog();
+        }
     }
 }
