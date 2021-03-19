@@ -59,9 +59,9 @@ namespace Madera
                 graphics.DrawString("Devis", fontTitle, PdfBrushes.Black, new PointF(350, 20));
                 PdfBitmap image = new PdfBitmap("../../../madera.png");
                 graphics.DrawImage(image, 0, 0);
-                graphics.DrawString("Adresse", fontText, PdfBrushes.Black, new PointF(0, 60));
-                graphics.DrawString("CP Ville", fontText, PdfBrushes.Black, new PointF(0, 80));
-                graphics.DrawString("Telephone", fontText, PdfBrushes.Black, new PointF(0, 100));
+                graphics.DrawString("80 avenue Edmund Halley", fontText, PdfBrushes.Black, new PointF(0, 60));
+                graphics.DrawString("76800 Saint-Etienne-du-Rouvray", fontText, PdfBrushes.Black, new PointF(0, 80));
+                graphics.DrawString("02 32 81 85 60", fontText, PdfBrushes.Black, new PointF(0, 100));
 
                 graphics.DrawString("Reference : " + devis.referenceProjet, fontText, PdfBrushes.Black, new PointF(0, 200));
                 graphics.DrawString("Date : " + devis.dateDevis, fontText, PdfBrushes.Black, new PointF(0, 220));

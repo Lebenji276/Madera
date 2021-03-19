@@ -6,7 +6,7 @@
         DataContext="{Binding RelativeSource={RelativeSource Self}}"
         xmlns:local="clr-namespace:Madera"
         mc:Ignorable="d"
-        Title="Details_Update_Composant" Height="300" Width="406">
+        Title="Details_Update_Composant" Height="300" Width="406" ResizeMode="NoResize">
     <Grid>
         <Grid.Background>
             <ImageBrush ImageSource="/Background.jpg"/>

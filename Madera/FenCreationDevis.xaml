@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Madera"
         mc:Ignorable="d"
-        Title="FenCreationDevis" Height="504" Width="800">
+        Title="FenCreationDevis" Height="504" Width="800" ResizeMode="NoResize">
     <Grid>
         <TabControl>
             <TabItem Header="Général" Height="24" Margin="-2,-2,-2,0" VerticalAlignment="Top">

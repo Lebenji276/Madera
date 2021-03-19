@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Madera"
         mc:Ignorable="d"
-        Title="PaymentCreditWindow" Height="450" Width="948">
+        Title="PaymentCreditWindow" Height="450" Width="948" ResizeMode="NoResize">
     <Grid>
         <Grid.Background>
             <ImageBrush ImageSource="/Background.jpg"/>
