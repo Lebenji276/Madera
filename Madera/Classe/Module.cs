@@ -172,8 +172,9 @@ namespace Madera.Classe
                 foreach (var module in modulesUnserialized)
                 {
                     var searchedModule = modulesJsonFile.SingleOrDefault(item => item._id == module._id);
-                    module.isDeleted = searchedModule.isDeleted ? searchedModule.isDeleted : false;
-                    module.isSynchronised = searchedModule.isSynchronised ? searchedModule.isSynchronised : false;
+                    module.isDeleted = searchedModule != null && searchedModule.isDeleted ? searchedModule.isDeleted : false;
+                    module.isSynchronised = searchedModule != null && searchedModule.isSynchronised ? searchedModule.isSynchronised : false;
+           
 
                     // Si il est contenu, on regarde si il y a des différences et on le met à jour
                     if (searchedModule != null && searchedModule.updatedAt != module.updatedAt)
@@ -243,6 +244,7 @@ namespace Madera.Classe
                     // On essaye de récup par client id voir si il existe
                     var get = await App.httpClient.GetAsync("http://localhost:5000/module/" + module._id);
                     Console.WriteLine(get);
+                    string responseString = await get.Content.ReadAsStringAsync();
                     HttpResponseMessage create;
 
                     var values = new List<KeyValuePair<string, string>>
@@ -253,7 +255,7 @@ namespace Madera.Classe
                         new KeyValuePair<string, string>("nomModule", module.nomModule),    
                     };
 
-                    if (get.IsSuccessStatusCode)
+                    if (get.IsSuccessStatusCode && !String.IsNullOrEmpty(responseString))
                     {
                         create = await App.httpClient.PutAsync(
                                         "http://localhost:5000/module/composants/" + module._id,
@@ -276,6 +278,9 @@ namespace Madera.Classe
                         if (create.StatusCode == System.Net.HttpStatusCode.Created)
                         {
                             module.isSynchronised = true;
+                            var content = await create.Content.ReadAsStringAsync();
+                            var moduleToApi = JsonConvert.DeserializeObject<Module>(content);
+                            module._id = moduleToApi._id;
                         }
                     }
 
