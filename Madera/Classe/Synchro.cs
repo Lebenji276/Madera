@@ -19,7 +19,7 @@ namespace Madera.Classe
             {
                 await this.LogToApiCS();
                 await this.synchroniseRoles();
-                await this.synchroniseUsers();
+                //await this.synchroniseUsers();
                 await this.synchroniseClients();
                 await synchroniseModules();
                 await this.synchroniseDevis();

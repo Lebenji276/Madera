@@ -18,7 +18,7 @@ namespace Madera.Classe
         public string nom { get; set; }
         public string prenom { get; set; }
         public string password { get; set; }
-        public Role role { get; set; }
+        public string role { get; set; }
         public DateTime updatedAt { get; set; }
         public bool isSynchronised { get; set; } = true;
         public bool isDeleted { get; set; } = false;
@@ -65,10 +65,8 @@ namespace Madera.Classe
 
         public static User getUser(string username)
         {
-            var path = Json.getPath("users");
-            User[] users = JsonConvert.DeserializeObject<User[]>(File.ReadAllText(path));
-
-            var user = users.FirstOrDefault(user => user.username == username);
+            var path = Json.getPath("user");
+            User user = JsonConvert.DeserializeObject<User>(File.ReadAllText(path));
 
             if (user != null)
             {
@@ -78,6 +76,21 @@ namespace Madera.Classe
             {
                 throw new Exception("Impossible de connecter l'utilisateur");
             }  
+        }
+
+        public static async Task<bool> resetUserJSON(string username)
+        {
+            HttpResponseMessage response = await App.httpClient.GetAsync(
+                "http://localhost:5000/user/" + username
+            );
+            var userApi = await response.Content.ReadAsStringAsync();
+            var userUnserialized = JsonConvert.DeserializeObject<User>(userApi);
+
+            App.user = userUnserialized;
+           
+            Json.writeJson("user", userApi, true);
+
+            return true;
         }
     }
 }

@@ -20,12 +20,16 @@ namespace Madera.Classe
         {
             try
             {
-                var path = Json.getPath("users");
-                User[] users = JsonConvert.DeserializeObject<User[]>(File.ReadAllText(path));
+                var path = Json.getPath("user");
 
-                var user = users.FirstOrDefault(user => user.username == username);
+                if (String.IsNullOrEmpty(path))
+                {
+                    throw new Exception("Veuillez vous connecter via internet");
+                }
 
-                if (user != null)
+                User user = JsonConvert.DeserializeObject<User>(File.ReadAllText(path));
+
+                if (user != null && user.username == username)
                 {
                     var checkedPassword = BCryptHelper.CheckPassword(password, user.password);
 

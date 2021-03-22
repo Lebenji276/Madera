@@ -56,7 +56,7 @@ namespace Madera
             lbl_error_password.Content = "";
         }
 
-        void OnClickValidate(object sender, RoutedEventArgs e)
+        async void OnClickValidate(object sender, RoutedEventArgs e)
         {
             int errors = 0;
             String username = textBox.Text;
@@ -80,21 +80,37 @@ namespace Madera
 
             try
             {
-                if (Auth.checkAuth(username, password))
+                // HERE Faire la synchro via api et locale si pas de co
+                if (App.haveConnection)
                 {
-                    var user = User.getUser(username);
-                    Console.WriteLine(user);
-                    App.user = user;
-                    Console.WriteLine(App.user);
+                    var user = await Auth.postAuth(username, password);
 
-                    MenuWindow main = new MenuWindow();
-                    App.Current.MainWindow = main;
-                    this.Close();
-                    main.Show();
+                    if (user == null)
+                    {
+                        throw new Exception("Impossible de connecter l'utilisateur");
+                    }
+
+                    await User.resetUserJSON(username);
+                    Console.WriteLine(user);
                 } else
                 {
-                    throw new Exception("Impossible de connecter l'utilisateur");
+                    if (Auth.checkAuth(username, password))
+                    {
+                        var user = User.getUser(username);
+                        Console.WriteLine(user);
+                        App.user = user;
+                    }
+                    else
+                    {
+                        throw new Exception("Impossible de connecter l'utilisateur");
+                    }
                 }
+
+          
+                MenuWindow main = new MenuWindow();
+                App.Current.MainWindow = main;
+                this.Close();
+                main.Show();
             } catch (Exception error)
             {
                 lbl_error_login.Content = error.Message;

@@ -1,0 +1,13 @@
+{
+  
+  "_id": "5fb7c0f79d93a52da807ec4f",
+  "username": "leandreg1",
+  "email": "leandre.guegan@madera.fr",
+  "nom": "Guegan",
+  "prenom": "Léandre",
+  "password": "$2a$10$QysZEHCaF/sRGypW/IyYZ.MV5aN9995QDkobH4T8gaYM8iXj5omEa",
+  "role": "5fb2cdc37a819a57b0af64d6",
+  "createdAt": "2020-11-20T13:13:27.566Z",
+  "updatedAt": "2020-11-20T13:13:27.566Z",
+  "__v": 0
+}
